@@ -13,5 +13,13 @@ public class LiftSubsystem extends Subsystem {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void liftUp() {
+		
+	}
+	
+	public void liftDown() {
+		
+	}
 
 }
