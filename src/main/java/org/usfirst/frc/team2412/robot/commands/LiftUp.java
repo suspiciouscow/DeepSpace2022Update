@@ -1,8 +1,5 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Subsystem;
-
 public class LiftUp extends CommandBase {
 
 	public LiftUp() {
