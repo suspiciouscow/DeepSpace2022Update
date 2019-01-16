@@ -12,5 +12,10 @@ public class LiftUp extends CommandBase {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	protected void execute() {
+		liftSubsystem.liftUp();
+	}
 
 }
