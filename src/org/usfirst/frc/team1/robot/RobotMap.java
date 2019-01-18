@@ -5,9 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team2412.robot;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+package org.usfirst.frc.team1.robot;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -25,9 +23,4 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
-	
-	public static int up = 0;
-	public static int down = 1;
-	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
-
 }
