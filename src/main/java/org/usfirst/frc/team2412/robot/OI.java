@@ -7,6 +7,13 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.LiftUp;
+import org.usfirst.frc.team2412.robot.commands.LiftDown;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -19,6 +26,15 @@ public class OI {
 	// number it is.
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
+	
+	public Joystick coDriver = new Joystick(1);
+	public Button liftUpButton = new JoystickButton(coDriver, 1);
+	public Button liftDownButton = new JoystickButton(coDriver, 2);
+	
+	public OI() {
+		liftUpButton.whileHeld(new LiftUp());
+		liftDownButton.whileHeld(new LiftDown());
+	}
 
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
