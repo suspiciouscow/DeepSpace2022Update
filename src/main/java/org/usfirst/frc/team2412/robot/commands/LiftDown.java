@@ -17,5 +17,4 @@ public class LiftDown extends CommandBase {
 	protected void execute() {
 		liftSubsystem.liftDown();
 	}
-
 }
