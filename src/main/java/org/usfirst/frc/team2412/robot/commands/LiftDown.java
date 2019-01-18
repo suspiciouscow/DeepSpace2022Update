@@ -16,5 +16,6 @@ public class LiftDown extends CommandBase {
 	@Override
 	protected void execute() {
 		liftSubsystem.liftDown();
+		System.out.println("going down");
 	}
 }

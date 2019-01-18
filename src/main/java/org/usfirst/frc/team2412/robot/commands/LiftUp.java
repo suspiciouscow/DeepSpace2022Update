@@ -16,5 +16,6 @@ public class LiftUp extends CommandBase {
 	@Override
 	protected void execute() {
 		liftSubsystem.liftUp();
+		System.out.println("going up");
 	}
 }
