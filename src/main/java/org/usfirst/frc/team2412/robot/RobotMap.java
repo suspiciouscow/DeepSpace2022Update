@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -26,4 +28,11 @@ public class RobotMap {
 	
 	//some buttons for lifting
 	//pulling test 2
+	
+	public static int[] liftMotorIndexes = {0};
+	
+	public static TalonSRX[] liftMotors = {
+			new TalonSRX(liftMotorIndexes[0])
+	};
+	
 }
