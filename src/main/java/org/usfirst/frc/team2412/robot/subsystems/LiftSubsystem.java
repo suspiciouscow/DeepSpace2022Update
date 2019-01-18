@@ -9,11 +9,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LiftSubsystem extends Subsystem {
 
-	TalonSRX[] liftMotors = RobotMap.liftMotors;
-//	public int startingLocation;
+	
+	
+	//As of right now lift has changed their design 4+ times, so... Idk what to do
+	
+	
+	TalonSRX[] liftMotors = RobotMap.liftMotors; // Motors from RobotMap
 
 	public LiftSubsystem() {
-//		startingLocation = liftMotors[0].getSelectedSensorPosition();
 
 	}
 
@@ -23,19 +26,21 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		for (TalonSRX motor : liftMotors) {
+		for (TalonSRX motor : liftMotors) { // Turns each motor to 50% of its speed (hopefully upward)
 			motor.set(ControlMode.PercentOutput, 0.5);
 		}
 	}
 
 	public void liftDown() {
-		for (TalonSRX motor : liftMotors) {
+		for (TalonSRX motor : liftMotors) { // Turns each motor to 50% of its speed (hopefully downward)
 			motor.set(ControlMode.PercentOutput, -0.5);
 		}
 	}
 
+	//These will use a PID (loop? idk what exactly it is) to quickly get the lift to the best position
+	
 	public void hatch1() {
-//		PID(12);
+
 	}
 
 	public void hatch2() {
@@ -57,13 +62,4 @@ public class LiftSubsystem extends Subsystem {
 	public void cargo3() {
 
 	}
-
-//	private void PID(int targetValue) {
-//		int currentLocation = liftMotors[0].getSelectedSensorPosition();
-//		
-//		
-//		while(currentLocation - startingLocation != targetValue) {
-//			if()
-//		}
-//	}
 }
