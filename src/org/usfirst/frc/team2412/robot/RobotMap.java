@@ -9,7 +9,7 @@ package org.usfirst.frc.team2412.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  
@@ -36,4 +36,5 @@ public class RobotMap {
 	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(talons[1], talons[3], talons[5]);
 	
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
+	public static Joystick stick = new Joystick(0);
 }
