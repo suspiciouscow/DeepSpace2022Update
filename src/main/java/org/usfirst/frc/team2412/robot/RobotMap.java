@@ -32,7 +32,7 @@ public class RobotMap {
 	public static int down = 1;
 	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 	
-	public static int CargoMoterID1 = 1;
-	public static WPI_TalonSRX CargoMoter1 = new WPI_TalonSRX(CargoMoterID1);
+	public static int CargoMotorID1 = 1;
+	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
 	
 }
