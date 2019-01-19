@@ -32,7 +32,7 @@ public class RobotMap {
 	public static int[] liftMotorIndexes = {0};
 	
 	public static TalonSRX[] liftMotors = {
-			new TalonSRX(liftMotorIndexes[0])
+			//new TalonSRX(liftMotorIndexes[0])
 	};
 	
 }
