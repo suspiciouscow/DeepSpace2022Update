@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class InTakeCargoSubsystem extends Subsystem{
 
-	private WPI_TalonSRX CargoMoter1 = RobotMap.CargoMoter1;
+	private WPI_TalonSRX CargoMotor1 = RobotMap.cargoMotor1;
 	@Override
 	protected void initDefaultCommand() {
 		//Ari is Awesome!`
@@ -16,6 +16,6 @@ public class InTakeCargoSubsystem extends Subsystem{
 	
 		
 	}
-	public void InTakeCargo() {CargoMoter1.set(-0.5);}
-	public void OutputCargo() {CargoMoter1.set(0.5);}
+	public void InTakeCargo() {CargoMotor1.set(-0.5);}
+	public void OutputCargo() {CargoMotor1.set(0.5);}
 }

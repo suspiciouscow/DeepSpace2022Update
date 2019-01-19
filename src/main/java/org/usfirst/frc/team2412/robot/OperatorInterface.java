@@ -20,14 +20,14 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI {
+public class OperatorInterface {
 
 	public Joystick coDriver = new Joystick(1);
 	public Button buttonUp = new JoystickButton(coDriver, 2);
 	public Button buttonDown = new JoystickButton(coDriver, 3);
 	public Button buttonIn = new JoystickButton(coDriver, 4);
 	public Button buttonOut = new JoystickButton(coDriver, 5);
-	public OI() {
+	public OperatorInterface() {
 		buttonUp.whenPressed(new InTakeUp());
 		buttonDown.whenPressed(new InTakeDown());		
 		buttonIn.whenPressed(new InTakeCargo());
