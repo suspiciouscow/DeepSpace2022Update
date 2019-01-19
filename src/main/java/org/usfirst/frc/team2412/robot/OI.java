@@ -7,8 +7,10 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.InTakeCargo;
 import org.usfirst.frc.team2412.robot.commands.InTakeDown;
 import org.usfirst.frc.team2412.robot.commands.InTakeUp;
+import org.usfirst.frc.team2412.robot.commands.OutputCargo;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -19,15 +21,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//I got rid of the comments automatically placed here because all of that was ********.
-	//A JOYSTICK IS NOT A ******* BUTTON!
 
 	public Joystick coDriver = new Joystick(1);
 	public Button buttonUp = new JoystickButton(coDriver, 2);
 	public Button buttonDown = new JoystickButton(coDriver, 3);
+	public Button buttonIn = new JoystickButton(coDriver, 4);
+	public Button buttonOut = new JoystickButton(coDriver, 5);
 	public OI() {
 		buttonUp.whenPressed(new InTakeUp());
-		buttonDown.whenPressed(new InTakeDown());
+		buttonDown.whenPressed(new InTakeDown());		
+		buttonIn.whenPressed(new InTakeCargo());
+		buttonOut.whenPressed(new OutputCargo());
 	}
 	
 }

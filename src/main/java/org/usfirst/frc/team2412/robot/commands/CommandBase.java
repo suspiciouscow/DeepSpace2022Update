@@ -16,4 +16,5 @@ public class CommandBase extends Command {
 	public static InTakeUpDownSubsystem InTakeUpDown = new InTakeUpDownSubsystem();
 	public static InTakeCargoSubsystem InTakeCargo = new InTakeCargoSubsystem();
 	public static InTakeHatchSubsystem InTakeHatch = new InTakeHatchSubsystem();
-	}
+
+}
