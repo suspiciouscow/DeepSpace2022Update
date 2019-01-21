@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.PistonsIn;
 import org.usfirst.frc.team2412.robot.subsystems.HatchIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -51,8 +52,8 @@ public class OI {
 	Button buttonOut = new JoystickButton(stick, 4);
 	public OI()
 	{
-	buttonIn.whenPressed(new HatchIntake());
-	buttonOut.whenPressed(new HatchIntake());
+	buttonIn.whenPressed(new PistonsIn());
+	buttonOut.whenPressed(new PistonsOut());
 	}
 	}
 
