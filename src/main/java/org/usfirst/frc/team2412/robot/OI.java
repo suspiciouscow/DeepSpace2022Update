@@ -30,8 +30,8 @@ public class OI {
 	public OI() {
 		buttonUp.whenPressed(new InTakeUp());
 		buttonDown.whenPressed(new InTakeDown());		
-		buttonIn.whenPressed(new InTakeCargo());
-		buttonOut.whenPressed(new OutputCargo());
+		buttonIn.whileHeld(new InTakeCargo());
+		buttonOut.whileHeld(new OutputCargo());
 	}
 	
 }
