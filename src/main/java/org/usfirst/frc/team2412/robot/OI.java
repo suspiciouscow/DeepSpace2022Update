@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 
 	public Joystick coDriver = new Joystick(1);
+	//Change the phenmatics to motors using 62.5 gear turns
 	public Button buttonUp = new JoystickButton(coDriver, 2);
 	public Button buttonDown = new JoystickButton(coDriver, 3);
 	public Button buttonIn = new JoystickButton(coDriver, 4);
@@ -30,8 +31,8 @@ public class OI {
 	public OI() {
 		buttonUp.whenPressed(new InTakeUp());
 		buttonDown.whenPressed(new InTakeDown());		
-		buttonIn.whileHeld(new InTakeCargo());
-		buttonOut.whileHeld(new OutputCargo());
+		buttonIn.whenPressed(new InTakeCargo());
+		buttonOut.whenPressed(new OutputCargo());
 	}
 	
 }

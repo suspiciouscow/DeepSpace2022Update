@@ -35,4 +35,8 @@ public class RobotMap {
 	public static int CargoMotorID1 = 1;
 	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
 	
+	//Not sure if this next part is right.
+	public static int NoPressure = 0;
+	public static int Pressure = 1;
+	public static DoubleSolenoid limitSwitch1 = new DoubleSolenoid(NoPressure, Pressure);
 }
