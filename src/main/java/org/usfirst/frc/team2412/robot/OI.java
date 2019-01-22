@@ -19,6 +19,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	int coDriverPort = 1;
+	int liftUpButtonNumber = 1;
+	int liftDownButtonNumber = 2;
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -28,8 +32,8 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	public Joystick coDriver = new Joystick(1);
-	public Button liftUpButton = new JoystickButton(coDriver, 1);
-	public Button liftDownButton = new JoystickButton(coDriver, 2);
+	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
+	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
 	
 	public OI() {
 		liftUpButton.whileHeld(new LiftUp());
