@@ -7,7 +7,11 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,4 +47,9 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 
 	public Joystick stick = new Joystick(0);
+
+	public Button trigger = new JoystickButton(stick, 1);
+	public OI() {
+		trigger.whileHeld(new VisionGuidanceCommand());
+	}
 }
