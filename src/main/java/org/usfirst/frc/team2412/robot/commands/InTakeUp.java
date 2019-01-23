@@ -12,6 +12,6 @@ public class InTakeUp extends CommandBase {
 		}
 	@Override protected boolean isFinished() 
 	{ 
-		return true;
+		return InTakeUpDown.limitSwitchUp();
 		}
 }

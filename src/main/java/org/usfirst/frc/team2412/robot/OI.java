@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 
 	public Joystick coDriver = new Joystick(1);
-	//Change the phenmatics to motors using 62.5 gear turns
+	//Change the pneumatics to motors using 62.5 gear turns
 	public Button buttonUp = new JoystickButton(coDriver, 2);
 	public Button buttonDown = new JoystickButton(coDriver, 3);
 	public Button buttonIn = new JoystickButton(coDriver, 4);
@@ -34,11 +34,4 @@ public class OI {
 		buttonIn.whenPressed(new InTakeCargo());
 		buttonOut.whenPressed(new OutputCargo());
 	}
-	//Things to do:
-	//1. Check - Create another motor to raise and lower the InTake
-	//2. Add motor & limit switch to InTakeUpDown Subsystem
-	//3. Change the value from pneumatics to motors in InTakeUpDown Subsystem
-	//4. Check if the Limit switch is pressed for the isFinished() function
-	//5. Do the same stuff for what I did for InTakeUp as I did for InTakeDown
-	//6. Correct any stupid mistakes that you know you are going to make
 }
