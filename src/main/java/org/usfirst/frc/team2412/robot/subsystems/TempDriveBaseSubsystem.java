@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.JoystickDriveCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -12,6 +13,7 @@ public class TempDriveBaseSubsystem extends Subsystem {
     @Override
     protected void initDefaultCommand() {
         // Drive with the joystick by default.
+        setDefaultCommand(new JoystickDriveCommand());
     }
 
     public void drive(double y, double turn) {
@@ -19,6 +21,6 @@ public class TempDriveBaseSubsystem extends Subsystem {
     }
 
     public void drive(Joystick stick) {
-        robotDrive.arcadeDrive(stick.getY(), -stick.getTwist()*0.8, true);
+        robotDrive.arcadeDrive(stick.getY(), stick.getTwist()*0.8, true);
     }
 }
