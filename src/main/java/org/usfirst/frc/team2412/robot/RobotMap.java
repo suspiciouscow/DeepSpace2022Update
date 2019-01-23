@@ -9,6 +9,7 @@ package org.usfirst.frc.team2412.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
@@ -28,15 +29,9 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	public static int up = 0;
-	public static int down = 1;
-	public static DoubleSolenoid upDown = new DoubleSolenoid(up, down);
-	
 	public static int CargoMotorID1 = 1;
 	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
 	
-	//Not sure if this next part is right.
-	public static int NoPressure = 0;
-	public static int Pressure = 1;
-	public static DoubleSolenoid limitSwitch1 = new DoubleSolenoid(NoPressure, Pressure);
+	public static int armMotorID1 = 1;
+	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
 }

@@ -34,5 +34,11 @@ public class OI {
 		buttonIn.whenPressed(new InTakeCargo());
 		buttonOut.whenPressed(new OutputCargo());
 	}
-	
+	//Things to do:
+	//1. Check - Create another motor to raise and lower the InTake
+	//2. Add motor & limit switch to InTakeUpDown Subsystem
+	//3. Change the value from pneumatics to motors in InTakeUpDown Subsystem
+	//4. Check if the Limit switch is pressed for the isFinished() function
+	//5. Do the same stuff for what I did for InTakeUp as I did for InTakeDown
+	//6. Correct any stupid mistakes that you know you are going to make
 }
