@@ -29,9 +29,15 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	//Cargo
 	public static int CargoMotorID1 = 1;
 	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
-	
+	//Arm for the whole InTake system
 	public static int armMotorID1 = 1;
 	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
+	//climb
+	public static int climbUp = 0;
+	public static int climbDown = 1;
+	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
+
 }

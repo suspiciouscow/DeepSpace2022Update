@@ -24,14 +24,18 @@ public class OI {
 
 	public Joystick coDriver = new Joystick(1);
 	//Change the pneumatics to motors using 62.5 gear turns
-	public Button buttonUp = new JoystickButton(coDriver, 2);
-	public Button buttonDown = new JoystickButton(coDriver, 3);
+	public Button buttonArmUp = new JoystickButton(coDriver, 2);
+	public Button buttonArmDown = new JoystickButton(coDriver, 3);
 	public Button buttonIn = new JoystickButton(coDriver, 4);
 	public Button buttonOut = new JoystickButton(coDriver, 5);
+	public Button buttonDeploy = new JoystickButton(coDriver, 6);
+	public Button buttonRelease = new JoystickButton(coDriver, 7);
 	public OI() {
-		buttonUp.whenPressed(new InTakeUp());
-		buttonDown.whenPressed(new InTakeDown());		
+		buttonArmUp.whenPressed(new InTakeUp());
+		buttonArmDown.whenPressed(new InTakeDown());		
 		buttonIn.whenPressed(new InTakeCargo());
 		buttonOut.whenPressed(new OutputCargo());
+		buttonDeploy.whenPressed(new DeployRails());
+		buttonRelease.whenPressed(new RetractRails());
 	}
 }
