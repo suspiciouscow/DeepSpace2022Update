@@ -48,12 +48,11 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	Joystick stick = new Joystick(0);
-	Button buttonIn = new JoystickButton(stick, 3);
 	Button buttonOut = new JoystickButton(stick, 4);
 	public OI()
 	{
-	buttonIn.whenPressed(new PistonsIn());
-	buttonOut.whenPressed(new PistonsOut());
+	buttonOut.whileHeld(new PistonsOut());
+	buttonOut.whenReleased(new PistonsIn());
 	}
 	}
 
