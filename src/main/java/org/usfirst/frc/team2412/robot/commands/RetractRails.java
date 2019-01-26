@@ -2,15 +2,16 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class RetractRails extends CommandBase {
 	public RetractRails() {
-		
-	requires(ClimbPneumatics); }
-	
-	public void execute()
-	{
-		ClimbPneumatics.RetractRails();
+
+		requires(climbPneumatics);
 	}
-	@Override protected boolean isFinished()
-	{
+
+	public void execute() {
+		climbPneumatics.RetractRails();
+	}
+
+	@Override
+	protected boolean isFinished() {
 		return true;
 	}
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.subsystems.ClimbLiftSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.ClimbPneumaticsSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeCargoSubsystem;
@@ -15,9 +16,11 @@ public class CommandBase extends Command {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	public static InTakeUpDownSubsystem InTakeUpDown = new InTakeUpDownSubsystem();
-	public static InTakeCargoSubsystem InTakeCargo = new InTakeCargoSubsystem();
-	public static InTakeHatchSubsystem InTakeHatch = new InTakeHatchSubsystem();
-	public static ClimbPneumaticsSubsystem ClimbPneumatics = new ClimbPneumaticsSubsystem();
-	public static ClimbRollerSubsystem ClimbRoller = new ClimbRollerSubsystem();
+	
+	public static InTakeUpDownSubsystem inTakeUpDown = new InTakeUpDownSubsystem();
+	public static InTakeCargoSubsystem inTakeCargo = new InTakeCargoSubsystem();
+	public static InTakeHatchSubsystem inTakeHatch = new InTakeHatchSubsystem();
+	public static ClimbPneumaticsSubsystem climbPneumatics = new ClimbPneumaticsSubsystem();
+	public static ClimbRollerSubsystem climbRoller = new ClimbRollerSubsystem();
+	public static ClimbLiftSubsystem climbLift = new ClimbLiftSubsystem();
 }

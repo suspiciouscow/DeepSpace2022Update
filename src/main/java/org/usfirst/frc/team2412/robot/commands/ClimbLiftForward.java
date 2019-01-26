@@ -1,13 +1,13 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class InTakeCargo extends CommandBase {
-	public InTakeCargo() {
-		requires(inTakeCargo);
+public class ClimbLiftForward extends CommandBase {
 
+	public ClimbLiftForward() {
+		requires(climbLift);
 	}
 
 	public void execute() {
-		inTakeCargo.InTakeCargo();
+		climbLift.ClimbLiftReverse();
 	}
 
 	@Override

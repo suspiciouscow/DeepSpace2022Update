@@ -2,15 +2,16 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class DeployRails extends CommandBase {
 	public DeployRails() {
-		
-	requires(ClimbPneumatics); }
-	
-	public void execute()
-	{
-		ClimbPneumatics.DeployRails();
+
+		requires(climbPneumatics);
 	}
-	@Override protected boolean isFinished()
-	{
+
+	public void execute() {
+		climbPneumatics.DeployRails();
+	}
+
+	@Override
+	protected boolean isFinished() {
 		return true;
 	}
 }
