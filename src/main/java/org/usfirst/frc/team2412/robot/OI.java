@@ -7,8 +7,7 @@
 
 package org.usfirst.frc.team2412.robot;
 
-import org.usfirst.frc.team2412.robot.commands.LiftUp;
-import org.usfirst.frc.team2412.robot.commands.LiftDown;
+import org.usfirst.frc.team2412.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -23,6 +22,13 @@ public class OI {
 	int coDriverPort = 1;
 	int liftUpButtonNumber = 1;
 	int liftDownButtonNumber = 2;
+	
+	//hatch buttons
+	
+	int hatch1ButtonNumber = 3;
+	int hatch2ButtonNumber = 4;
+	int hatch3ButtonNumber = 5;
+	
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -36,9 +42,16 @@ public class OI {
 	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
 	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
 	
+	public Button hatch1Button = new JoystickButton(coDriver, hatch1ButtonNumber);
+	public Button hatch2Button = new JoystickButton(coDriver, hatch2ButtonNumber);
+	public Button hatch3Button = new JoystickButton(coDriver, hatch3ButtonNumber);
+	
 	public OI() {
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());
+		hatch1Button.whenPressed(new GoToHatchLevel1());
+		hatch2Button.whenPressed(new GoToHatchLevel2());
+		hatch3Button.whenPressed(new GoToHatchLevel3());
 	}
 
 	// There are a few additional built in buttons you can use. Additionally,
