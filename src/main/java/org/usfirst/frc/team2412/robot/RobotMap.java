@@ -10,6 +10,8 @@ package org.usfirst.frc.team2412.robot;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -41,4 +43,6 @@ public class RobotMap {
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless)
 	};
 	
+	public static DigitalInput liftBottomSwitch = new DigitalInput(0);
+	public static DigitalInput liftTopSwitch = new DigitalInput(1);
 }

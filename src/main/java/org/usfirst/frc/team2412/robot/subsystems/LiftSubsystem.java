@@ -18,6 +18,8 @@ public class LiftSubsystem extends Subsystem {
 
 	double topLimit = 100; // this will prevent the robot from going too high
 	
+	double encoderOffset = 0;
+	
 	// inches
 	double outputGearRadius = 6;
 	double outputGearCircumference = outputGearRadius * 2 * Math.PI;
@@ -53,7 +55,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		if(motorEncoder.getPosition() > topLimit) {
+		if(motorEncoder.getPosition() + encoderOffset> topLimit) {
 			liftMotorLeader.set(0);
 			return;
 		}
@@ -61,7 +63,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftDown() {
-		if(motorEncoder.getPosition() < 0) {
+		if(motorEncoder.getPosition() + encoderOffset < 0) {
 			liftMotorLeader.set(0);
 			return;
 		}
@@ -72,26 +74,36 @@ public class LiftSubsystem extends Subsystem {
 	// to the best position
 
 	public void hatch1() { // bottom hatch
-		PIDController.setReference(getRotationsFromInch(19 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(19 - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void hatch2() { // middle hatch
-		PIDController.setReference(getRotationsFromInch(47 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(47 - inchOffset)  + encoderOffset, ControlType.kPosition);
 	}
 
 	public void hatch3() { // top hatch
-		PIDController.setReference(getRotationsFromInch(75 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(75 - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void cargo1() { // bottom cargo
-		PIDController.setReference(getRotationsFromInch(27.5 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(27.5 - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void cargo2() { // middle cargo (maybe cargoship)
-		PIDController.setReference(getRotationsFromInch(55.5 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(55.5 - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void cargo3() { // top cargo
-		PIDController.setReference(getRotationsFromInch(83.5 - inchOffset), ControlType.kPosition);
+		PIDController.setReference(getRotationsFromInch(83.5 - inchOffset) + encoderOffset, ControlType.kPosition);
+	}
+	
+	
+	
+	public void resetBottom() {
+		encoderOffset = motorEncoder.getPosition();
+	}
+	
+	public void resetTop() {
+		encoderOffset = topLimit - motorEncoder.getPosition();
 	}
 }

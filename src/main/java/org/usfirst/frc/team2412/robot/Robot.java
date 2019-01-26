@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
+import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +29,10 @@ public class Robot extends TimedRobot {
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	
+	
+	LiftBottomReset liftBottomReset = new LiftBottomReset();
+	LiftTopReset liftTopReset = new LiftTopReset();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -111,6 +117,13 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		System.out.println("Hello, world!");
+		
+		if(RobotMap.liftBottomSwitch.get()) {
+			liftBottomReset.execute();
+		}
+		if(RobotMap.liftTopSwitch.get()) {
+			liftTopReset.execute();
+		}
 	}
 
 	/**
