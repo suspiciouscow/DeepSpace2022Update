@@ -7,7 +7,7 @@ public class ClimbLiftForward extends CommandBase {
 	}
 
 	public void execute() {
-		climbLift.ClimbLiftReverse();
+		climbLift.ClimbLiftForward();
 	}
 
 	@Override

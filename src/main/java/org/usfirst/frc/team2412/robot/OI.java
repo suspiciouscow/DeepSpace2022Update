@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.ClimbLiftForward;
+import org.usfirst.frc.team2412.robot.commands.ClimbLiftReverse;
 import org.usfirst.frc.team2412.robot.commands.DeployRails;
 import org.usfirst.frc.team2412.robot.commands.InTakeCargo;
 import org.usfirst.frc.team2412.robot.commands.InTakeDown;
@@ -32,6 +34,8 @@ public class OI {
 	public Button buttonOut = new JoystickButton(coDriver, 5);
 	public Button buttonDeploy = new JoystickButton(coDriver, 6);
 	public Button buttonRelease = new JoystickButton(coDriver, 7);
+	public Button buttonClimbUp = new JoystickButton(coDriver, 8);
+	public Button buttonClimbDown = new JoystickButton(coDriver, 9);
 	public OI() {
 		buttonArmUp.whenPressed(new InTakeUp());
 		buttonArmDown.whenPressed(new InTakeDown());		
@@ -39,5 +43,7 @@ public class OI {
 		buttonOut.whenPressed(new OutputCargo());
 		buttonDeploy.whenPressed(new DeployRails());
 		buttonRelease.whenPressed(new RetractRails());
+		buttonClimbUp.whenPressed(new ClimbLiftForward());
+		buttonClimbDown.whenPressed(new ClimbLiftReverse());
 	}
 }
