@@ -7,6 +7,12 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,4 +29,21 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+
+	public static int[] driveBaseMotorIDs = new int[] {
+		0, 1, 2, 3
+	};
+
+	public static CANSparkMax[] driveBaseMotors = new CANSparkMax[] {
+		new CANSparkMax(driveBaseMotorIDs[0], MotorType.kBrushless),
+		new CANSparkMax(driveBaseMotorIDs[1], MotorType.kBrushless),
+		new CANSparkMax(driveBaseMotorIDs[2], MotorType.kBrushless),
+		new CANSparkMax(driveBaseMotorIDs[3], MotorType.kBrushless)
+	};
+
+	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(driveBaseMotors[0], driveBaseMotors[1]);
+	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(driveBaseMotors[2], driveBaseMotors[3]);
+
+	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
 }
+
