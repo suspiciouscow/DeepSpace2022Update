@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot.commands;
 
 import org.usfirst.frc.team2412.robot.ClimbPneumaticsSubsystem;
+import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeCargoSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeHatchSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeUpDownSubsystem;
@@ -18,4 +19,5 @@ public class CommandBase extends Command {
 	public static InTakeCargoSubsystem InTakeCargo = new InTakeCargoSubsystem();
 	public static InTakeHatchSubsystem InTakeHatch = new InTakeHatchSubsystem();
 	public static ClimbPneumaticsSubsystem ClimbPneumatics = new ClimbPneumaticsSubsystem();
+	public static ClimbRollerSubsystem ClimbRoller = new ClimbRollerSubsystem();
 }

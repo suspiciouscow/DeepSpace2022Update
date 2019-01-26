@@ -40,4 +40,6 @@ public class RobotMap {
 	public static int climbDown = 1;
 	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
 
+	public static int climbRollerID1 = 1;
+	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
 }

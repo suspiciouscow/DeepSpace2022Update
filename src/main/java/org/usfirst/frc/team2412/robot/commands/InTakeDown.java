@@ -3,7 +3,7 @@ package org.usfirst.frc.team2412.robot.commands;
 public class InTakeDown extends CommandBase {
 	public InTakeDown()
 	{ 
-		requires(InTakeUpDown);}
+		requires(InTakeUpDown);} 
 //The Initialize command initializes the counter in the above subsystem then starts the motor moving.
 //It then tests the counter value in the isFinished() method waiting for it to count the limit switch changing.
 //When it does, the arm stops.
