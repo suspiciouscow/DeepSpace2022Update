@@ -28,6 +28,10 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	//some buttons for lifting
+	
+	
+	
+	
 	//pulling test 2
 	
 	public static int[] liftMotorIndexes = {0,1};
@@ -36,6 +40,5 @@ public class RobotMap {
 			new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless)
 	};
-	
 	
 }

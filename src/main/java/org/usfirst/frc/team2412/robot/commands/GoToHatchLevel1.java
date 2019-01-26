@@ -1,9 +1,8 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class LiftDown extends CommandBase {
+public class GoToHatchLevel1 extends CommandBase {
 
-	public LiftDown() {
-		// TODO Auto-generated constructor stub
+	public GoToHatchLevel1() {
 		requires(liftSubsystem);
 	}
 
@@ -14,7 +13,6 @@ public class LiftDown extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		liftSubsystem.liftDown();
-		System.out.println("going down");
+		liftSubsystem.hatch1();
 	}
 }
