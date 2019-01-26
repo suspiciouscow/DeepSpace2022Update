@@ -12,4 +12,4 @@ public class JoystickDriveCommand extends CommandBase {
         double throttleVal = (Robot.m_oi.stick.getThrottle()-1)/-2.0;
         tempDriveBase.drive(Robot.m_oi.stick.getY()*throttleVal,Robot.m_oi.stick.getTwist()*turnPower*throttleVal);
     }
-}   
+}
