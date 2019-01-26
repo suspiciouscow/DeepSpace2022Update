@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="src/libs/opencv-java-3.4.4-4.jar"/>
 	<classpathentry kind="lib" path="src/libs/wpilibj-java-2019.1.1.jar"/>
 	<classpathentry kind="lib" path="src/libs/wpiutil-java-2019.1.1.jar"/>
+	<classpathentry kind="lib" path="src/libs/SparkMax-java-1.0.27.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

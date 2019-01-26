@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team2412.robot.RobotMap;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,6 +38,8 @@ public class Robot extends TimedRobot {
 //		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		
+		RobotMap.liftMotors[1].follow(RobotMap.liftMotors[0]);
 	}
 
 	/**

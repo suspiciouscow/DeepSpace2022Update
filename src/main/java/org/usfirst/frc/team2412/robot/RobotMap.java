@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team2412.robot;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -29,10 +30,12 @@ public class RobotMap {
 	//some buttons for lifting
 	//pulling test 2
 	
-	public static int[] liftMotorIndexes = {0};
+	public static int[] liftMotorIndexes = {0,1};
 	
-	public static TalonSRX[] liftMotors = {
-			//new TalonSRX(liftMotorIndexes[0])
+	public static CANSparkMax[] liftMotors = {
+			new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
+			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless)
 	};
+	
 	
 }
