@@ -7,10 +7,12 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.DeployRails;
 import org.usfirst.frc.team2412.robot.commands.InTakeCargo;
 import org.usfirst.frc.team2412.robot.commands.InTakeDown;
 import org.usfirst.frc.team2412.robot.commands.InTakeUp;
 import org.usfirst.frc.team2412.robot.commands.OutputCargo;
+import org.usfirst.frc.team2412.robot.commands.RetractRails;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;

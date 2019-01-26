@@ -12,11 +12,13 @@ public class ClimbRollerSubsystem extends Subsystem {
 	
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
+		// Ari is awesome
 
 	}
 	public void ClimbRollerForward() {
+		//int rollerSpeed = 0.5;
 		climbRoller1.set(0.5);
+
 	}
 
 	public void ClimbRollerReverese() {

@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.ClimbPneumaticsSubsystem;
+import org.usfirst.frc.team2412.robot.subsystems.ClimbPneumaticsSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeCargoSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeHatchSubsystem;

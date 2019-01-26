@@ -42,4 +42,10 @@ public class RobotMap {
 
 	public static int climbRollerID1 = 1;
 	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
+
+	public static int climbLiftID1 = 1;
+	public static WPI_TalonSRX climbLift1 = new WPI_TalonSRX(climbLiftID1);
+
+	public static int climbLiftID2 = 2;
+	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
 }

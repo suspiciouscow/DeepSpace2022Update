@@ -1,6 +1,4 @@
-package org.usfirst.frc.team2412.robot;
-
-import org.usfirst.frc.team2412.robot.commands.CommandBase;
+package org.usfirst.frc.team2412.robot.commands;
 
 public class RetractRails extends CommandBase {
 	public RetractRails() {
