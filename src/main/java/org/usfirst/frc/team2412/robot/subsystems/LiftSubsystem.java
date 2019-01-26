@@ -63,7 +63,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftDown() {
-		if(motorEncoder.getPosition() + encoderOffset < 0) {
+		if(motorEncoder.getPosition() + encoderOffset < 1) {
 			liftMotorLeader.set(0);
 			return;
 		}

@@ -9,10 +9,7 @@ package org.usfirst.frc.team2412.robot;
 
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
@@ -26,9 +23,12 @@ import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
  */
 public class Robot extends TimedRobot {
 	
+	OI oi = new OI();
+	
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
 	LiftTopReset liftTopReset = new LiftTopReset();
 
+	int counter = 0;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -98,8 +98,11 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		System.out.println("Hello, world!");
-		
+	
+		if(counter++%50 == 0) {
+			System.out.println("Hello, world!");
+		}
+				
 		if(RobotMap.liftBottomSwitch.get()) {
 			liftBottomReset.execute();
 		}
