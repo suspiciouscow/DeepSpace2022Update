@@ -13,6 +13,6 @@ public class GoToHatchLevel1 extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		liftSubsystem.hatch1();
+		liftSubsystem.goToInch(19);
 	}
 }

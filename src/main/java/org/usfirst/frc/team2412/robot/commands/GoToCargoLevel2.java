@@ -13,6 +13,6 @@ public class GoToCargoLevel2 extends CommandBase{
 	
 	@Override
 	protected void execute() {
-		liftSubsystem.cargo2();
+		liftSubsystem.goToInch(55.5);
 	}
 }

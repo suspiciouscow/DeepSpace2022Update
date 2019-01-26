@@ -72,31 +72,10 @@ public class LiftSubsystem extends Subsystem {
 
 	// These will use a PID (loop? idk what exactly it is) to quickly get the lift
 	// to the best position
-
-	public void hatch1() { // bottom hatch
-		PIDController.setReference(getRotationsFromInch(19 - inchOffset) + encoderOffset, ControlType.kPosition);
-	}
-
-	public void hatch2() { // middle hatch
-		PIDController.setReference(getRotationsFromInch(47 - inchOffset)  + encoderOffset, ControlType.kPosition);
-	}
-
-	public void hatch3() { // top hatch
-		PIDController.setReference(getRotationsFromInch(75 - inchOffset) + encoderOffset, ControlType.kPosition);
-	}
-
-	public void cargo1() { // bottom cargo
-		PIDController.setReference(getRotationsFromInch(27.5 - inchOffset) + encoderOffset, ControlType.kPosition);
-	}
-
-	public void cargo2() { // middle cargo (maybe cargoship)
-		PIDController.setReference(getRotationsFromInch(55.5 - inchOffset) + encoderOffset, ControlType.kPosition);
-	}
-
-	public void cargo3() { // top cargo
-		PIDController.setReference(getRotationsFromInch(83.5 - inchOffset) + encoderOffset, ControlType.kPosition);
-	}
 	
+	public void goToInch(double inches) {
+		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
+	}
 	
 	
 	public void resetBottom() {
