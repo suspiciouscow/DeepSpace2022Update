@@ -52,8 +52,8 @@ public class VisionGuidanceCommand extends CommandBase {
             boolean targetsFound = Boolean.parseBoolean(visionData[3]);
             
             if(targetsFound) {
-            	angle = (Math.abs(angle) > 0.03) ? angle : 0;
-                tempDriveBase.drive(0.3, angle);
+            	// angle = (Math.abs(angle) > 0.03) ? angle : 0;
+                tempDriveBase.drive(-0.4, angle);
                 System.out.println("Angle: " + angle);
             } else {
             	System.err.println("No targets found!");
