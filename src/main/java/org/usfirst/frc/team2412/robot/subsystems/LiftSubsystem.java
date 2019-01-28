@@ -17,9 +17,9 @@ public class LiftSubsystem extends Subsystem {
 							// and this makes the robot go to x inches above the ground
 
 	double topLimit = 100; // this will prevent the robot from going too high
-	
+
 	double encoderOffset = 0;
-	
+
 	// inches
 	double outputGearRadius = 6;
 	double outputGearCircumference = outputGearRadius * 2 * Math.PI;
@@ -55,7 +55,8 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		if(motorEncoder.getPosition() + encoderOffset> topLimit) {
+		if (motorEncoder.getPosition() + encoderOffset > topLimit) {
+			resetTop();
 			liftMotorLeader.set(0);
 			return;
 		}
@@ -63,8 +64,9 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftDown() {
-		if(motorEncoder.getPosition() + encoderOffset < 1) {
+		if (motorEncoder.getPosition() + encoderOffset < 1) {
 			liftMotorLeader.set(0);
+			resetBottom();
 			return;
 		}
 		liftMotorLeader.set(-0.5);
@@ -72,17 +74,18 @@ public class LiftSubsystem extends Subsystem {
 
 	// These will use a PID (loop? idk what exactly it is) to quickly get the lift
 	// to the best position
-	
+
 	public void goToInch(double inches) {
 		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
-	
-	
+
 	public void resetBottom() {
 		encoderOffset = motorEncoder.getPosition();
+		PIDController.setReference(encoderOffset, ControlType.kPosition);
 	}
-	
+
 	public void resetTop() {
 		encoderOffset = topLimit - motorEncoder.getPosition();
+		PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
 }

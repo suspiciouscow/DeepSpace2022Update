@@ -26,8 +26,11 @@ public class Robot extends TimedRobot {
 	OI oi = new OI();
 	
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
+	boolean liftBottomResetHeld = false;
 	LiftTopReset liftTopReset = new LiftTopReset();
-
+	boolean liftTopResetHeld = false;
+	
+	
 	int counter = 0;
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -103,11 +106,19 @@ public class Robot extends TimedRobot {
 			System.out.println("Hello, world!");
 		}
 				
-		if(RobotMap.liftBottomSwitch.get()) {
+		if(RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
 			liftBottomReset.execute();
+			liftBottomResetHeld = true;
+		}else if(!RobotMap.liftBottomSwitch.get()) {
+			liftBottomResetHeld = false;
 		}
-		if(RobotMap.liftTopSwitch.get()) {
+		
+		
+		if(RobotMap.liftTopSwitch.get() && !liftTopResetHeld) {
 			liftTopReset.execute();
+			liftTopResetHeld = true;
+		}else if(!RobotMap.liftTopSwitch.get()) {
+			liftTopResetHeld = false;
 		}
 	}
 
