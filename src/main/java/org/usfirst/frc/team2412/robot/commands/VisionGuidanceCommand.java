@@ -3,6 +3,7 @@ package org.usfirst.frc.team2412.robot.commands;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.text.ParseException;
 
 public class VisionGuidanceCommand extends CommandBase {
@@ -22,6 +23,7 @@ public class VisionGuidanceCommand extends CommandBase {
     protected void initialize() {
         try {
             socket = new DatagramSocket(PORT);
+            socket.setSoTimeout(20);
         } catch(SocketException e) {
             System.err.println("Could not create socket: ");
             e.printStackTrace();
@@ -34,7 +36,6 @@ public class VisionGuidanceCommand extends CommandBase {
             packet = new DatagramPacket(receiveData, receiveData.length);
             System.out.println("Receiving message...");
             socket.receive(packet);
-    
             receiveData = packet.getData();
             String receiveString = (new String(receiveData)).trim();
             // System.out.println(receiveString.length());
@@ -60,6 +61,8 @@ public class VisionGuidanceCommand extends CommandBase {
             }
             
             receiveData = new byte[1024]; // Clear the data.
+          } catch(SocketTimeoutException e) {
+            System.err.println("Timed out waiting for raspberry pi data.");
           } catch(Exception e) {
             System.out.println("exception happened");
           }
