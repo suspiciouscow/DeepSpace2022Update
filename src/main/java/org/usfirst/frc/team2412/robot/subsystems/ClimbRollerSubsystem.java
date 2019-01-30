@@ -24,4 +24,9 @@ public class ClimbRollerSubsystem extends Subsystem {
 	public void ClimbRollerReverese() {
 		climbRoller1.set(-0.5);
 	}
+	public void ClimbRollerStop() {
+		climbRoller1.set(0.0);
+		System.out.println("released");
+	}
+
 }

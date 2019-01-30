@@ -12,6 +12,10 @@ public class ClimbRollerForward extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return true;
+		return false;
+	}
+
+	protected void end() {
+		climbRoller.ClimbRollerStop();
 	}
 }
