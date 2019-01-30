@@ -21,4 +21,5 @@ public class InTakeCargoSubsystem extends Subsystem{
 	// CHANGE MOTOR SPEED TO CONSTANTS (DAN IS AWESOMER)
 	public void InTakeCargo() {CargoMotor1.set(-0.5);}
 	public void OutputCargo() {CargoMotor1.set(0.5);}
+	public void InTakeStop() {CargoMotor1.set(0.0);}
 }
