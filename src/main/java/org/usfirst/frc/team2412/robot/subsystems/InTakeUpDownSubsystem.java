@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class InTakeUpDownSubsystem extends Subsystem {
 
 	private WPI_TalonSRX armMotor1 = RobotMap.armMotor1;
+	private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
+	private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -25,14 +27,11 @@ public class InTakeUpDownSubsystem extends Subsystem {
 	public void InTakeDown() {
 		armMotor1.set(-0.5);
 	}
+//Ari is the best!
+//Tim is lying when he says adding comments won't help
 
-	DigitalInput limitSwitchUp, limitSwitchDown;
 
-	public void robotInit() {
-		limitSwitchUp = new DigitalInput(1);
-		limitSwitchDown = new DigitalInput(2);
-	}
-	public boolean limitSwitchUp() {
+		public boolean limitSwitchUp() {
 		return limitSwitchUp.get();
 		
 	}
