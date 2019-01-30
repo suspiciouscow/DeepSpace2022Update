@@ -33,19 +33,24 @@ public class RobotMap {
 	public static int CargoMotorID1 = 1;
 	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
 	//Arm for the whole InTake system
-	public static int armMotorID1 = 1;
+	public static int armMotorID1 = 12;
 	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
 	//climb
 	public static int climbUp = 0;
-	public static int climbDown = 1;
+	public static int climbDown = 4;
 	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
 
-	public static int climbRollerID1 = 1;
+	public static int climbRollerID1 = 7;
 	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
 
-	public static int climbLiftID1 = 1;
+	public static int climbLiftID1 = 6;
 	public static WPI_TalonSRX climbLift1 = new WPI_TalonSRX(climbLiftID1);
 
-	public static int climbLiftID2 = 2;
+	public static int climbLiftID2 = 0;
 	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
+
+	
+
+	public static DigitalInput limitSwitchUp = new DigitalInput(1);
+	public static DigitalInput limitSwitchDown = new DigitalInput(2);
 }
