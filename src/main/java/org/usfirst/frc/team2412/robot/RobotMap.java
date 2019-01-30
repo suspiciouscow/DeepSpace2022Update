@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,4 +26,9 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	public static int limitSwitchID1 = 0;
+	public static DigitalInput limitSwitch1 = new DigitalInput(0);
+
+	public static int ledID1 = 1;
+	public static DigitalOutput led1 = new DigitalOutput(ledID1);
 }
