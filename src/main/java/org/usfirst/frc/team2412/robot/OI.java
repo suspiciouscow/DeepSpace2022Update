@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
 import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -47,9 +48,13 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 
 	public Joystick stick = new Joystick(0);
+	
+	public Button shiftHighButton = new JoystickButton(stick, 2);
 
 	public Button trigger = new JoystickButton(stick, 1);
 	public OI() {
 		trigger.whileHeld(new VisionGuidanceCommand());
+		
+		shiftHighButton.whileHeld(new ShiftHighGearCommand());
 	}
 }

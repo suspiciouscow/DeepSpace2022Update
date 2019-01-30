@@ -10,6 +10,7 @@ package org.usfirst.frc.team2412.robot;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -45,5 +46,10 @@ public class RobotMap {
 	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(driveBaseMotors[2], driveBaseMotors[3]);
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
+	
+	public static int shifterID = 6;
+	public static int shifterIDReverse = 2;
+	
+	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
 }
 
