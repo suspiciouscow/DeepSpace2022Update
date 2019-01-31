@@ -7,11 +7,14 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LiftSubsystem extends Subsystem {
 
 	// other vars that are useful
+	
+	private DoubleSolenoid brakeSolenoid = RobotMap.brakeSolenoid;
 
 	double inchOffset = 19; // this is the offset for the lift, as it doesnt go lower than the top hatch,
 							// and this makes the robot go to x inches above the ground
@@ -87,5 +90,13 @@ public class LiftSubsystem extends Subsystem {
 	public void resetTop() {
 		encoderOffset = topLimit - motorEncoder.getPosition();
 		PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
+	}
+	
+	public void brake() {
+		brakeSolenoid.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void brakeEnd() {
+		brakeSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 }

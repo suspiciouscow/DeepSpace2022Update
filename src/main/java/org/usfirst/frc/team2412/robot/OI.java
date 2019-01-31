@@ -33,6 +33,8 @@ public class OI {
 	int cargo2ButtonNumber = 7;
 	int cargo3ButtonNumber = 8;
 	
+	int brakeButtonNumber = 9;
+	
 	//// CREATING BUTTONS
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
@@ -50,6 +52,8 @@ public class OI {
 	public Button cargo2Button = new JoystickButton(coDriver, cargo2ButtonNumber);
 	public Button cargo3Button = new JoystickButton(coDriver, cargo3ButtonNumber);
 	
+	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
+	
 	
 	public OI() {
 		liftUpButton.whileHeld(new LiftUp());
@@ -62,5 +66,7 @@ public class OI {
 		cargo1Button.whenPressed(new GoToCargoLevel1());
 		cargo2Button.whenPressed(new GoToCargoLevel2());
 		cargo3Button.whenPressed(new GoToCargoLevel3());
+		
+		brakeButton.whenPressed(new Brake());
 	}
 }

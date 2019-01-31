@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -45,4 +46,6 @@ public class RobotMap {
 	
 	public static DigitalInput liftBottomSwitch = new DigitalInput(0);
 	public static DigitalInput liftTopSwitch = new DigitalInput(1);
+	
+	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
 }
