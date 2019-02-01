@@ -27,6 +27,9 @@ public class InTakeUpDownSubsystem extends Subsystem {
 	public void InTakeDown() {
 		armMotor1.set(-0.5);
 	}
+	public void InTakeStop() {
+		armMotor1.set(0.0);
+	}
 //Ari is the best!
 //Tim is lying when he says adding comments won't help
 

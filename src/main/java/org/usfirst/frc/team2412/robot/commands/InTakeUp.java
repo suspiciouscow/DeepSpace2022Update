@@ -8,10 +8,14 @@ public class InTakeUp extends CommandBase {
 
 	public void execute() {
 		inTakeUpDown.InTakeUp();
+		System.out.println("Alt f4");
 	}
+	public void end() {
+	inTakeUpDown.InTakeStop();
+}
 
 	@Override
 	protected boolean isFinished() {
-		return inTakeUpDown.limitSwitchUp();
+		return !inTakeUpDown.limitSwitchUp();
 	}
 }

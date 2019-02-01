@@ -11,11 +11,15 @@ public class InTakeDown extends CommandBase {
 
 	public void execute() {
 		inTakeUpDown.InTakeDown();
+		System.out.println("Fn Alt f4");
 	}
 
 	@Override
 	protected boolean isFinished() {
 		return inTakeUpDown.limitSwitchDown();
+	}
+	public void end() {
+		inTakeUpDown.InTakeStop();
 	}
 }
 //isFinished()
