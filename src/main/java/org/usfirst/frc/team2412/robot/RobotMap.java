@@ -48,4 +48,7 @@ public class RobotMap {
 
 	public static int climbLiftID2 = 2;
 	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
+	
+	public static int ultraSoundRadarID1 = 1;
+	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);
 }
