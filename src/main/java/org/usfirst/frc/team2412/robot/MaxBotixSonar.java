@@ -1,10 +1,10 @@
 package org.usfirst.frc.team2412.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.SensorBase;
+import edu.wpi.first.wpilibj.SendableBase;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 
-public class MaxBotixSonar extends SensorBase {
+public class MaxBotixSonar extends SendableBase {
 
 	private AnalogInput channel;
 	private static final double RAW_TO_INCHES = 1.0 / 0.0091;
@@ -23,7 +23,7 @@ public class MaxBotixSonar extends SensorBase {
 	public double getInches() {
 		return getRawDistance() * RAW_TO_INCHES;
 	}
-	public void free() {
-		channel.free();
+	public void close() {
+		channel.close();
 	}
 }
