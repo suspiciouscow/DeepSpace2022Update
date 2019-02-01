@@ -14,6 +14,7 @@ import org.usfirst.frc.team2412.robot.commands.ClimbRollerReverse;
 import org.usfirst.frc.team2412.robot.commands.DeployRails;
 import org.usfirst.frc.team2412.robot.commands.InTakeCargo;
 import org.usfirst.frc.team2412.robot.commands.InTakeDown;
+import org.usfirst.frc.team2412.robot.commands.InTakeStop;
 import org.usfirst.frc.team2412.robot.commands.InTakeUp;
 import org.usfirst.frc.team2412.robot.commands.OutputCargo;
 import org.usfirst.frc.team2412.robot.commands.RetractRails;
@@ -46,6 +47,7 @@ public class OI {
 		buttonIn.whileHeld(new InTakeCargo());
 		buttonIn.whenReleased(new InTakeStop());
 		buttonOut.whileHeld(new OutputCargo());
+		buttonOut.whenReleased(new InTakeStop());
 		buttonDeploy.whenPressed(new DeployRails());
 		buttonRelease.whenPressed(new RetractRails());
 		buttonClimbUp.whileHeld(new ClimbLiftForward());

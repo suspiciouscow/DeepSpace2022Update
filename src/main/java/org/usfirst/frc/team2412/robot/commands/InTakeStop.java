@@ -4,8 +4,7 @@ public class InTakeStop extends CommandBase {
     public InTakeStop() {
         requires(inTakeCargo);
     }
-    execute(); {
-        stop();
-end();
+   public void execute() {
+        inTakeCargo.InTakeStop();
     }
 }
