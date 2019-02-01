@@ -25,13 +25,13 @@ public class OI {
 	
 	//hatch buttons
 	
-	int hatch1ButtonNumber = 3;
-	int hatch2ButtonNumber = 4;
-	int hatch3ButtonNumber = 5;
-	
-	int cargo1ButtonNumber = 6;
-	int cargo2ButtonNumber = 7;
-	int cargo3ButtonNumber = 8;
+//	int hatch1ButtonNumber = 3;
+//	int hatch2ButtonNumber = 4;
+//	int hatch3ButtonNumber = 5;
+//	
+//	int cargo1ButtonNumber = 6;
+//	int cargo2ButtonNumber = 7;
+//	int cargo3ButtonNumber = 8;
 	
 	int brakeButtonNumber = 9;
 	
@@ -44,13 +44,21 @@ public class OI {
 	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
 	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
 	
-	public Button hatch1Button = new JoystickButton(coDriver, hatch1ButtonNumber);
-	public Button hatch2Button = new JoystickButton(coDriver, hatch2ButtonNumber);
-	public Button hatch3Button = new JoystickButton(coDriver, hatch3ButtonNumber);
+//	public Button hatch1Button = new JoystickButton(coDriver, hatch1ButtonNumber);
+//	public Button hatch2Button = new JoystickButton(coDriver, hatch2ButtonNumber);
+//	public Button hatch3Button = new JoystickButton(coDriver, hatch3ButtonNumber);
+//	
+//	public Button cargo1Button = new JoystickButton(coDriver, cargo1ButtonNumber);
+//	public Button cargo2Button = new JoystickButton(coDriver, cargo2ButtonNumber);
+//	public Button cargo3Button = new JoystickButton(coDriver, cargo3ButtonNumber);
+//	
 	
-	public Button cargo1Button = new JoystickButton(coDriver, cargo1ButtonNumber);
-	public Button cargo2Button = new JoystickButton(coDriver, cargo2ButtonNumber);
-	public Button cargo3Button = new JoystickButton(coDriver, cargo3ButtonNumber);
+	
+	public Button level1 = new JoystickButton(coDriver, 0);
+	public Button level2 = new JoystickButton(coDriver, 1);
+	public Button level3 = new JoystickButton(coDriver, 2);
+	
+	public Button hatchCargoSwitch = new JoystickButton(coDriver, 3);
 	
 	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
 	
@@ -59,13 +67,17 @@ public class OI {
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());
 		
-		hatch1Button.whenPressed(new GoToHatchLevel1());
-		hatch2Button.whenPressed(new GoToHatchLevel2());
-		hatch3Button.whenPressed(new GoToHatchLevel3());
+//		hatch1Button.whenPressed(new GoToHatchLevel1());
+//		hatch2Button.whenPressed(new GoToHatchLevel2());
+//		hatch3Button.whenPressed(new GoToHatchLevel3());
+//		
+//		cargo1Button.whenPressed(new GoToCargoLevel1());
+//		cargo2Button.whenPressed(new GoToCargoLevel2());
+//		cargo3Button.whenPressed(new GoToCargoLevel3());
 		
-		cargo1Button.whenPressed(new GoToCargoLevel1());
-		cargo2Button.whenPressed(new GoToCargoLevel2());
-		cargo3Button.whenPressed(new GoToCargoLevel3());
+		level1.whenPressed(new GoToLevel1());
+		level2.whenPressed(new GoToLevel2());
+		level3.whenPressed(new GoToLevel3());
 		
 		brakeButton.whenPressed(new Brake());
 	}

@@ -8,7 +8,7 @@ import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
 public class Robot extends TimedRobot {
 
-	OI oi = new OI();
+	public static OI oi = new OI();
 
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
 	boolean liftBottomResetHeld = false;
