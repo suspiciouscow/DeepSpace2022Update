@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class LiftSubsystem extends Subsystem {
 
 	// other vars that are useful
-	
+
 	private DoubleSolenoid brakeSolenoid = RobotMap.brakeSolenoid;
 
 	double inchOffset = 19; // this is the offset for the lift, as it doesnt go lower than the top hatch,
@@ -75,9 +75,6 @@ public class LiftSubsystem extends Subsystem {
 		liftMotorLeader.set(-0.5);
 	}
 
-	// These will use a PID (loop? idk what exactly it is) to quickly get the lift
-	// to the best position
-
 	public void goToInch(double inches) {
 		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
@@ -91,11 +88,11 @@ public class LiftSubsystem extends Subsystem {
 		encoderOffset = topLimit - motorEncoder.getPosition();
 		PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
-	
+
 	public void brake() {
 		brakeSolenoid.set(DoubleSolenoid.Value.kForward);
 	}
-	
+
 	public void brakeEnd() {
 		brakeSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
