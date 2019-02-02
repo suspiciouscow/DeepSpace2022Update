@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.*;
 public class ClimbLiftForward extends CommandBase {
 
 
@@ -17,12 +16,12 @@ public class ClimbLiftForward extends CommandBase {
 	@Override
 	protected boolean isFinished() {
 		System.out.println("released");
-		// return oi.buttonClimbUp.get();
-		return false;
+		return climbLift.ultraSoundRadar()>19;
 	}
 
 	@Override
 	protected void end() {
 		climbLift.ClimbLiftStop();
+	//This will stop when the ultrasoundradar when it gets to 19 inches.
 	}
 }
