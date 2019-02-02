@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.TimeLatencyCommand;
 import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -50,6 +51,7 @@ public class OI {
 
 	public Button trigger = new JoystickButton(stick, 1);
 	public OI() {
-		trigger.whileHeld(new VisionGuidanceCommand());
+		// trigger.whileHeld(new VisionGuidanceCommand());
+		trigger.whenPressed(new TimeLatencyCommand());
 	}
 }

@@ -16,6 +16,7 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -37,6 +38,10 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	CommandBase base = new CommandBase();
+
+	public static long startTime = 0;
+
+	public static DigitalOutput LED;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -71,6 +76,8 @@ public class Robot extends TimedRobot {
 		});
 		visionThread.setDaemon(true);
 		visionThread.start();
+		LED = new DigitalOutput(0);
+		LED.set(false);
 	}
 
 	/**

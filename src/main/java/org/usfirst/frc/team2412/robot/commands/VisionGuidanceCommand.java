@@ -6,12 +6,16 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.text.ParseException;
 
+import org.usfirst.frc.team2412.robot.Robot;
+
 public class VisionGuidanceCommand extends CommandBase {
     private static final int PORT = 1111;
 
     private DatagramSocket socket = null;
     private DatagramPacket packet;
     private byte[] receiveData = new byte[1024];
+
+    private boolean targetsFound = false;
 
     // private boolean teleopHappened = false;
 
@@ -50,15 +54,15 @@ public class VisionGuidanceCommand extends CommandBase {
             double angle = Double.parseDouble(visionData[0]);
 //            double distance = Double.parseDouble(visionData[1]);
 //            boolean doextake = Boolean.parseBoolean(visionData[2]);
-            boolean targetsFound = Boolean.parseBoolean(visionData[3]);
+            targetsFound = Boolean.parseBoolean(visionData[3]);
             
-            if(targetsFound) {
+            /*if(targetsFound) {
             	// angle = (Math.abs(angle) > 0.03) ? angle : 0;
                 tempDriveBase.drive(-0.4, angle);
                 System.out.println("Angle: " + angle);
             } else {
             	System.err.println("No targets found!");
-            }
+            }*/
             
             receiveData = new byte[1024]; // Clear the data.
           } catch(SocketTimeoutException e) {
@@ -69,10 +73,17 @@ public class VisionGuidanceCommand extends CommandBase {
     }
 
     @Override
+    protected boolean isFinished() {
+        return targetsFound;
+    }
+
+    @Override
     protected void end() {
         if(socket != null) {
             socket.close();
             System.out.println("Closing...");
         }
+        System.out.println("Latency: " + (System.nanoTime() - Robot.startTime));
+        Robot.startTime = System.nanoTime();
     }
 }
