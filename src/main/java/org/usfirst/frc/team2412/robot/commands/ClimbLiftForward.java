@@ -15,12 +15,12 @@ public class ClimbLiftForward extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		System.out.println("released");
 		return climbLift.ultraSoundRadar()>19;
 	}
 
 	@Override
 	protected void end() {
+		System.out.println("released");
 		climbLift.ClimbLiftStop();
 	//This will stop when the ultrasoundradar when it gets to 19 inches.
 	}
