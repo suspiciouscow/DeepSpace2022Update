@@ -7,36 +7,78 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import org.usfirst.frc.team2412.robot.commands.*;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	int coDriverPort = 1;
+	int liftUpButtonNumber = 1;
+	int liftDownButtonNumber = 2;
+	
+	//hatch buttons
+	
+//	int hatch1ButtonNumber = 3;
+//	int hatch2ButtonNumber = 4;
+//	int hatch3ButtonNumber = 5;
+//	
+//	int cargo1ButtonNumber = 6;
+//	int cargo2ButtonNumber = 7;
+//	int cargo3ButtonNumber = 8;
+	
+	int brakeButtonNumber = 9;
+	
 	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
-
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
-
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
-
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
+	
+	
+	public Joystick coDriver = new Joystick(coDriverPort);
+	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
+	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
+	
+//	public Button hatch1Button = new JoystickButton(coDriver, hatch1ButtonNumber);
+//	public Button hatch2Button = new JoystickButton(coDriver, hatch2ButtonNumber);
+//	public Button hatch3Button = new JoystickButton(coDriver, hatch3ButtonNumber);
+//	
+//	public Button cargo1Button = new JoystickButton(coDriver, cargo1ButtonNumber);
+//	public Button cargo2Button = new JoystickButton(coDriver, cargo2ButtonNumber);
+//	public Button cargo3Button = new JoystickButton(coDriver, cargo3ButtonNumber);
+//	
+	
+	
+	public Button level1 = new JoystickButton(coDriver, 0);
+	public Button level2 = new JoystickButton(coDriver, 1);
+	public Button level3 = new JoystickButton(coDriver, 2);
+	
+	public Button hatchCargoSwitch = new JoystickButton(coDriver, 3);
+	
+	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
+	
+	
+	public OI() {
+		liftUpButton.whileHeld(new LiftUp());
+		liftDownButton.whileHeld(new LiftDown());
+		
+//		hatch1Button.whenPressed(new GoToHatchLevel1());
+//		hatch2Button.whenPressed(new GoToHatchLevel2());
+//		hatch3Button.whenPressed(new GoToHatchLevel3());
+//		
+//		cargo1Button.whenPressed(new GoToCargoLevel1());
+//		cargo2Button.whenPressed(new GoToCargoLevel2());
+//		cargo3Button.whenPressed(new GoToCargoLevel3());
+		
+		level1.whenPressed(new GoToLevel1());
+		level2.whenPressed(new GoToLevel2());
+		level3.whenPressed(new GoToLevel3());
+		
+		brakeButton.whenPressed(new Brake());
+	}
 }
