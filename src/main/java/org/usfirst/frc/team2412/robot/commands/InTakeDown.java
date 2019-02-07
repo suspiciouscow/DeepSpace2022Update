@@ -11,6 +11,7 @@ public class InTakeDown extends CommandBase {
 
 	public void execute() {
 		inTakeUpDown.InTakeDown();
+	System.out.println("This message is meaningless and has nothing to say.");
 	}
 
 	@Override
