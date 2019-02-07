@@ -96,4 +96,8 @@ public class LiftSubsystem extends Subsystem {
 	public void brakeEnd() {
 		brakeSolenoid.set(DoubleSolenoid.Value.kReverse);
 	}
+
+	public double getInches() {
+		return inchOffset * motorRotationsToInches * (motorEncoder.getPosition() + encoderOffset);
+	}
 }
