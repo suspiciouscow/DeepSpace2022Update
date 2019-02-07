@@ -8,6 +8,7 @@ public class InTakeUp extends CommandBase {
 
 	public void execute() {
 		inTakeUpDown.InTakeUp();
+		System.out.println("Ari is Awesome!!!");
 	}
 
 	@Override

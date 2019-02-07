@@ -12,6 +12,5 @@ protected void initialize() {
 	protected boolean isFinished() {
 		double elapsedTime = (System.nanoTime() - startTime)/ 1E9;
 		return elapsedTime > 1;
-	}
-	
+	}	
 }
