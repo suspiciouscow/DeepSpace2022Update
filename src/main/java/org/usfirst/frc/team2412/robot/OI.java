@@ -8,6 +8,8 @@
 package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.*;
+import org.usfirst.frc.team2412.robot.commands.TimeLatencyCommand;
+import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -75,6 +77,8 @@ public class OI {
 
 		buttonOutIntake.whileHeld(new PistonsOut());
 		buttonOutIntake.whenReleased(new PistonsIn());
+		// trigger.whileHeld(new VisionGuidanceCommand());
+		// trigger.whenPressed(new TimeLatencyCommand());
 	}
 	int coDriverPort = 1;
 	int liftUpButtonNumber = 1;
