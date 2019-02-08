@@ -72,6 +72,9 @@ public class OI {
 		level3.whenPressed(new GoToLevel3());
 		
 		brakeButton.whenPressed(new Brake());
+
+		buttonOutIntake.whileHeld(new PistonsOut());
+		buttonOutIntake.whenReleased(new PistonsIn());
 	}
 	int coDriverPort = 1;
 	int liftUpButtonNumber = 1;
@@ -117,4 +120,14 @@ public class OI {
 	
 	
 	
-}
+
+	// Start the command when the button is released and let it run the command
+	// until it is finished as determined by it's isFinished method.
+	// button.whenReleased(new ExampleCommand());
+	Button buttonOutIntake = new JoystickButton(stick, 4);
+
+	
+
+	
+	}
+

@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.DigitalOutput;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -95,5 +96,10 @@ public class RobotMap {
 	public static DigitalInput liftTopSwitch = new DigitalInput(1);
 
 	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
+	public static int limitSwitchID1 = 0;
+	public static DigitalInput limitSwitch1 = new DigitalInput(0);
+
+	public static int ledID1 = 1;
+	public static DigitalOutput led1 = new DigitalOutput(ledID1);
 }
 
