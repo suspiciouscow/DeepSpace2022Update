@@ -8,6 +8,7 @@ import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeCargoSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeHatchSubsystem;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeUpDownSubsystem;
+import org.usfirst.frc.team2412.robot.subsystems.LiftSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -26,4 +27,8 @@ public class CommandBase extends Command {
 	public static ClimbPneumaticsSubsystem climbPneumatics = new ClimbPneumaticsSubsystem();
 	public static ClimbRollerSubsystem climbRoller = new ClimbRollerSubsystem();
 	public static ClimbLiftSubsystem climbLift = new ClimbLiftSubsystem();
+
+	static LiftSubsystem liftSubsystem = new LiftSubsystem();
+		
+
 }
