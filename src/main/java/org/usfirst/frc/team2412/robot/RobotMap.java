@@ -7,6 +7,11 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,4 +28,30 @@ public class RobotMap {
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
+	
+	//Cargo
+	public static int CargoMotorID1 = 1;
+	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
+	//Arm for the whole InTake system
+	public static int armMotorID1 = 10;
+	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
+	//climb
+	public static int climbUp = 0;
+	public static int climbDown = 4;
+	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
+
+	public static int climbRollerID1 = 7;
+	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
+
+	public static int climbLiftID1 = 6;
+	public static WPI_TalonSRX climbLift1 = new WPI_TalonSRX(climbLiftID1);
+
+	public static int climbLiftID2 = 0;
+	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);	
+
+	public static DigitalInput limitSwitchUp = new DigitalInput(0);
+	public static DigitalInput limitSwitchDown = new DigitalInput(1);
+
+	public static int ultraSoundRadarID1 = 1;
+	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);
 }
