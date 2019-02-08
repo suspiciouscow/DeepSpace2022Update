@@ -7,9 +7,11 @@
 
 package org.usfirst.frc.team2412.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -31,9 +33,27 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 
+
+	//Motor Can IDS
+
 	public static int[] driveBaseMotorIDs = new int[] {
 		0, 1, 2, 3
 	};
+
+	public static int CargoMotorID1 = 4;
+	public static int armMotorID1 = 5;
+	
+	public static int climbRollerID1 = 6;
+	public static int climbLiftID1 = 7;
+	public static int climbLiftID2 = 8;
+
+	//Solenoids
+
+	public static int shifterID = 1;
+	public static int shifterIDReverse = 2;
+	public static int climbUp = 3;
+	public static int climbDown = 4;
+
 
 	public static CANSparkMax[] driveBaseMotors = new CANSparkMax[] {
 		new CANSparkMax(driveBaseMotorIDs[0], MotorType.kBrushless),
@@ -47,9 +67,34 @@ public class RobotMap {
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
 	
-	public static int shifterID = 6;
-	public static int shifterIDReverse = 2;
 	
+
+
+
 	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
+	
+	//Cargo
+	
+	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
+	//Arm for the whole InTake system
+	
+	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
+	//climb
+	
+	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
+
+	
+	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
+
+	public static WPI_TalonSRX climbLift1 = new WPI_TalonSRX(climbLiftID1);
+
+	
+	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);	
+
+	public static DigitalInput limitSwitchUp = new DigitalInput(0);
+	public static DigitalInput limitSwitchDown = new DigitalInput(1);
+
+	public static int ultraSoundRadarID1 = 1;
+	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);
 }
 
