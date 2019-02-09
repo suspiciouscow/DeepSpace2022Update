@@ -21,6 +21,6 @@ public class TempDriveBaseSubsystem extends Subsystem {
     }
 
     public void drive(Joystick stick) {
-        robotDrive.arcadeDrive(stick.getY(), stick.getTwist()*0.8, true);
+        robotDrive.arcadeDrive(-stick.getY(), -stick.getRawAxis(4)*0.8, true);
     }
 }
