@@ -1,15 +1,62 @@
 package org.usfirst.frc.team2412.robot;
 
-import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import org.usfirst.frc.team2412.robot.RobotMap;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
+
 public class Robot extends TimedRobot {
 
-	public static OI oi = new OI();
+	public static OI m_oi = new OI();
 
+	CommandBase base = new CommandBase();
+
+	public static long startTime = 0;
+
+	public static DigitalOutput LED;
+
+	/**
+	 * This function is run when the robot is first started up and should be
+	 * used for any initialization code.
+	 */
+	@Override
+	public void robotInit() {
+		m_oi = new OI();
+
+		Thread visionThread = new Thread(() -> {
+			System.out.println("In thread");
+			UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
+			CameraServer.getInstance().addCamera(camera);
+			camera.setResolution(640, 480);
+
+			CvSink cvSink = CameraServer.getInstance().getVideo();
+			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 640, 480);
+
+			Mat mat = new Mat();
+
+			while (!Thread.interrupted()) {
+				if (cvSink.grabFrame(mat) == 0) {
+					outputStream.notifyError(cvSink.getError());
+					continue;
+				}
+				Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
+				outputStream.putFrame(mat);
+			}
+		});
+		visionThread.setDaemon(true);
+		visionThread.start();
+		LED = new DigitalOutput(0);
+		LED.set(false);
+	}
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
 	boolean liftBottomResetHeld = false;
 	LiftTopReset liftTopReset = new LiftTopReset();

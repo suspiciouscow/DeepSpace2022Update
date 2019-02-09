@@ -15,7 +15,7 @@ public class GoToLevel2 extends CommandBase {
 
 	@Override
 	protected void execute() {
-		if (Robot.oi.coDriver.getRawButton(3)) {
+		if (Robot.m_oi.coDriver.getRawButton(3)) {
 			liftSubsystem.goToInch(55.5);
 		} else {
 			liftSubsystem.goToInch(47);
