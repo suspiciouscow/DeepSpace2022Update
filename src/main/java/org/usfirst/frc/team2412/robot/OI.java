@@ -8,8 +8,6 @@
 package org.usfirst.frc.team2412.robot;
 
 import org.usfirst.frc.team2412.robot.commands.*;
-import org.usfirst.frc.team2412.robot.commands.TimeLatencyCommand;
-import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -21,34 +19,82 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
+	// Joysticks
+
+	public int coDriverPort = 1;
 
 	public Joystick stick = new Joystick(0);
-	public Joystick coDriver = new Joystick(1);
-	//Change the pneumatics to motors using 62.5 gear turns
-	public Button buttonArmUp = new JoystickButton(coDriver, 1);
-	public Button buttonArmDown = new JoystickButton(coDriver, 2);
-	public Button buttonIn = new JoystickButton(coDriver, 4);
-	public Button buttonOut = new JoystickButton(coDriver, 5);
-	public Button buttonDeploy = new JoystickButton(coDriver, 6);
-	public Button buttonRelease = new JoystickButton(coDriver, 7);
-	public Button buttonClimbUp = new JoystickButton(coDriver, 8);
-	public Button buttonClimbDown = new JoystickButton(coDriver, 9);
-	public Button buttonClimbRollerForward = new JoystickButton(coDriver, 10);
-	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, 11);
+	public Joystick coDriver = new Joystick(coDriverPort);
 
+	// Button IDs
+
+	// Driver
+	public int buttonOutIntakeNumber = 0;
+
+	// coDriver
+
+	public int buttonArmUpNumber = 1;
+	public int buttonArmDownNumber = 2;
+	public int buttonInNumber = 3;
+	public int buttonOutNumber = 4;
+	public int hatchCargoSwitchNumber = 7;
+
+	public int buttonDeployNumber = 5;
+	public int buttonReleaseNumber = 6;
+	public int buttonClimbUpNumber = 8;
+	public int buttonClimbDownNumber = 9;
+	public int buttonClimbRollerForwardNumber = 10;
+	public int buttonClimbRollerReverseNumber = 11;
+
+	public int brakeButtonNumber = 12;
+
+	public int liftUpButtonNumber = 13;
+	public int liftDownButtonNumber = 14;
+	public int level1ButtonNumber = 15;
+	public int level2ButtonNumber = 16;
+	public int level3ButtonNumber = 17;
+
+	// Buttons
+
+	// Intake
+	public Button buttonOutIntake = new JoystickButton(stick, buttonOutIntakeNumber);
+	public Button buttonArmUp = new JoystickButton(coDriver, buttonArmUpNumber);
+	public Button buttonArmDown = new JoystickButton(coDriver, buttonArmDownNumber);
+	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
+	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
+	
+	public Button hatchCargoSwitch = new JoystickButton(coDriver, hatchCargoSwitchNumber);
+	
+	// Climb
+	public Button buttonClimbUp = new JoystickButton(coDriver, buttonClimbUpNumber);
+	public Button buttonClimbDown = new JoystickButton(coDriver, buttonClimbDownNumber);
+	public Button buttonClimbRollerForward = new JoystickButton(coDriver, buttonClimbRollerForwardNumber);
+	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, buttonClimbRollerReverseNumber);
+	public Button buttonDeploy = new JoystickButton(coDriver, buttonDeployNumber);
+	public Button buttonRelease = new JoystickButton(coDriver, buttonReleaseNumber);
+
+	// Drive
 	public Button trigger = new JoystickButton(stick, 1);
 	public Button shiftHighButton = new JoystickButton(stick, 2);
+	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
+
+	// Lift
+	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
+	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
+	public Button level1Button = new JoystickButton(coDriver, level1ButtonNumber);
+	public Button level2Button = new JoystickButton(coDriver, level2ButtonNumber);
+	public Button level3Button = new JoystickButton(coDriver, level3ButtonNumber);
 
 	public OI() {
 		buttonArmUp.whileHeld(new InTakeUp());
-		buttonArmDown.whileHeld(new InTakeDown());		
+		buttonArmDown.whileHeld(new InTakeDown());
 		buttonIn.whileHeld(new InTakeCargo());
 		buttonIn.whenReleased(new InTakeStop());
 		buttonOut.whileHeld(new OutputCargo());
 		buttonOut.whenReleased(new InTakeStop());
+		buttonOutIntake.whileHeld(new PistonsOut());
+		buttonOutIntake.whenReleased(new PistonsIn());
+		
 		buttonDeploy.whenPressed(new DeployRails());
 		buttonRelease.whenPressed(new RetractRails());
 		buttonClimbUp.whileHeld(new ClimbLiftForward());
@@ -56,82 +102,22 @@ public class OI {
 		buttonClimbRollerForward.whileHeld(new ClimbRollerForward());
 		buttonClimbRollerReverse.whileHeld(new ClimbRollerReverse());
 
+		brakeButton.whenPressed(new Brake());
 		trigger.whileHeld(new VisionGuidanceCommand());
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
+		
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());
-		
-//		hatch1Button.whenPressed(new GoToHatchLevel1());
-//		hatch2Button.whenPressed(new GoToHatchLevel2());
-//		hatch3Button.whenPressed(new GoToHatchLevel3());
-//		
-//		cargo1Button.whenPressed(new GoToCargoLevel1());
-//		cargo2Button.whenPressed(new GoToCargoLevel2());
-//		cargo3Button.whenPressed(new GoToCargoLevel3());
-		
-		level1.whenPressed(new GoToLevel1());
-		level2.whenPressed(new GoToLevel2());
-		level3.whenPressed(new GoToLevel3());
-		
-		brakeButton.whenPressed(new Brake());
 
-		buttonOutIntake.whileHeld(new PistonsOut());
-		buttonOutIntake.whenReleased(new PistonsIn());
+		level1Button.whenPressed(new GoToLevel(1));
+		level2Button.whenPressed(new GoToLevel(2));
+		level3Button.whenPressed(new GoToLevel(3));
+
+		
+
+		
 		// trigger.whileHeld(new VisionGuidanceCommand());
 		// trigger.whenPressed(new TimeLatencyCommand());
 	}
-	int coDriverPort = 1;
-	int liftUpButtonNumber = 1;
-	int liftDownButtonNumber = 2;
-	
-	//hatch buttons
-	
-//	int hatch1ButtonNumber = 3;
-//	int hatch2ButtonNumber = 4;
-//	int hatch3ButtonNumber = 5;
-//	
-//	int cargo1ButtonNumber = 6;
-//	int cargo2ButtonNumber = 7;
-//	int cargo3ButtonNumber = 8;
-	
-	int brakeButtonNumber = 9;
-	
-	//// CREATING BUTTONS
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
-	
-	
-	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
-	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
-	
-//	public Button hatch1Button = new JoystickButton(coDriver, hatch1ButtonNumber);
-//	public Button hatch2Button = new JoystickButton(coDriver, hatch2ButtonNumber);
-//	public Button hatch3Button = new JoystickButton(coDriver, hatch3ButtonNumber);
-//	
-//	public Button cargo1Button = new JoystickButton(coDriver, cargo1ButtonNumber);
-//	public Button cargo2Button = new JoystickButton(coDriver, cargo2ButtonNumber);
-//	public Button cargo3Button = new JoystickButton(coDriver, cargo3ButtonNumber);
-//	
-	
-	
-	public Button level1 = new JoystickButton(coDriver, 0);
-	public Button level2 = new JoystickButton(coDriver, 1);
-	public Button level3 = new JoystickButton(coDriver, 2);
-	
-	public Button hatchCargoSwitch = new JoystickButton(coDriver, 3);
-	
-	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
-	
-	
-	
 
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
-	Button buttonOutIntake = new JoystickButton(stick, 4);
-
-	
-
-	
-	}
-
+}
