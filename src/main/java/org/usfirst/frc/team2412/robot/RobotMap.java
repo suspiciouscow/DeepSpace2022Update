@@ -94,14 +94,14 @@ public class RobotMap {
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless) };
 
-	public static DigitalInput liftBottomSwitch = new DigitalInput(0);
-	public static DigitalInput liftTopSwitch = new DigitalInput(1);
+	public static DigitalInput liftBottomSwitch = new DigitalInput(2);
+	public static DigitalInput liftTopSwitch = new DigitalInput(3);
 
 	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
 	public static int limitSwitchID1 = 0;
-	public static DigitalInput limitSwitch1 = new DigitalInput(0);
+	public static DigitalInput limitSwitch1 = new DigitalInput(4);
 
-	public static int ledID1 = 1;
+	public static int ledID1 = 5;
 	public static DigitalOutput led1 = new DigitalOutput(ledID1);
 }
 
