@@ -51,7 +51,9 @@ public class RobotMap {
 	
 	public static int ultraSoundRadarID1 = 1;
 	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);
-}
-	/*We might need to change the UltraSound to a limitswitch
-	 * public static int
-	 */
+
+	//We might need to change the UltraSound to a limit switch
+	public static DigitalInput limitSwitchClimbForward = new DigitalInput(1);
+	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(2);
+	}
+	 

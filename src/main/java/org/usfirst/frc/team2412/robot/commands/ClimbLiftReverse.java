@@ -12,11 +12,6 @@ public class ClimbLiftReverse extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return true;
-	}
-	/*@Override
-	protected boolean isFinished() {
-		return ClimbLift.limitSwitchClimbReverse();
-	}
-	*/
+		//return true;
+		return climbLift.limitSwitchClimbReverse();	}
 }
