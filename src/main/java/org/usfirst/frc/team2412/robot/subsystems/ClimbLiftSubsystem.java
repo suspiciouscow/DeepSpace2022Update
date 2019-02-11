@@ -29,5 +29,18 @@ public class ClimbLiftSubsystem extends Subsystem {
 	}
 	public double ultraSoundRadar() {
 		return ultraSoundRadar.getInches();
-	}
+		}
 }
+	/*DigitalInput limitSwitchClimbUp, limitSwitchClimbDown;
+
+	public void robotInit() {
+		limitSwitchClimbUp = new DigitalInput(1);
+		limitSwitchClimbDown = new DigitalInput(2);
+	}
+		public boolean limitSwitchClimbUp() {
+		return limitSwitchClimbUp.get();
+		
+	}
+	public boolean limitSwitchClimbDown() {
+		return limitSwitchClimbDown.get();
+*/
