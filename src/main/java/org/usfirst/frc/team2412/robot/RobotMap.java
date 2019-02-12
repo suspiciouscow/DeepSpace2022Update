@@ -8,9 +8,12 @@
 package org.usfirst.frc.team2412.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.VictorSP;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -31,16 +34,16 @@ public class RobotMap {
 	
 	//Cargo
 	public static int CargoMotorID1 = 1;
-	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
+	public static WPI_VictorSPX cargoMotor1 = new WPI_VictorSPX(CargoMotorID1);
 	//Arm for the whole InTake system
 	public static int armMotorID1 = 1;
-	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
+	public static WPI_VictorSPX armMotor1 = new WPI_VictorSPX(armMotorID1);
 	//climb
 	public static int climbUp = 0;
 	public static int climbDown = 1;
 	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
-
-	public static int climbRollerID1 = 1;
+	
+	/*public static int climbRollerID1 = 1;
 	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
 
 	public static int climbLiftID1 = 1;
@@ -48,6 +51,15 @@ public class RobotMap {
 
 	public static int climbLiftID2 = 2;
 	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
+	*/
+	public static int victorSPID0 = 0;
+	public static VictorSP victorSP1 = new VictorSP(0);
+	
+	public static int victorSPID1 = 1;
+	public static VictorSP victorSP2 = new VictorSP(1);
+	
+	public static int victorID2 = 2;
+	public static VictorSP victorSP3 = new VictorSP(2);
 	
 	public static int ultraSoundRadarID1 = 1;
 	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);

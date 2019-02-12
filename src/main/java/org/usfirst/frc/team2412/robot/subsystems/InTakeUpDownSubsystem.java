@@ -2,14 +2,14 @@ package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class InTakeUpDownSubsystem extends Subsystem {
 
-	private WPI_TalonSRX armMotor1 = RobotMap.armMotor1;
+	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
 
 	@Override
 	protected void initDefaultCommand() {
