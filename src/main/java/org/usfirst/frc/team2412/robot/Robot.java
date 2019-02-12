@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class Robot extends TimedRobot {
 
-	public static OI m_oi = new OI();
+	public static OI m_oi;
 
 	CommandBase base = new CommandBase();
 
