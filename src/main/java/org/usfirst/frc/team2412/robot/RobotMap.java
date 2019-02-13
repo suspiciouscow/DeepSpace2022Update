@@ -27,6 +27,8 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 
+	public static boolean DEBUG_MODE = true;
+
 	// Motor Can IDS
 
 	public static int[] driveBaseMotorIDs = new int[] { 0, 1, 2, 3, 4, 5 };

@@ -76,6 +76,9 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void goToInch(double inches) {
+		if (RobotMap.DEBUG_MODE) {
+			System.out.println("Lift is going to " + inches + " inches from the ground.");
+		}
 		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
