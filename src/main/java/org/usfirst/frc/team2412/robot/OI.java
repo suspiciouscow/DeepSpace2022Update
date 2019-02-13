@@ -62,9 +62,9 @@ public class OI {
 	public Button buttonArmDown = new JoystickButton(coDriver, buttonArmDownNumber);
 	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
 	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
-	
+
 	public Button hatchCargoSwitch = new JoystickButton(coDriver, hatchCargoSwitchNumber);
-	
+
 	// Climb
 	public Button buttonClimbUp = new JoystickButton(coDriver, buttonClimbUpNumber);
 	public Button buttonClimbDown = new JoystickButton(coDriver, buttonClimbDownNumber);
@@ -94,7 +94,7 @@ public class OI {
 		buttonOut.whenReleased(new InTakeStop());
 		buttonOutIntake.whileHeld(new PistonsOut());
 		buttonOutIntake.whenReleased(new PistonsIn());
-		
+
 		buttonDeploy.whenPressed(new DeployRails());
 		buttonRelease.whenPressed(new RetractRails());
 		buttonClimbUp.whileHeld(new ClimbLiftForward());
@@ -105,7 +105,7 @@ public class OI {
 		brakeButton.whenPressed(new Brake());
 		trigger.whileHeld(new VisionGuidanceCommand());
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
-		
+
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());
 
@@ -113,9 +113,6 @@ public class OI {
 		level2Button.whenPressed(new GoToLevel(2));
 		level3Button.whenPressed(new GoToLevel(3));
 
-		
-
-		
 		// trigger.whileHeld(new VisionGuidanceCommand());
 		// trigger.whenPressed(new TimeLatencyCommand());
 	}

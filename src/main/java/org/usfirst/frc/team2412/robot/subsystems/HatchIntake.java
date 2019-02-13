@@ -4,24 +4,20 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class HatchIntake extends Subsystem {
- int up = 4;
- int down = 0;
- DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+	int up = 4;
+	int down = 0;
+	DoubleSolenoid upDown = new DoubleSolenoid(up, down);
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
 
 	}
-	public void pistonUp()
-	{
+
+	public void pistonUp() {
 		upDown.set(DoubleSolenoid.Value.kForward);
 	}
-	
-	public  void pistonDown()
-	{
+
+	public void pistonDown() {
 		upDown.set(DoubleSolenoid.Value.kReverse);
 	}
-	}
-
-
+}

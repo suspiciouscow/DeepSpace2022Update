@@ -1,21 +1,23 @@
 package org.usfirst.frc.team2412.robot.commands;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 public class LiftUp extends CommandBase {
 
 	public LiftUp() {
-		// TODO Auto-generated constructor stub
 		requires(liftSubsystem);
 	}
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	protected void execute() {
+		if (RobotMap.DEBUG_MODE) {
+			System.out.println("Lift up.");
+		}
 		liftSubsystem.liftUp();
-		System.out.println("going up");
 	}
 }

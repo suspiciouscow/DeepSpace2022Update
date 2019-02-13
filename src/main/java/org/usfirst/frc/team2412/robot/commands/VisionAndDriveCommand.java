@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.PrintCommand;
 
 public class VisionAndDriveCommand extends CommandGroup {
-    public VisionAndDriveCommand() {
-        addSequential(new VisionGuidanceCommand());
-        addSequential(new PrintCommand("Quitting..."));
-    }
+	public VisionAndDriveCommand() {
+		addSequential(new VisionGuidanceCommand());
+		addSequential(new PrintCommand("Quitting..."));
+	}
 }
