@@ -15,15 +15,8 @@ public class ClimbLiftForward extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		double distance = climbLift.ultraSoundRadar();
-		System.out.println(distance);
-		return climbLift.ultraSoundRadar()>19;
-	}
-
-	@Override
-	protected void end() {
-		System.out.println("released");
-		climbLift.ClimbLiftStop();
+		//return climbLift.ultraSoundRadar()>19;
 	//This will stop when the ultrasoundradar when it gets to 19 inches.
+		return climbLift.limitSwitchClimbForward();
 	}
 }

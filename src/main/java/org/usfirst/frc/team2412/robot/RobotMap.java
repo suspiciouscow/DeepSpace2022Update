@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2412.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+<<<<<<< HEAD
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -9,6 +10,14 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.DigitalOutput;
+=======
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.VictorSP;
+
+>>>>>>> a2cfc7acfb913b9a65a4cef4f55faacee74e7710
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -67,20 +76,47 @@ public class RobotMap {
 	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
 	
 	//Cargo
+<<<<<<< HEAD
 	
 	public static WPI_TalonSRX cargoMotor1 = new WPI_TalonSRX(CargoMotorID1);
 	//Arm for the whole InTake system
 	
 	public static WPI_TalonSRX armMotor1 = new WPI_TalonSRX(armMotorID1);
+=======
+	public static int CargoMotorID1 = 1;
+	public static WPI_VictorSPX cargoMotor1 = new WPI_VictorSPX(CargoMotorID1);
+	//Arm for the whole InTake system
+	public static int armMotorID1 = 1;
+	public static WPI_VictorSPX armMotor1 = new WPI_VictorSPX(armMotorID1);
+>>>>>>> a2cfc7acfb913b9a65a4cef4f55faacee74e7710
 	//climb
 	
 	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);	
+<<<<<<< HEAD
 
 	
+=======
+	
+	/*public static int climbRollerID1 = 1;
+>>>>>>> a2cfc7acfb913b9a65a4cef4f55faacee74e7710
 	public static WPI_TalonSRX climbRoller1 = new WPI_TalonSRX(climbRollerID1);
 
 	public static WPI_TalonSRX climbLift1 = new WPI_TalonSRX(climbLiftID1);
 
+<<<<<<< HEAD
+=======
+	public static int climbLiftID2 = 2;
+	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
+	*/
+	public static int victorSPID0 = 0;
+	public static VictorSP victorSP1 = new VictorSP(0);
+	
+	public static int victorSPID1 = 1;
+	public static VictorSP victorSP2 = new VictorSP(1);
+	
+	public static int victorID2 = 2;
+	public static VictorSP victorSP3 = new VictorSP(2);
+>>>>>>> a2cfc7acfb913b9a65a4cef4f55faacee74e7710
 	
 	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);	
 
@@ -89,19 +125,28 @@ public class RobotMap {
 
 	public static int ultraSoundRadarID1 = 1;
 	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar (ultraSoundRadarID1);
+<<<<<<< HEAD
 	public static int[] liftMotorIndexes = { 0, 1 };
 
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless) };
 
-	public static DigitalInput liftBottomSwitch = new DigitalInput(0);
-	public static DigitalInput liftTopSwitch = new DigitalInput(1);
+	public static DigitalInput liftBottomSwitch = new DigitalInput(2);
+	public static DigitalInput liftTopSwitch = new DigitalInput(3);
 
 	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
 	public static int limitSwitchID1 = 0;
-	public static DigitalInput limitSwitch1 = new DigitalInput(0);
+	public static DigitalInput limitSwitch1 = new DigitalInput(4);
 
-	public static int ledID1 = 1;
+	public static int ledID1 = 5;
 	public static DigitalOutput led1 = new DigitalOutput(ledID1);
 }
 
+=======
+
+	//We might need to change the UltraSound to a limit switch
+	public static DigitalInput limitSwitchClimbForward = new DigitalInput(1);
+	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(2);
+	}
+	 
+>>>>>>> a2cfc7acfb913b9a65a4cef4f55faacee74e7710
