@@ -25,8 +25,8 @@ public class Robot extends TimedRobot {
 	public static DigitalOutput LED;
 
 	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * This function is run when the robot is first started up and should be used
+	 * for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
@@ -57,6 +57,7 @@ public class Robot extends TimedRobot {
 		LED = new DigitalOutput(0);
 		LED.set(false);
 	}
+
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
 	boolean liftBottomResetHeld = false;
 	LiftTopReset liftTopReset = new LiftTopReset();

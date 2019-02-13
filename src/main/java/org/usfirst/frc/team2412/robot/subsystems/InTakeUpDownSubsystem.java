@@ -15,8 +15,6 @@ public class InTakeUpDownSubsystem extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		// Ari is Awesome!
-		// The previous comment will NOT crash this computer
 
 	}
 
@@ -27,19 +25,16 @@ public class InTakeUpDownSubsystem extends Subsystem {
 	public void InTakeDown() {
 		armMotor1.set(-0.5);
 	}
+
 	public void InTakeStop() {
 		armMotor1.set(0.0);
 	}
-//Ari is the best!
-//Tim is lying when he says adding comments won't help
 
-
-		public boolean limitSwitchUp() {
+	public boolean limitSwitchUp() {
 		return limitSwitchUp.get();
-		
 	}
+
 	public boolean limitSwitchDown() {
 		return limitSwitchDown.get();
 	}
 }
-

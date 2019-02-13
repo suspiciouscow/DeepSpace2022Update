@@ -8,9 +8,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveBaseShifterSubsystem extends Subsystem {
-	//DoubleSolenoid for shifting.
 	private DoubleSolenoid shifter = RobotMap.shifter;
-	
+
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ShiftLowGearCommand());
@@ -19,7 +18,7 @@ public class DriveBaseShifterSubsystem extends Subsystem {
 	public void shiftHighGear() {
 		shifter.set(Value.kForward);
 	}
-	
+
 	public void shiftLowGear() {
 		shifter.set(Value.kReverse);
 	}

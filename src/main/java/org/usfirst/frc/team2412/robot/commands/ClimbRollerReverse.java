@@ -15,8 +15,8 @@ public class ClimbRollerReverse extends CommandBase {
 		return false;
 	}
 
-@Override
-protected void end() {
-	climbRoller.ClimbRollerStop();
+	@Override
+	protected void end() {
+		climbRoller.ClimbRollerStop();
 	}
 }
