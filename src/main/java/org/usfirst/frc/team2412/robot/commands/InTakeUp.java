@@ -8,7 +8,7 @@ public class InTakeUp extends CommandBase {
 
 	public void execute() {
 		inTakeUpDown.InTakeUp();
-		System.out.println("Alt f4");
+		System.out.println("Ari is Awesome!!!");
 	}
 	public void end() {
 	inTakeUpDown.InTakeStop();
