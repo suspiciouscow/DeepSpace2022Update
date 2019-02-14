@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.DigitalOutput;
  */
 public class VL53L0XSensors {
     private boolean initialized = false;
-    private List<VL53L0X> vl53l0xArray = new ArrayList();
+    private List<VL53L0X> vl53l0xArray = new ArrayList<VL53L0X>();
     // Set up synchronized results buffers
     public List<ArrayBlockingQueue<Integer>> arrayBlockingQueueList = null;
     // Respective DIO
@@ -101,7 +101,7 @@ public class VL53L0XSensors {
 
             int resultsNum = 0;
             for (Integer result : results) {
-                ArrayBlockingQueue curQueue = arrayBlockingQueueList.get(resultsNum++);
+                ArrayBlockingQueue<Integer> curQueue = arrayBlockingQueueList.get(resultsNum++);
                 // If the queue is full take the oldest one from the head.
                 if (curQueue.remainingCapacity() == 0) {
                     curQueue.poll();
