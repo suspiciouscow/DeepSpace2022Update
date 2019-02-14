@@ -9,7 +9,6 @@ import static org.usfirst.frc.team2412.robot.sensors.VL53L0X_Constants.*;
 
 public class VL53L0X extends I2CUpdatableAddress {
 	
-	private Port m_port = Port.kOnboard;
 	//Store address given when the class is initialized.
 	
 	private static final int DEFAULT_ADDRESS = 0x29;
