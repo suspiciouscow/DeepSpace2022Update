@@ -5,6 +5,8 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
+// import org.usfirst.frc.team2412.robot.sensors.I2CUpdatableAddress.NACKException;
+// import org.usfirst.frc.team2412.robot.sensors.VL53L0X;
 
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
@@ -23,6 +25,8 @@ public class Robot extends TimedRobot {
 	public static long startTime = 0;
 
 	public static DigitalOutput LED;
+
+	// private VL53L0X lidar;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -56,6 +60,15 @@ public class Robot extends TimedRobot {
 		visionThread.start();
 		LED = new DigitalOutput(0);
 		LED.set(false);
+
+		/*try {
+			lidar = new VL53L0X(0);
+			System.out.println("Initializing...");
+			boolean success = lidar.init(true);
+			System.out.println(success);
+		} catch (NACKException e) {
+			e.printStackTrace();
+		}*/
 	}
 
 	LiftBottomReset liftBottomReset = new LiftBottomReset();
@@ -86,6 +99,19 @@ public class Robot extends TimedRobot {
 		} else if (!RobotMap.liftTopSwitch.get()) {
 			liftTopResetHeld = false;
 		}
+
+		/*
+		try {
+			System.out.println("Range: " + lidar.readRangeSingleMillimeters());
+			// byte[] data = new byte[1];
+			// lidar.read(0xC0, 1, data);
+			// System.out.println("Data: " + Byte.toString(data[0], 16));
+			// byte[] expected = new byte[1];
+			// expected[0] = (byte) 0xEE;
+			// System.out.println("Verified? " + lidar.verifySensor(0xC0, 1, expected));
+		} catch (NACKException e) {
+			e.printStackTrace();
+		}*/
 	}
 
 }
