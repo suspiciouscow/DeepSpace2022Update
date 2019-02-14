@@ -330,6 +330,11 @@ public class VL53L0X extends I2CUpdatableAddress {
 		read(VL53L0X_Constants.I2C_SLAVE_DEVICE_ADDRESS.value, BYTE_SIZE.SINGLE.value, deviceAddress);
 		return deviceAddress.get();
 	}
+
+	// Returns whether the most recent operation timed out or not
+	public boolean didTimeout() {
+		return did_timeout;
+	}
 	
 	// Writing two bytes of data back-to-back is a special case of writeBulk
 	private synchronized boolean write16(int registerAddress, short data) throws NACKException {
