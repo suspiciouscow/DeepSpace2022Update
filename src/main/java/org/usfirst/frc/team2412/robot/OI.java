@@ -36,10 +36,13 @@ public class OI {
 	public Button buttonOut = new JoystickButton(coDriver, 5);
 	public Button buttonDeploy = new JoystickButton(coDriver, 6);
 	public Button buttonRelease = new JoystickButton(coDriver, 7);
-	public Button buttonClimbUp = new JoystickButton(coDriver, 8);
-	public Button buttonClimbDown = new JoystickButton(coDriver, 9);
-	public Button buttonClimbRollerForward = new JoystickButton(coDriver, 10);
-	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, 11);
+	
+	public Joystick climb = new Joystick(2);
+	
+	public Button buttonClimbUp = new JoystickButton(coDriver, 0);
+	public Button buttonClimbDown = new JoystickButton(coDriver, 1);
+	public Button buttonClimbRollerForward = new JoystickButton(coDriver, 2);
+	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, 3);
 	public OI() {
 		buttonArmUp.whileHeld(new InTakeUp());
 		buttonArmDown.whileHeld(new InTakeDown());		
