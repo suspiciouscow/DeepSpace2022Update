@@ -129,25 +129,25 @@ public class VL53L0XSensors {
 		return results;
 	}
 	
-//	public int readRangeSingleMillimeters(int address) throws I2CUpdatableAddress.NACKException, NotInitalizedException{
-//		if (!initialized){
-//			throw new NotInitalizedException();
-//		}
-//		int result = -1;
-//		if (address == 1){
-//			result = vl53l0x1.readRangeSingleMillimeters();
-//
-//		} else if (address == 2){
-//			result = vl53l0x2.readRangeSingleMillimeters();
-//		}
-//		// Give a little wait between reads
-//		try {
-//			Thread.sleep(10);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//		return result;
-//	}
+	// public int readRangeSingleMillimeters(int address) throws I2CUpdatableAddress.NACKException, NotInitalizedException{
+	// 	if (!initialized){
+	// 		throw new NotInitalizedException();
+	// 	}
+	// 	int result = -1;
+	// 	if (address == 1){
+	// 		result = vl53l0x1.readRangeSingleMillimeters();
+
+	// 	} else if (address == 2){
+	// 		result = vl53l0x2.readRangeSingleMillimeters();
+	// 	}
+	// 	// Give a little wait between reads
+	// 	try {
+	// 		Thread.sleep(10);
+	// 	} catch (InterruptedException e) {
+	// 		e.printStackTrace();
+	// 	}
+	// 	return result;
+	// }
 	
 	
 
@@ -156,7 +156,9 @@ public class VL53L0XSensors {
         //setDefaultCommand(new MySpecialCommand());
     }
 
-    public class NotInitalizedException extends IOException {}
+    public class NotInitalizedException extends IOException {
+        private static final long serialVersionUID = 2983578926791254125L;
+    }
     
 }
 
