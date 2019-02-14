@@ -13,7 +13,6 @@ public class VL53L0X extends I2CUpdatableAddress {
 	
 	private static final int DEFAULT_ADDRESS = 0x29;
 	// The value of the address above the default address.
-	private int deviceAddress;
 	private byte stop_variable;
 	private int measurement_timing_budget_us;
 	private int timeout_start_ms;
