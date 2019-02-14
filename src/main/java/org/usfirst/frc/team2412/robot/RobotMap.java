@@ -6,6 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.DigitalOutput;
@@ -28,15 +29,18 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 
 	public static boolean DEBUG_MODE = true;
+	
+	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel();
 
 	// Motor Can IDS
 
-	public static int[] driveBaseMotorIDs = new int[] { 0, 1, 2, 3, 4, 5 };
+	public static int[] driveBaseMotorIDs = new int[] { 1, 2, 3, 4, 5, 6 };
 
 	public static int CargoMotorID1 = 4;
 	public static int armMotorID1 = 5;
 
 	public static int climbRollerID1 = 6;
+	
 	public static int climbLiftID1 = 7;
 	public static int climbLiftID2 = 8;
 
