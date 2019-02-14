@@ -7,28 +7,27 @@
 
 package org.usfirst.frc.team2412.robot.sensors;
 
+import static java.util.Objects.requireNonNull;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.ByteBuffer;
+
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.hal.I2CJNI;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.nio.ByteBuffer;
-
-import static java.util.Objects.requireNonNull;
-
 /**
  * I2C bus interface class.
  *
- * <p>This class is intended to be used by sensor (and other I2C device) drivers. It probably should
- * not be used directly.
+ * <p>
+ * This class is intended to be used by sensor (and other I2C device) drivers.
+ * It probably should not be used directly.
  */
 public class I2CUpdatableAddress {
     public enum Port {
         kOnboard(0), kMXP(1);
 
-        @SuppressWarnings("MemberName")
         public final int value;
 
         Port(int value) {
