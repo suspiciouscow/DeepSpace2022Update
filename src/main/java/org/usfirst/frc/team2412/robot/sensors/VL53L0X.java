@@ -3,11 +3,13 @@ package org.usfirst.frc.team2412.robot.sensors;
 import java.nio.ByteBuffer;
 
 import edu.wpi.first.hal.HALUtil;
+import edu.wpi.first.wpilibj.PIDSource;
+import edu.wpi.first.wpilibj.PIDSourceType;
 
 import static org.usfirst.frc.team2412.robot.sensors.VL53L0X.vcselPeriodType.*;
 import static org.usfirst.frc.team2412.robot.sensors.VL53L0X_Constants.*;
 
-public class VL53L0X extends I2CUpdatableAddress {
+public class VL53L0X extends I2CUpdatableAddress implements PIDSource {
 	
 	//Store address given when the class is initialized.
 	
@@ -18,6 +20,9 @@ public class VL53L0X extends I2CUpdatableAddress {
 	private int timeout_start_ms;
 	private int io_timeout = 0;
 	private boolean did_timeout;
+
+	// The PIDSourceType, for WPILIB's PIDSource interface.
+	private PIDSourceType sourceType = PIDSourceType.kDisplacement; // Displacement as this is a distance sensor.
 	
 	private enum BYTE_SIZE {
 		SINGLE(1),
@@ -898,5 +903,25 @@ public class VL53L0X extends I2CUpdatableAddress {
 
     private byte encodeVcselPeriod(byte period_pclks) {
         return (byte)(((period_pclks) >> 1) - 1);
-    }
+	}
+	
+	/* Implemented methods for the PIDSource interface. */
+	public void setPIDSourceType(PIDSourceType pidSource) {
+		sourceType = pidSource;
+	}
+
+	public PIDSourceType getPIDSourceType() {
+		return sourceType;
+	}
+
+	public double pidGet() {
+		double range = -1;
+		try {
+			range = readRangeContinuousMillimeters();
+		} catch(NACKException e) {
+			System.err.println("Error occurred when trying to measure distance: ");
+			e.printStackTrace();
+		}
+		return range;
+	}
 }
