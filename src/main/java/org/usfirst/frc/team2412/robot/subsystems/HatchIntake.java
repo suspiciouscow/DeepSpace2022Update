@@ -1,12 +1,13 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class HatchIntake extends Subsystem {
- int up = 4;
- int down = 0;
- DoubleSolenoid upDown = new DoubleSolenoid(up, down);
+ private Solenoid PistonMoving = RobotMap.pistonface;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -15,12 +16,12 @@ public class HatchIntake extends Subsystem {
 	}
 	public void pistonUp()
 	{
-		upDown.set(DoubleSolenoid.Value.kForward);
+		PistonMoving.set(true);
 	}
 	
 	public  void pistonDown()
 	{
-		upDown.set(DoubleSolenoid.Value.kReverse);
+		PistonMoving.set(false);
 	}
 	}
 

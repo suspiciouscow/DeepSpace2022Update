@@ -9,6 +9,7 @@ package org.usfirst.frc.team2412.robot;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.Solenoid;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -31,4 +32,6 @@ public class RobotMap {
 
 	public static int ledID1 = 1;
 	public static DigitalOutput led1 = new DigitalOutput(ledID1);
+	public static int pistontube = 4;
+	public static Solenoid pistonface = new Solenoid(pistontube);
 }
