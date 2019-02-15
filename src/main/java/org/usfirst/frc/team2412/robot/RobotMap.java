@@ -111,7 +111,6 @@ public class RobotMap {
 	public static DigitalInput liftBottomSwitch = new DigitalInput(2);
 	public static DigitalInput liftTopSwitch = new DigitalInput(3);
 
-	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
 	public static int limitSwitchID1 = 0;
 	public static DigitalInput limitSwitch1 = new DigitalInput(4);
 
