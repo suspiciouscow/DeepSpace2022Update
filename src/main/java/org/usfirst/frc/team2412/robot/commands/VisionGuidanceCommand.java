@@ -35,7 +35,7 @@ public class VisionGuidanceCommand extends CommandBase {
 	private NetworkTableEntry targetsFoundEntry;
 
 	public VisionGuidanceCommand() {
-		requires(tempDriveBase);
+		requires(driveBase);
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public class VisionGuidanceCommand1 extends CommandBase {
 	private final double Kp_turning = 1; // Left at 1 for now.
 
 	public VisionGuidanceCommand1() {
-		requires(tempDriveBase);
+		requires(driveBase);
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class VisionGuidanceCommand1 extends CommandBase {
 
 		// Drive at a speed proportional to the pi's distance while turning at an angle proportional to the angle to the target.
 		if(targetsFound) {
-			tempDriveBase.drive(Kp_driving*distance, Kp_turning*angle);
+			driveBase.drive(Kp_driving*distance, Kp_turning*angle);
 		} else {
 			System.err.println("No targets found!");
 		}
