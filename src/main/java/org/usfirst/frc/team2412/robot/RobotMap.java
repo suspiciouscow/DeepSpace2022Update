@@ -6,6 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.DigitalOutput;
@@ -43,7 +44,6 @@ public class RobotMap {
 	// Solenoids
 
 	public static int shifterID = 1;
-	public static int shifterIDReverse = 2;
 	public static int climbUp = 3;
 	public static int climbDown = 4;
 
@@ -64,7 +64,7 @@ public class RobotMap {
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
 
-	public static DoubleSolenoid shifter = new DoubleSolenoid(shifterID, shifterIDReverse);
+	public static Solenoid shifter = new Solenoid(shifterID);
 
 	// Cargo
 	public static WPI_VictorSPX cargoMotor1 = new WPI_VictorSPX(CargoMotorID1);
