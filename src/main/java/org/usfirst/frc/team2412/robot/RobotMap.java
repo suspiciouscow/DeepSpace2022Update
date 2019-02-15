@@ -1,18 +1,16 @@
 package org.usfirst.frc.team2412.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.DigitalOutput;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -92,8 +90,6 @@ public class RobotMap {
 	public static int victorID2 = 2;
 	public static VictorSP victorSP3 = new VictorSP(2);
 
-	public static WPI_TalonSRX climbLift2 = new WPI_TalonSRX(climbLiftID2);
-
 	public static DigitalInput limitSwitchUp = new DigitalInput(0);
 	public static DigitalInput limitSwitchDown = new DigitalInput(1);
 
@@ -117,4 +113,7 @@ public class RobotMap {
 	// We might need to change the UltraSound to a limit switch
 	public static DigitalInput limitSwitchClimbForward = new DigitalInput(1);
 	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(2);
+
+	public static int pistontube = 4;
+	public static Solenoid pistonface = new Solenoid(pistontube);
 }
