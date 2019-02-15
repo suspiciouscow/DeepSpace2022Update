@@ -76,7 +76,6 @@ public class OI {
 	// Drive
 	public Button trigger = new JoystickButton(stick, 1);
 	public Button shiftHighButton = new JoystickButton(stick, 2);
-	public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
 
 	// Lift
 	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
@@ -102,7 +101,6 @@ public class OI {
 		buttonClimbRollerForward.whileHeld(new ClimbRollerForward());
 		buttonClimbRollerReverse.whileHeld(new ClimbRollerReverse());
 
-		brakeButton.whenPressed(new Brake());
 		trigger.whileHeld(new VisionGuidanceCommand());
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
 
