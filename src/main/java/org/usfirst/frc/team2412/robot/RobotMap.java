@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -27,6 +28,8 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 
 	public static boolean DEBUG_MODE = true;
+	
+	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel();
 
 	// Motor Can IDS
 
@@ -94,7 +97,7 @@ public class RobotMap {
 
 	public static int ultraSoundRadarID1 = 1;
 	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
-	public static int[] liftMotorIndexes = { 0, 1 };
+	public static int[] liftMotorIndexes = { 7, 8 };
 
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless) };
