@@ -87,10 +87,6 @@ public class OI {
 	public Button hatchCargoSwitch = new JoystickButton(coDriver, hatchCargoSwitchNumber);
 
 	// Climb
-	public Button buttonClimbUp = new JoystickButton(coDriver, buttonClimbUpNumber);
-	public Button buttonClimbDown = new JoystickButton(coDriver, buttonClimbDownNumber);
-	public Button buttonClimbRollerForward = new JoystickButton(coDriver, buttonClimbRollerForwardNumber);
-	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, buttonClimbRollerReverseNumber);
 	public Button buttonDeploy = new JoystickButton(coDriver, buttonDeployNumber);
 	public Button buttonRelease = new JoystickButton(coDriver, buttonReleaseNumber);
 
@@ -106,6 +102,13 @@ public class OI {
 	public Button level2Button = new JoystickButton(coDriver, level2ButtonNumber);
 	public Button level3Button = new JoystickButton(coDriver, level3ButtonNumber);
 
+	
+	public Joystick climb = new Joystick(2);
+	
+	public Button buttonClimbUp = new JoystickButton(climb, 2);
+	public Button buttonClimbDown = new JoystickButton(climb, 1);
+	public Button buttonClimbRollerForward = new JoystickButton(climb, 2);
+	public Button buttonClimbRollerReverse = new JoystickButton(climb, 3);
 	public OI() {
 		buttonArmUp.whileHeld(new InTakeUp());
 		buttonArmDown.whileHeld(new InTakeDown());
