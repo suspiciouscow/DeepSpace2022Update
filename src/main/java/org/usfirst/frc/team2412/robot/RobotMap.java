@@ -30,20 +30,19 @@ public class RobotMap {
 
 	// Motor Can IDS
 
-	public static int[] driveBaseMotorIDs = new int[] { 0, 1, 2, 3, 4, 5 };
+	public static int[] driveBaseMotorIDs = new int[] { 1, 2, 3, 4, 5, 6 };
 
-	public static int CargoMotorID1 = 4;
-	public static int armMotorID1 = 5;
+	public static int CargoMotorID1 = 9;
+	public static int armMotorID1 = 10;
 
-	public static int climbRollerID1 = 6;
-	public static int climbLiftID1 = 7;
-	public static int climbLiftID2 = 8;
+	// public static int climbLiftID1 = 7;
+	// public static int climbLiftID2 = 8;
 
 	// Solenoids
 
 	public static int shifterID = 1;
-	public static int climbUp = 3;
-	public static int climbDown = 4;
+	public static int climbUp = 0;
+	public static int climbDown = 7;
 
 	// DriveBase
 
@@ -103,7 +102,6 @@ public class RobotMap {
 	public static DigitalInput liftBottomSwitch = new DigitalInput(2);
 	public static DigitalInput liftTopSwitch = new DigitalInput(3);
 
-	public static DoubleSolenoid brakeSolenoid = new DoubleSolenoid(1, 0);
 	public static int limitSwitchID1 = 0;
 	public static DigitalInput limitSwitch1 = new DigitalInput(4);
 
@@ -114,6 +112,6 @@ public class RobotMap {
 	public static DigitalInput limitSwitchClimbForward = new DigitalInput(1);
 	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(2);
 
-	public static int pistontube = 4;
+	public static int pistontube = 6;
 	public static Solenoid pistonface = new Solenoid(pistontube);
 }
