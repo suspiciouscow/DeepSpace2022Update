@@ -33,7 +33,14 @@ public class RobotMap {
 
 	// Motor Can IDS
 
-	public static int[] driveBaseMotorIDs = new int[] { 1, 2, 3, 4, 5, 6 };
+	public static int[] driveBaseMotorIDs = new int[] {
+		/*-----Front Of Robot-----*/
+		/*Left side*//* Right Side*/
+		 1,            			 6,
+		 2,            			 5,
+		 3,            			 4,
+		/*------Back Of Robot-----*/
+	 };
 
 	public static int CargoMotorID1 = 9;
 	public static int armMotorID1 = 10;
@@ -57,13 +64,14 @@ public class RobotMap {
 			new CANSparkMax(driveBaseMotorIDs[4], MotorType.kBrushless),
 			new CANSparkMax(driveBaseMotorIDs[5], MotorType.kBrushless) };
 
-	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(driveBaseMotors[0], driveBaseMotors[1],
-			driveBaseMotors[2]);
-	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(driveBaseMotors[3], driveBaseMotors[4],
+	//Differential Drive
+	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(driveBaseMotors[0], driveBaseMotors[2],
+			driveBaseMotors[4]);
+	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(driveBaseMotors[1], driveBaseMotors[3],
 			driveBaseMotors[5]);
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
-
+	//Drive Shifters
 	public static Solenoid shifter = new Solenoid(shifterID);
 
 	// Cargo

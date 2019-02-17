@@ -14,11 +14,11 @@ public class DriveBaseShifterSubsystem extends Subsystem {
 	protected void initDefaultCommand() {
 		setDefaultCommand(new ShiftLowGearCommand());
 	}
-
+	//For shifting into high gear
 	public void shiftHighGear() {
 		shifter.set(true);
 	}
-
+	//For shifting into low gear
 	public void shiftLowGear() {
 		shifter.set(false);
 	}
