@@ -69,7 +69,7 @@ public class DriveBaseSubsystem extends PIDSubsystem {
 	}
 
 	public void drive(Joystick stick) {
-		robotDrive.arcadeDrive(-stick.getY(), -stick.getRawAxis(4) * 0.8, true);
+		robotDrive.arcadeDrive(stick.getY(), -stick.getTwist() * 0.8, true);
 	}
 
 	// Methods for resetting and retrieving encoder values.
