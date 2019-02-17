@@ -15,9 +15,11 @@ public class ClimbPneumaticsSubsystem extends Subsystem {
 
 	public void DeployRails() {
 		climbPneumatics.set(DoubleSolenoid.Value.kForward);
+		System.out.println("Deploy");
 	}
 
 	public void RetractRails() {
 		climbPneumatics.set(DoubleSolenoid.Value.kReverse);
+		System.out.println("Retract");
 	}
 }
