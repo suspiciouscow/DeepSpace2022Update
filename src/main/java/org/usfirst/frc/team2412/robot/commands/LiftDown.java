@@ -10,7 +10,7 @@ public class LiftDown extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -19,5 +19,9 @@ public class LiftDown extends CommandBase {
 			System.out.println("Lift down.");
 		}
 		liftSubsystem.liftDown();
+	}
+
+	protected void end() {
+		liftSubsystem.liftStop();
 	}
 }

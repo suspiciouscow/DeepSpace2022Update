@@ -39,10 +39,10 @@ public class LiftSubsystem extends Subsystem {
 	double D = 0;
 
 	public LiftSubsystem() {
-		PIDController.setP(P);
-		PIDController.setI(I);
-		PIDController.setD(D);
-		PIDController.setOutputRange(-1, 1);
+		// PIDController.setP(P);
+		// PIDController.setI(I);
+		// PIDController.setD(D);
+		// PIDController.setOutputRange(-1, 1);
 	}
 
 	@Override
@@ -55,21 +55,27 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		if (motorEncoder.getPosition() + encoderOffset > topLimit) {
-			resetTop();
-			liftMotorLeader.set(0);
-			return;
-		}
+		// if (motorEncoder.getPosition() + encoderOffset > topLimit) {
+		// 	resetTop();
+		// 	liftMotorLeader.set(0);
+		// 	return;
+		// }
 		liftMotorLeader.set(0.5);
+		System.out.println("Lifted Up");
 	}
 
 	public void liftDown() {
-		if (motorEncoder.getPosition() + encoderOffset < 1) {
-			liftMotorLeader.set(0);
-			resetBottom();
-			return;
-		}
+		// if (motorEncoder.getPosition() + encoderOffset < 1) {
+		// 	liftMotorLeader.set(0);
+		// 	resetBottom();
+		// 	return;
+		// }
 		liftMotorLeader.set(-0.5);
+		System.out.println("Lifted Down");
+	}
+
+	public void liftStop() {
+		liftMotorLeader.set(0.0);
 	}
 
 	public void goToInch(double inches) {
