@@ -41,7 +41,7 @@ public class VisionGuidanceCommand2 extends CommandBase {
 	private NetworkTableEntry doextakeEntry;
 	private NetworkTableEntry targetsFoundEntry;
 
-	private final double Kp_driving = 0.5/200; // 0.5 is the maximum speed we can drive at (this is half speed so we don't drive too fast), and 200 is (roughly) the max distance.
+	private final double Kp_driving = 0.5/120; // 0.5 is the maximum speed we can drive at (this is half speed so we don't drive too fast), and 120 is the max distance.
 	private final double Kp_turning = 1; // Left at 1 for now.
 
 	private VL53L0X lidar; 
@@ -117,6 +117,9 @@ public class VisionGuidanceCommand2 extends CommandBase {
 		
 		try {
 			distance = lidar.readRangeSingleMillimeters() / 10; // Convert from milimeters to centimeters.
+			if(distance > 120) {
+				distance = 120;
+			}
 		} catch (NACKException e) {
 			e.printStackTrace();
 		}
@@ -128,7 +131,7 @@ public class VisionGuidanceCommand2 extends CommandBase {
 
 		// Drive at a speed proportional to the lidar's distance while turning at an angle proportional to the angle to the target.
 		if(targetsFound) {
-			driveBase.drive(Kp_driving*distance, Kp_turning*angle);
+			driveBase.drive(-Kp_driving*distance, -Kp_turning*angle);
 		} else {
 			System.err.println("No targets found!");
 		}
