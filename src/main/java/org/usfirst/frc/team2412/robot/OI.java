@@ -24,7 +24,7 @@ import org.usfirst.frc.team2412.robot.commands.PistonsIn;
 import org.usfirst.frc.team2412.robot.commands.PistonsOut;
 import org.usfirst.frc.team2412.robot.commands.RetractRails;
 import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
-import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand;
+import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand2;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -127,7 +127,7 @@ public class OI {
 		buttonClimbRollerReverse.whileHeld(new ClimbRollerReverse());
 
 		// brakeButton.whenPressed(new Brake());
-		trigger.whileHeld(new VisionGuidanceCommand());
+		trigger.whileHeld(new VisionGuidanceCommand2());
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
 
 		liftUpButton.whileHeld(new LiftUp());
