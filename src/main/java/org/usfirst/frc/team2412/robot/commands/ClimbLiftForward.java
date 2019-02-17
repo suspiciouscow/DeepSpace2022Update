@@ -12,7 +12,8 @@ public class ClimbLiftForward extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return climbLift.limitSwitchClimbForward();
+		return false;
+		// return climbLift.limitSwitchClimbForward();
 	}
 	protected void end() {
 		climbLift.ClimbLiftStop();
