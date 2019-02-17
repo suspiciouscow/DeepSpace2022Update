@@ -14,11 +14,11 @@ public class HatchIntake extends Subsystem {
 	}
 	public void pistonUp()
 	{
-		PistonMoving.set(true);
+		PistonMoving.set(false);
 	}
 	
 	public  void pistonDown()
 	{
-		PistonMoving.set(false);
+		PistonMoving.set(true);
 	}
 }
