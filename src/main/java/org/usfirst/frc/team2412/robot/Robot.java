@@ -12,8 +12,10 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends TimedRobot {
 
@@ -115,19 +117,19 @@ public class Robot extends TimedRobot {
 		}*/
 		
 		
-		// PowerDistributionPanel powerPanel = RobotMap.powerPanel;
+		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
 		
-		// double[] ids = new double[15];
-		// double[] power = new double[15];
+		double[] ids = new double[15];
+		double[] power = new double[15];
 		
-		// for(int i = 0; i<15; i++) {
-		// 	ids[i] = i+1;
-		// 	power[i] = powerPanel.getCurrent(i);
-		// }
+		for(int i = 0; i<15; i++) {
+			ids[i] = i+1;
+			power[i] = powerPanel.getCurrent(i);
+		}
 		
 		
-		// SmartDashboard.putNumberArray("Amps", power);
-		// SmartDashboard.putNumberArray("IDs", ids);
+		SmartDashboard.putNumberArray("Amps", power);
+		SmartDashboard.putNumberArray("IDs", ids);
 	}
 
 }
