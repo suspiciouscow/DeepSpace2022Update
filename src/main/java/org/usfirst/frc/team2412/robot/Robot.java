@@ -1,6 +1,8 @@
 package org.usfirst.frc.team2412.robot;
 
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
@@ -44,9 +46,8 @@ public class Robot extends TimedRobot {
 			CameraServer.getInstance().addCamera(camera);
 			camera.setResolution(160, 120);
 			camera.setFPS(60);
-
 			CvSink cvSink = CameraServer.getInstance().getVideo();
-			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 640, 480);
+			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 160, 120);
 
 			Mat mat = new Mat();
 
@@ -55,6 +56,7 @@ public class Robot extends TimedRobot {
 					outputStream.notifyError(cvSink.getError());
 					continue;
 				}
+				Core.flip(mat,mat,Core.ROTATE_180);
 				Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
 				outputStream.putFrame(mat);
 			}
