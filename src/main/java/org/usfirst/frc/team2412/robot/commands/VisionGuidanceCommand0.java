@@ -106,7 +106,7 @@ public class VisionGuidanceCommand0 extends CommandBase {
 		// Drive at a constant speed while turning at an angle proportional to the angle to the target.
 		if(targetsFound) { 
 			// angle = (Math.abs(angle) > 0.03) ? angle : 0;
-			driveBase.drive(-0.4, angle);
+			driveBase.drive(-0.4, -angle);
 			System.out.println("Angle: " + angle); 
 		} else {
 			System.err.println("No targets found!");
