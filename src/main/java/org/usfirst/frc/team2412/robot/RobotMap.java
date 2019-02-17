@@ -29,7 +29,7 @@ public class RobotMap {
 
 	public static boolean DEBUG_MODE = true;
 	
-	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel();
+	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel(11);
 
 	// Motor Can IDS
 
@@ -105,7 +105,7 @@ public class RobotMap {
 
 	public static int ultraSoundRadarID1 = 1;
 	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
-	public static int[] liftMotorIndexes = { 7, 8 };
+	public static int[] liftMotorIndexes = { 7, 8};
 
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
 			new CANSparkMax(liftMotorIndexes[1], MotorType.kBrushless) };
@@ -120,8 +120,8 @@ public class RobotMap {
 	public static DigitalOutput led1 = new DigitalOutput(ledID1);
 
 	// We might need to change the UltraSound to a limit switch
-	public static DigitalInput limitSwitchClimbForward = new DigitalInput(1);
-	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(2);
+	public static DigitalInput limitSwitchClimbForward = new DigitalInput(6);
+	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(7);
 
 	public static int pistontube = 6;
 	public static Solenoid pistonface = new Solenoid(pistontube);
