@@ -21,12 +21,12 @@ public class LiftSubsystem extends Subsystem {
 	double encoderOffset = 0;
 
 	// inches
-	double outputGearRadius = 6;
+	double outputGearRadius = 0.75;
 	double outputGearCircumference = outputGearRadius * 2 * Math.PI;
 	double pullyRatio = 1; // one inch on string moves the lift up x inches
 
 	// rotations
-	double gearboxRatio = 7/*?*/; // how many motor rotations are one output rotation
+	double gearboxRatio = 9.52; // how many motor rotations are one output rotation
 
 	double motorRotationsToInches = outputGearCircumference * pullyRatio / gearboxRatio;
 
@@ -39,10 +39,10 @@ public class LiftSubsystem extends Subsystem {
 	double D = 0;
 
 	public LiftSubsystem() {
-		// PIDController.setP(P);
-		// PIDController.setI(I);
-		// PIDController.setD(D);
-		// PIDController.setOutputRange(-1, 1);
+		PIDController.setP(P);
+		PIDController.setI(I);
+		PIDController.setD(D);
+		PIDController.setOutputRange(-1, 1);
 	}
 
 	@Override
