@@ -81,15 +81,9 @@ public class Robot extends TimedRobot {
 	LiftTopReset liftTopReset = new LiftTopReset();
 	boolean liftTopResetHeld = false;
 
-	int counter = 0;
-
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-
-		if (counter++ % 50 == 0) {
-			System.out.println("Hello, world!");
-		}
 
 		// if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
 		// 	liftBottomReset.execute();
