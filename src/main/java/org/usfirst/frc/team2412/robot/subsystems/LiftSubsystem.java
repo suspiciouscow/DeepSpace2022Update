@@ -34,7 +34,7 @@ public class LiftSubsystem extends Subsystem {
 	CANPIDController PIDController = liftMotorLeader.getPIDController();
 	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
-	double P = 0.01;
+	double P = 0.015;
 	double I = 0;
 	double D = 0;
 
