@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
 			UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
 			CameraServer.getInstance().addCamera(camera);
 			camera.setResolution(160, 120);
-			camera.setFPS(60);
+			camera.setFPS(30);
 			CvSink cvSink = CameraServer.getInstance().getVideo();
 			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 160, 120);
 
