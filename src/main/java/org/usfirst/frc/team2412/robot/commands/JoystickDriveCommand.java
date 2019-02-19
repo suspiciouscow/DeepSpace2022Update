@@ -4,11 +4,11 @@ import org.usfirst.frc.team2412.robot.Robot;
 
 public class JoystickDriveCommand extends CommandBase {
 	public JoystickDriveCommand() {
-		requires(tempDriveBase);
+		requires(driveBase);
 	}
 
 	@Override
 	protected void execute() {
-		tempDriveBase.drive(Robot.m_oi.stick);
+		driveBase.drive(Robot.m_oi.stick);
 	}
 }

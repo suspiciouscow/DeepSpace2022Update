@@ -7,7 +7,24 @@
 
 package org.usfirst.frc.team2412.robot;
 
-import org.usfirst.frc.team2412.robot.commands.*;
+import org.usfirst.frc.team2412.robot.commands.ClimbLiftForward;
+import org.usfirst.frc.team2412.robot.commands.ClimbLiftReverse;
+import org.usfirst.frc.team2412.robot.commands.ClimbRollerForward;
+import org.usfirst.frc.team2412.robot.commands.ClimbRollerReverse;
+import org.usfirst.frc.team2412.robot.commands.DeployRails;
+import org.usfirst.frc.team2412.robot.commands.GoToLevel;
+import org.usfirst.frc.team2412.robot.commands.InTakeCargo;
+import org.usfirst.frc.team2412.robot.commands.InTakeDown;
+import org.usfirst.frc.team2412.robot.commands.InTakeStop;
+import org.usfirst.frc.team2412.robot.commands.InTakeUp;
+import org.usfirst.frc.team2412.robot.commands.LiftDown;
+import org.usfirst.frc.team2412.robot.commands.LiftUp;
+import org.usfirst.frc.team2412.robot.commands.OutputCargo;
+import org.usfirst.frc.team2412.robot.commands.PistonsIn;
+import org.usfirst.frc.team2412.robot.commands.PistonsOut;
+import org.usfirst.frc.team2412.robot.commands.RetractRails;
+import org.usfirst.frc.team2412.robot.commands.ShiftHighGearCommand;
+import org.usfirst.frc.team2412.robot.commands.VisionGuidanceCommand2;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -29,30 +46,34 @@ public class OI {
 	// Button IDs
 
 	// Driver
-	public int buttonOutIntakeNumber = 0;
+	public int buttonOutIntakeNumber = 3; // Changed from 0 to 3
 
 	// coDriver
 
 	public int buttonArmUpNumber = 1;
 	public int buttonArmDownNumber = 2;
-	public int buttonInNumber = 3;
+	public int buttonInNumber = 12;
 	public int buttonOutNumber = 4;
-	public int hatchCargoSwitchNumber = 7;
 
-	public int buttonDeployNumber = 5;
-	public int buttonReleaseNumber = 6;
-	public int buttonClimbUpNumber = 8;
-	public int buttonClimbDownNumber = 9;
-	public int buttonClimbRollerForwardNumber = 10;
-	public int buttonClimbRollerReverseNumber = 11;
+	// Climb buttons - on a separate joystick
 
-	public int brakeButtonNumber = 12;
+	public int buttonDeployNumber = 1; // Changed from 5 to 1
+	public int buttonReleaseNumber = 2; // Changed from 6 to 2
+	public int buttonClimbUpNumber = 3; // Changed from 7 to 3
+	public int buttonClimbDownNumber = 4; // Changed from 8 to 4
+	public int buttonClimbRollerForwardNumber = 5; // Changed from 10 to 5
+	public int buttonClimbRollerReverseNumber = 6; // Changed from 11 to 6
 
-	public int liftUpButtonNumber = 13;
-	public int liftDownButtonNumber = 14;
-	public int level1ButtonNumber = 15;
-	public int level2ButtonNumber = 16;
-	public int level3ButtonNumber = 17;
+	// public int brakeButtonNumber = 12;
+
+	// Lift buttons - on the codriver
+
+	public int liftUpButtonNumber = 5; // Changed from 13 to 5
+	public int liftDownButtonNumber = 6; // Changed from 14 to 6
+	public int level1ButtonNumber = 7; // Changed from 15 to 7
+	public int level2ButtonNumber = 8; // Changed from 16 to 8
+	public int level3ButtonNumber = 9; // Changed from 17 to 9
+	public int hatchCargoSwitchNumber = 10; // Changed from 7 to 10
 
 	// Buttons
 
@@ -65,17 +86,10 @@ public class OI {
 
 	public Button hatchCargoSwitch = new JoystickButton(coDriver, hatchCargoSwitchNumber);
 
-	// Climb
-	public Button buttonClimbUp = new JoystickButton(coDriver, buttonClimbUpNumber);
-	public Button buttonClimbDown = new JoystickButton(coDriver, buttonClimbDownNumber);
-	public Button buttonClimbRollerForward = new JoystickButton(coDriver, buttonClimbRollerForwardNumber);
-	public Button buttonClimbRollerReverse = new JoystickButton(coDriver, buttonClimbRollerReverseNumber);
-	public Button buttonDeploy = new JoystickButton(coDriver, buttonDeployNumber);
-	public Button buttonRelease = new JoystickButton(coDriver, buttonReleaseNumber);
-
 	// Drive
 	public Button trigger = new JoystickButton(stick, 1);
 	public Button shiftHighButton = new JoystickButton(stick, 2);
+	// public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
 
 	// Lift
 	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
@@ -84,6 +98,17 @@ public class OI {
 	public Button level2Button = new JoystickButton(coDriver, level2ButtonNumber);
 	public Button level3Button = new JoystickButton(coDriver, level3ButtonNumber);
 
+	
+	public Joystick climb = new Joystick(2);
+	
+	
+	// Climb
+	public Button buttonDeploy = new JoystickButton(climb, buttonDeployNumber);
+	public Button buttonRelease = new JoystickButton(climb, buttonReleaseNumber);
+	public Button buttonClimbUp = new JoystickButton(climb, 3);
+	public Button buttonClimbDown = new JoystickButton(climb, 4);
+	public Button buttonClimbRollerForward = new JoystickButton(climb, 5);
+	public Button buttonClimbRollerReverse = new JoystickButton(climb, 6);
 	public OI() {
 		buttonArmUp.whileHeld(new InTakeUp());
 		buttonArmDown.whileHeld(new InTakeDown());
@@ -101,7 +126,8 @@ public class OI {
 		buttonClimbRollerForward.whileHeld(new ClimbRollerForward());
 		buttonClimbRollerReverse.whileHeld(new ClimbRollerReverse());
 
-		trigger.whileHeld(new VisionGuidanceCommand());
+		// brakeButton.whenPressed(new Brake());
+		trigger.whileHeld(new VisionGuidanceCommand2());
 		shiftHighButton.whileHeld(new ShiftHighGearCommand());
 
 		liftUpButton.whileHeld(new LiftUp());

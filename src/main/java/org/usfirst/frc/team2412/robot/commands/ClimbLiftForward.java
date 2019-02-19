@@ -7,10 +7,15 @@ public class ClimbLiftForward extends CommandBase {
 
 	public void execute() {
 		climbLift.ClimbLiftForward();
+	System.out.println("Lift Forward");
 	}
 
 	@Override
 	protected boolean isFinished() {
-		return climbLift.limitSwitchClimbForward();
+		return false;
+		// return climbLift.limitSwitchClimbForward();
+	}
+	protected void end() {
+		climbLift.ClimbLiftStop();
 	}
 }

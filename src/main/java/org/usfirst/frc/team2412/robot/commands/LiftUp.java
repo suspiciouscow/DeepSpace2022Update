@@ -20,4 +20,8 @@ public class LiftUp extends CommandBase {
 		}
 		liftSubsystem.liftUp();
 	}
+
+	protected void end() {
+		liftSubsystem.liftStop();
+	}
 }

@@ -17,7 +17,7 @@ public class GoToLevel extends CommandBase {
 	}
 
 	protected void execute() {
-		if (Robot.m_oi.coDriver.getRawButton(3)) {
+		if (Robot.m_oi.coDriver.getRawButton(10)) {
 			if (RobotMap.DEBUG_MODE) {
 				System.out.println("Going to cargo " + level + ".");
 			}
