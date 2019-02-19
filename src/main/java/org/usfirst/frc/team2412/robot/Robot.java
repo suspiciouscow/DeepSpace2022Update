@@ -81,8 +81,8 @@ public class Robot extends TimedRobot {
 	LiftTopReset liftTopReset = new LiftTopReset();
 	boolean liftTopResetHeld = false;
 
-	@Override
-	public void teleopPeriodic() {
+	// Called periodically in sandstorm or teleop.
+	public void controlledPeriodic() {
 		Scheduler.getInstance().run();
 
 		// if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
@@ -126,6 +126,16 @@ public class Robot extends TimedRobot {
 		
 		SmartDashboard.putNumberArray("Amps", power);
 		SmartDashboard.putNumberArray("IDs", ids);
+	}
+
+	@Override
+	public void teleopPeriodic() {
+		controlledPeriodic();
+	}
+
+	@Override
+	public void autonomousPeriodic() {
+		controlledPeriodic();
 	}
 
 }
