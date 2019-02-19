@@ -16,7 +16,7 @@ public class LiftSubsystem extends Subsystem {
 	double inchOffset = 19; // this is the offset for the lift, as it doesnt go lower than the top hatch,
 							// and this makes the robot go to x inches above the ground
 
-	double topLimit = 100; // this will prevent the robot from going too high
+	double topLimit = 115; // this will prevent the robot from going too high
 
 	double encoderOffset = 0;
 
@@ -43,6 +43,12 @@ public class LiftSubsystem extends Subsystem {
 		PIDController.setI(I);
 		PIDController.setD(D);
 		PIDController.setOutputRange(-1, 1);
+		resetBottom();
+		encoderOffset *= -1;
+		if (RobotMap.DEBUG_MODE) {
+			System.out.println(encoderOffset);
+			System.out.println(motorEncoder.getPosition() + encoderOffset);
+		}
 	}
 
 	@Override
@@ -55,21 +61,29 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		// if (motorEncoder.getPosition() + encoderOffset > topLimit) {
-		// 	resetTop();
-		// 	liftMotorLeader.set(0);
-		// 	return;
-		// }
+		System.out.println(motorEncoder.getPosition() + encoderOffset);
+		if (motorEncoder.getPosition() + encoderOffset > topLimit) {
+			liftMotorLeader.set(0);
+			resetTop();
+			if (RobotMap.DEBUG_MODE) {
+				System.out.println("Top of lift reached; stopping...");
+			}
+			return;
+		}
 		liftMotorLeader.set(0.5);
 		System.out.println("Lifted Up");
 	}
 
 	public void liftDown() {
-		// if (motorEncoder.getPosition() + encoderOffset < 1) {
-		// 	liftMotorLeader.set(0);
-		// 	resetBottom();
-		// 	return;
-		// }
+		System.out.println(motorEncoder.getPosition() + encoderOffset);
+		if (motorEncoder.getPosition() + encoderOffset < 1) {
+			liftMotorLeader.set(0);
+			resetBottom();
+			if (RobotMap.DEBUG_MODE) {
+				System.out.println("Bottom of lift reached; stopping...");
+			}
+			return;
+		}
 		liftMotorLeader.set(-0.5);
 		System.out.println("Lifted Down");
 	}
@@ -87,12 +101,12 @@ public class LiftSubsystem extends Subsystem {
 
 	public void resetBottom() {
 		encoderOffset = motorEncoder.getPosition();
-		PIDController.setReference(encoderOffset, ControlType.kPosition);
+		// PIDController.setReference(encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetTop() {
 		encoderOffset = topLimit - motorEncoder.getPosition();
-		PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
+		// PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
 
 	public double getInches() {
