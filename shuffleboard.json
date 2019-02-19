@@ -12,8 +12,8 @@
         "tiles": {
           "1,0": {
             "size": [
-              3,
-              2
+              5,
+              4
             ],
             "content": {
               "_type": "Camera Stream",
@@ -22,11 +22,11 @@
               "Crosshair/Show crosshair": true,
               "Crosshair/Crosshair color": "#FFFFFFFF",
               "Controls/Show controls": true,
-              "Controls/Rotation": "HALF",
+              "Controls/Rotation": "NONE",
               "compression": -1.0,
               "fps": -1,
-              "imageWidth": -1,
-              "imageHeight": -1
+              "imageWidth": 0,
+              "imageHeight": 0
             }
           }
         }
@@ -203,6 +203,19 @@
               "Layout/Label position": "BOTTOM",
               "_children": []
             }
+          },
+          "8,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/InTakeUpDownSubsystem",
+              "_title": "InTakeUpDownSubsystem",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
           }
         }
       }
@@ -211,7 +224,7 @@
   "windowGeometry": {
     "x": 0.0,
     "y": 0.0,
-    "width": 1366.0,
+    "width": 1366.4000244140625,
     "height": 728.0
   }
 }
