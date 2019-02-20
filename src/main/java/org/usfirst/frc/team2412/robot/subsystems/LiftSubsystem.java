@@ -16,7 +16,7 @@ public class LiftSubsystem extends Subsystem {
 	double inchOffset = 19; // this is the offset for the lift, as it doesnt go lower than the top hatch,
 							// and this makes the robot go to x inches above the ground
 
-	double topLimit = 115; // this will prevent the robot from going too high
+	double topLimit = 130; // this will prevent the robot from going too high
 
 	double encoderOffset = 0;
 
