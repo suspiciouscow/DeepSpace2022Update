@@ -44,7 +44,6 @@ public class LiftSubsystem extends Subsystem {
 		PIDController.setD(D);
 		PIDController.setOutputRange(-1, 1);
 		resetBottom();
-		encoderOffset *= -1;
 		if (RobotMap.DEBUG_MODE) {
 			System.out.println(encoderOffset);
 			System.out.println(motorEncoder.getPosition() + encoderOffset);
@@ -100,7 +99,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void resetBottom() {
-		encoderOffset = motorEncoder.getPosition();
+		encoderOffset = -motorEncoder.getPosition();
 		// PIDController.setReference(encoderOffset, ControlType.kPosition);
 	}
 
