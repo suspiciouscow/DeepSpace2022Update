@@ -28,6 +28,7 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 
 	public static boolean DEBUG_MODE = true;
+	public static boolean CLIMB_MODE = false; // If the codriver has pressed the rail deploy button or not
 	
 	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel(11);
 

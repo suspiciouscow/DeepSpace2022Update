@@ -116,7 +116,7 @@ public class OI {
 
 		// brakeButton.whenPressed(new Brake());
 		trigger.whileHeld(new VisionGuidanceCommand2());
-		shiftHighButton.whileHeld(new ShiftHighGearCommand());
+		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
 
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());

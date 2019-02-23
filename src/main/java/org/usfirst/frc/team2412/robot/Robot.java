@@ -127,10 +127,20 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumberArray("Amps", power);
 		SmartDashboard.putNumberArray("IDs", ids);
 	}
+	
+	@Override
+	public void teleopInit() {
+		RobotMap.CLIMB_MODE = false;
+	}
 
 	@Override
 	public void teleopPeriodic() {
 		controlledPeriodic();
+	}
+
+	@Override
+	public void autonomousInit() {
+		RobotMap.CLIMB_MODE = false;
 	}
 
 	@Override
