@@ -16,10 +16,10 @@ public class DriveBaseShifterSubsystem extends Subsystem {
 	}
 	//For shifting into high gear
 	public void shiftHighGear() {
-		shifter.set(true);
+		shifter.set(false);
 	}
 	//For shifting into low gear
 	public void shiftLowGear() {
-		shifter.set(false);
+		shifter.set(true);
 	}
 }
