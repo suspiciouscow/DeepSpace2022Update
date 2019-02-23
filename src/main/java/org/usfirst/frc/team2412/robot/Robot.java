@@ -2,7 +2,6 @@ package org.usfirst.frc.team2412.robot;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
