@@ -10,7 +10,6 @@ package org.usfirst.frc.team2412.robot;
 import org.usfirst.frc.team2412.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -110,6 +109,15 @@ public class OI {
 	public Button buttonClimbRollerForward = new JoystickButton(climb, 5);
 	public Button buttonClimbRollerReverse = new JoystickButton(climb, 6);
 
+	// Manual buttons
+
+	public Button buttonManualNone = new JoystickButton(coDriver, manualNoneNumber);
+	public Button buttonManualLift = new JoystickButton(coDriver, manualLiftNumber);
+	public Button buttonManualIntakeRotate = new JoystickButton(coDriver, manualIntakeRotateNumber);
+	public Button buttonManualIntakeInOut = new JoystickButton(coDriver, manualIntakeInOutNumber);
+	public Button buttonManualClimbLift = new JoystickButton(coDriver, manualClimbLiftNumber);
+	public Button buttonManualClimbRoller = new JoystickButton(coDriver, manualClimbRollerNumber);
+
 	public OI() {
 		buttonArmUp.whileHeld(new InTakeUp());
 		buttonArmDown.whileHeld(new InTakeDown());
@@ -145,27 +153,4 @@ public class OI {
 		// trigger.whenPressed(new TimeLatencyCommand());
 	}
 
-	// Methods for determining which mode the manual button has selected
-	public static enum MANUAL_MODE {
-		NONE, LIFTUPDOWN, INTAKEROTATE, INTAKEINOUT, CLIMBUPDOWN, CLIMBROLLER
-	}
-
-	public boolean getManualMode(MANUAL_MODE buttonMode) {
-		switch(buttonMode) {
-			case NONE:
-				return coDriver.getRawButton(manualNoneNumber);
-			case LIFTUPDOWN:
-				return coDriver.getRawButton(manualLiftNumber);
-			case INTAKEROTATE:
-				return coDriver.getRawButton(manualIntakeRotateNumber);
-			case INTAKEINOUT:
-				return coDriver.getRawButton(manualIntakeInOutNumber);
-			case CLIMBUPDOWN:
-				return coDriver.getRawButton(manualClimbLiftNumber);
-			case CLIMBROLLER:
-				return coDriver.getRawButton(manualClimbRollerNumber);
-			default:
-				return false;
-		}
-	}
 }
