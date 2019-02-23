@@ -63,6 +63,15 @@ public class OI {
 	public int liftBottomResetButtonNumber = 7; // Timothy make sure these values are ok.
 	public int liftTopResetButtonNumber = 8;
 
+	// Buttons for the manual dial
+	
+	public int manualNoneNumber = 11;
+	public int manualLiftNumber = 12;
+	public int manualIntakeRotateNumber = 13;
+	public int manualIntakeInOutNumber = 14;
+	public int manualClimbLiftNumber = 15;
+	public int manualClimbRollerNumber = 16;
+
 	// Buttons
 
 	// Intake
@@ -132,4 +141,27 @@ public class OI {
 		// trigger.whenPressed(new TimeLatencyCommand());
 	}
 
+	// Methods for determining which mode the manual button has selected
+	public enum MANUAL_MODE {
+		NONE, LIFTUPDOWN, INTAKEROTATE, INTAKEINOUT, CLIMBUPDOWN, CLIMBROLLER
+	}
+
+	public boolean getManualMode(MANUAL_MODE buttonMode) {
+		switch(buttonMode) {
+			case NONE:
+				return coDriver.getRawButton(manualNoneNumber);
+			case LIFTUPDOWN:
+				return coDriver.getRawButton(manualLiftNumber);
+			case INTAKEROTATE:
+				return coDriver.getRawButton(manualIntakeRotateNumber);
+			case INTAKEINOUT:
+				return coDriver.getRawButton(manualIntakeInOutNumber);
+			case CLIMBUPDOWN:
+				return coDriver.getRawButton(manualClimbLiftNumber);
+			case CLIMBROLLER:
+				return coDriver.getRawButton(manualClimbRollerNumber);
+			default:
+				return false;
+		}
+	}
 }
