@@ -11,15 +11,15 @@ public class ClimbLiftJoystick extends CommandBase {
 	}
 
 	public void execute() {
-		// If we're not in climb mode and the climb up/down manual mode is selected, climb with the codriver joystick.
-		if(!RobotMap.CLIMB_MODE && Robot.m_oi.getManualMode(OI.MANUAL_MODE.CLIMBUPDOWN)) {
-			climbLift.ClimbLiftJoystick(Robot.m_oi.coDriver, Robot.m_oi.MANUAL_AXIS);
-		} else if(RobotMap.CLIMB_MODE)
-		System.out.println("Climb Joystick");
+		climbLift.ClimbLiftJoystick(Robot.m_oi.coDriver, OI.MANUAL_AXIS);
 	}
 
 	@Override
 	protected boolean isFinished() {
 		return false;
+		// return climbLift.limitSwitchClimbForward();
+	}
+	protected void end() {
+		climbLift.ClimbLiftStop();
 	}
 }

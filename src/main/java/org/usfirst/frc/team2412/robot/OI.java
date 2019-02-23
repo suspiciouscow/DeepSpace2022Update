@@ -151,6 +151,8 @@ public class OI {
 
 		// trigger.whileHeld(new VisionGuidanceCommand());
 		// trigger.whenPressed(new TimeLatencyCommand());
+
+		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 	}
 
 }
