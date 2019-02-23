@@ -1,14 +1,15 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.Robot;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 public class GoToLevel extends CommandBase {
 
 	public int level;
+	public boolean hatch; // if this is true, it goes to a hatch level, false a cargo
 
-	public GoToLevel(int level) {
+	public GoToLevel(int level, boolean hatch) {
 		this.level = level;
+		this.hatch = hatch;
 		requires(liftSubsystem);
 	}
 
@@ -17,7 +18,7 @@ public class GoToLevel extends CommandBase {
 	}
 
 	protected void execute() {
-		if (Robot.m_oi.coDriver.getRawButton(10)) {
+		if (!hatch) {
 			if (RobotMap.DEBUG_MODE) {
 				System.out.println("Going to cargo " + level + ".");
 			}
