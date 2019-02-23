@@ -152,6 +152,8 @@ public class OI {
 		// trigger.whileHeld(new VisionGuidanceCommand());
 		// trigger.whenPressed(new TimeLatencyCommand());
 
+		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
+		
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 	}
 

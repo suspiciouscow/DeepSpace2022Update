@@ -1,10 +1,11 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import org.usfirst.frc.team2412.robot.RobotMap;
-
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class InTakeUpDownSubsystem extends Subsystem {
@@ -28,6 +29,10 @@ public class InTakeUpDownSubsystem extends Subsystem {
 
 	public void InTakeStop() {
 		armMotor1.set(0.0);
+	}
+
+	public void InTakeAxisRotate(Joystick stick, int axis) {
+		armMotor1.set(stick.getRawAxis(axis));
 	}
 
 	public boolean limitSwitchUp() {
