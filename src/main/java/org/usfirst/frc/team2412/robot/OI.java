@@ -58,10 +58,13 @@ public class OI {
 
 	public int liftUpButtonNumber = 5; // Changed from 13 to 5
 	public int liftDownButtonNumber = 6; // Changed from 14 to 6
-	public int level1ButtonNumber = 7; // Changed from 15 to 7
-	public int level2ButtonNumber = 8; // Changed from 16 to 8
-	public int level3ButtonNumber = 9; // Changed from 17 to 9
-	public int hatchCargoSwitchNumber = 10; // Changed from 7 to 10
+	public int level1ButtonNumberHatch = 7; // Changed from 15 to 7
+	public int level2ButtonNumberHatch = 8; // Changed from 16 to 8
+	public int level3ButtonNumberHatch = 9; // Changed from 17 to 9
+
+	public int level1ButtonNumberCargo = 17; // Changed from
+	public int level2ButtonNumberCargo = 18; // Changed from // fix these
+	public int level3ButtonNumberCargo = 19; // Changed from
 
 	public int liftBottomResetButtonNumber = 7; // Timothy make sure these values are ok.
 	public int liftTopResetButtonNumber = 8;
@@ -84,8 +87,6 @@ public class OI {
 	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
 	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
 
-	public Button hatchCargoSwitch = new JoystickButton(coDriver, hatchCargoSwitchNumber);
-
 	// Drive
 	public Button trigger = new JoystickButton(stick, 1);
 	public Button shiftHighButton = new JoystickButton(stick, 2);
@@ -94,9 +95,13 @@ public class OI {
 	// Lift
 	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
 	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
-	public Button level1Button = new JoystickButton(coDriver, level1ButtonNumber);
-	public Button level2Button = new JoystickButton(coDriver, level2ButtonNumber);
-	public Button level3Button = new JoystickButton(coDriver, level3ButtonNumber);
+	public Button level1ButtonHatch = new JoystickButton(coDriver, level1ButtonNumberHatch);
+	public Button level2ButtonHatch = new JoystickButton(coDriver, level2ButtonNumberHatch);
+	public Button level3ButtonHatch = new JoystickButton(coDriver, level3ButtonNumberHatch);
+
+	public Button level1ButtonCargo = new JoystickButton(coDriver, level1ButtonNumberCargo);
+	public Button level2ButtonCargo = new JoystickButton(coDriver, level2ButtonNumberCargo);
+	public Button level3ButtonCargo = new JoystickButton(coDriver, level3ButtonNumberCargo);
 
 	public Button liftBottomResetButton = new JoystickButton(climb, liftBottomResetButtonNumber);
 	public Button liftTopResetButton = new JoystickButton(climb, liftTopResetButtonNumber);
@@ -142,16 +147,21 @@ public class OI {
 		liftUpButton.whileHeld(new LiftUp());
 		liftDownButton.whileHeld(new LiftDown());
 
-		level1Button.whenPressed(new GoToLevel(1));
-		level2Button.whenPressed(new GoToLevel(2));
-		level3Button.whenPressed(new GoToLevel(3));
+		level1ButtonHatch.whenPressed(new GoToLevel(1, true));
+		level2ButtonHatch.whenPressed(new GoToLevel(2, true));
+		level3ButtonHatch.whenPressed(new GoToLevel(3, true));
+
+		level1ButtonCargo.whenPressed(new GoToLevel(1, false));
+		level2ButtonCargo.whenPressed(new GoToLevel(2, false));
+		level3ButtonCargo.whenPressed(new GoToLevel(3, false));
 
 		liftBottomResetButton.whenPressed(new LiftBottomReset());
 		liftTopResetButton.whenPressed(new LiftTopReset());
-
+		
 		// trigger.whileHeld(new VisionGuidanceCommand());
 		// trigger.whenPressed(new TimeLatencyCommand());
 
+		buttonManualLift.whileHeld(new LiftAxisCommand()); 
 		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
 		
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
