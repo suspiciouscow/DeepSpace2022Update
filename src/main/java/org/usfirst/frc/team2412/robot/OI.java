@@ -10,6 +10,7 @@ package org.usfirst.frc.team2412.robot;
 import org.usfirst.frc.team2412.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -27,6 +28,9 @@ public class OI {
 	public Joystick coDriver = new Joystick(coDriverPort);
 
 	public Joystick climb = new Joystick(2);
+
+	// Joystick axis for the manual joystick on the codriver board
+	public static final int MANUAL_AXIS = 1;
 
 	// Button IDs
 
@@ -142,7 +146,7 @@ public class OI {
 	}
 
 	// Methods for determining which mode the manual button has selected
-	public enum MANUAL_MODE {
+	public static enum MANUAL_MODE {
 		NONE, LIFTUPDOWN, INTAKEROTATE, INTAKEINOUT, CLIMBUPDOWN, CLIMBROLLER
 	}
 

@@ -2,8 +2,10 @@ package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.MaxBotixSonar;
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.commands.ClimbLiftJoystick;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,7 +18,7 @@ public class ClimbLiftSubsystem extends Subsystem {
 	private VictorSP victorSP2 = RobotMap.victorSP2;
 
 	protected void initDefaultCommand() {
-
+		setDefaultCommand(new ClimbLiftJoystick());
 	}
 
 	public void ClimbLiftForward() {
@@ -38,6 +40,13 @@ public class ClimbLiftSubsystem extends Subsystem {
 		double LiftSpeed = 0.0;
 		victorSP1.set(LiftSpeed);
 		victorSP2.set(LiftSpeed);
+	}
+
+	public void ClimbLiftJoystick(Joystick stick, int axis) {
+		System.out.println("Climb lift joystick...");
+		double LiftSpeed = stick.getRawAxis(axis);
+		victorSP1.set(LiftSpeed);
+		victorSP1.set(LiftSpeed);
 	}
 
 	public double ultraSoundRadar() {
