@@ -163,7 +163,8 @@ public class OI {
 
 		buttonManualLift.whileHeld(new LiftAxisCommand()); 
 		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
-		
+		buttonManualIntakeInOut.whileHeld(new InTakeInOutAxis());
+		buttonManualIntakeInOut.whenReleased(new InTakeStop());
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 		buttonManualClimbRoller.whileHeld(new ClimbRollerAxis());
 	}

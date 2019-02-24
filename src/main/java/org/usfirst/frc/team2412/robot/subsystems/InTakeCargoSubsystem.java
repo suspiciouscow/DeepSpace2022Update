@@ -4,6 +4,7 @@ import org.usfirst.frc.team2412.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class InTakeCargoSubsystem extends Subsystem {
@@ -26,5 +27,9 @@ public class InTakeCargoSubsystem extends Subsystem {
 
 	public void InTakeStop() {
 		CargoMotor1.set(0.0);
+	}
+	
+	public void InTakeCargoAxis(Joystick stick, int axis) {
+		CargoMotor1.set(stick.getRawAxis(axis));
 	}
 }
