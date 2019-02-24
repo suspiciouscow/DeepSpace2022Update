@@ -1,19 +1,45 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
 import org.usfirst.frc.team2412.robot.RobotMap;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
-public class InTakeUpDownSubsystem extends Subsystem {
+public class InTakeUpDownSubsystem extends PIDSubsystem {
 
+	// PID conversion and unit values
+	private double encoderNinetyDegreesRatio = 10; // This many encoder units = intake rotating by 90 degrees (a quarter revolution)
+	private double encoderOneDegreeRatio = encoderNinetyDegreesRatio / 90; // This many encoder units = intake rotating by 1 degree.
+														 // Harder to measure experimentally, but more convenient for setpoint values.
+	private static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
+	private static final double MAX_ERROR = 100; // Max angle error in degrees - used for default KP calculations.
+	// Default PID values
+	private static final double DEFAULT_KP = MAX_SPEED / MAX_ERROR;
+	private static final double DEFAULT_KI = 0.0;
+	private static final double DEFAULT_KD = 0.0;
+	
+	// Encoder for measuring angle (we may use a potentiometer instead).
+	private Encoder angleEncoder;
+	private int encoderChannelA = 9;
+	private int encoderChannelB = 10;
+	
 	private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
 	private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
 	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
+	
+	public InTakeUpDownSubsystem() {
+		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
+	}
 
+	public InTakeUpDownSubsystem(double KP, double KI, double KD) {
+		super(KP, KI, KD);
+		angleEncoder = new Encoder(encoderChannelA, encoderChannelB);
+	}
+	
 	@Override
 	protected void initDefaultCommand() {
 
@@ -41,5 +67,15 @@ public class InTakeUpDownSubsystem extends Subsystem {
 
 	public boolean limitSwitchDown() {
 		return limitSwitchDown.get();
+	}
+
+	@Override
+	protected double returnPIDInput() {
+		return angleEncoder.getDistance() / encoderOneDegreeRatio;
+	}
+
+	@Override
+	protected void usePIDOutput(double speed) {
+		armMotor1.set(speed);
 	}
 }
