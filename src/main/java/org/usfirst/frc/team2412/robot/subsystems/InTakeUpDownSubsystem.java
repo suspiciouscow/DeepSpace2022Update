@@ -15,8 +15,9 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	private double encoderNinetyDegreesRatio = 10; // This many encoder units = intake rotating by 90 degrees (a quarter revolution)
 	private double encoderOneDegreeRatio = encoderNinetyDegreesRatio / 90; // This many encoder units = intake rotating by 1 degree.
 														 // Harder to measure experimentally, but more convenient for setpoint values.
-	private static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
-	private static final double MAX_ERROR = 100; // Max angle error in degrees - used for default KP calculations.
+	public static final double MIN_SPEED = -0.7; // Min motor speed - used to restrict how fast the motor turns.
+	public static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
+	public static final double MAX_ERROR = 100; // Max angle error in degrees - used for default KP calculations.
 	// Default PID values
 	private static final double DEFAULT_KP = MAX_SPEED / MAX_ERROR;
 	private static final double DEFAULT_KI = 0.0;
@@ -70,12 +71,12 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	@Override
-	protected double returnPIDInput() {
+	public double returnPIDInput() {
 		return angleEncoder.getDistance() / encoderOneDegreeRatio;
 	}
 
 	@Override
-	protected void usePIDOutput(double speed) {
+	public void usePIDOutput(double speed) {
 		armMotor1.set(speed);
 	}
 }

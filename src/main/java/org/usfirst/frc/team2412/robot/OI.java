@@ -42,6 +42,20 @@ public class OI {
 	public int buttonArmDownNumber = 2;
 	public int buttonInNumber = 12;
 	public int buttonOutNumber = 4;
+	
+	// Intake button numbers for the preset angles
+	public int buttonIntakeStowedAngleNumber = 20;
+	public int buttonIntakeVerticalAngleNumber = 21;
+	public int buttonIntakeCargoAngleNumber = 22;
+	public int buttonIntakeHorizontalAngleNumber = 23;
+	public int buttonIntakeSpareAngleNumber = 24;
+	
+	// Intake preset angle values - stowed is zero, increases going counterclockwise
+	public int intakeStowedAngle = 0;
+	public int intakeVerticalAngle = 10;
+	public int intakeCargoAngle = 55;
+	public int intakeHorizontalAngle = 100;
+	public int intakeSpareAngle = 0;
 
 	// Climb buttons - on a separate joystick
 
@@ -86,6 +100,14 @@ public class OI {
 	public Button buttonArmDown = new JoystickButton(coDriver, buttonArmDownNumber);
 	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
 	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
+	
+	// Intake preset angle buttons
+	
+	public Button buttonIntakeStowedAngle = new JoystickButton(coDriver, buttonIntakeStowedAngleNumber);
+	public Button buttonIntakeVerticalAngle = new JoystickButton(coDriver, buttonIntakeVerticalAngleNumber);
+	public Button buttonIntakeCargoAngle = new JoystickButton(coDriver, buttonIntakeCargoAngleNumber);
+	public Button buttonIntakeHorizontalAngle = new JoystickButton(coDriver, buttonIntakeHorizontalAngleNumber);
+	public Button buttonIntakeSpareAngle = new JoystickButton(coDriver, buttonIntakeSpareAngleNumber);
 
 	// Drive
 	public Button trigger = new JoystickButton(stick, 1);
@@ -167,6 +189,12 @@ public class OI {
 		buttonManualIntakeInOut.whenReleased(new InTakeStop());
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 		buttonManualClimbRoller.whileHeld(new ClimbRollerAxis());
+		
+		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
+		buttonIntakeVerticalAngle.whenPressed(new GoToIntakeAngle(intakeVerticalAngle));
+		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
+		buttonIntakeHorizontalAngle.whenPressed(new GoToIntakeAngle(intakeHorizontalAngle));
+		buttonIntakeSpareAngle.whenPressed(new GoToIntakeAngle(intakeSpareAngle));
 	}
 
 }
