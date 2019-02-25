@@ -16,39 +16,78 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
+ * 
+ * BUTTONS:
+ * 
+ * DRIVER:
+ * ---------------
+ *  - 1 vision guidance
+ *  - 2 shift to low gear
+ * 
+ * CODRIVER:
+ * ---------------
+ * Intake position switch:
+ *  - 1 storage
+ *  - 2 vertical
+ *  - 3 cargo angle
+ *  - 4 horizontal
+ *  - 5 spare
+ * 
+ * Intake cargo:
+ *  - 6 in
+ *  - 7 out
+ * 
+ * Intake hatch:
+ *  - 8 out
+ * --------------
+ * Climb:
+ *  - 9 rail deploy
+ * --------------
+ * Lift:
+ *  - 10 level 1 hatch
+ *  - 11 level 2 hatch
+ *  - 12 level 3 hatch
+ *  - 13 level 1 cargo
+ *  - 14 level 2 cargo
+ *  - 15 level 3 cargo
+ * --------------
+ * Manual switch (dial):
+ *  - 16 none
+ *  - 17 lift up/down
+ *  - 18 intake rotation
+ *  - 19 intake roller in/out
+ *  - 20 climb up/down
+ *  - 21 climb roller forwards/backwards
  */
 public class OI {
 
-	// Joysticks
+	/** Joysticks: */
+	// stick - the driver's joystick (port 0)
+	// coDriver - the codriver board (port 1)
 
+	public int stickPort = 0;
 	public int coDriverPort = 1;
 
 	public Joystick stick = new Joystick(0);
 	public Joystick coDriver = new Joystick(coDriverPort);
 
-	public Joystick climb = new Joystick(2);
-
 	// Joystick axis for the manual joystick on the codriver board
 	public static final int MANUAL_AXIS = 1;
 
-	// Button IDs
+	/** Button IDs */
 
-	// Driver
-	public int buttonOutIntakeNumber = 3; // Changed from 0 to 3
-
+	// Driver joystick (stick)
+	public int buttonVisionGuidanceNumber = 1;
+	public int buttonShiftingNumber = 2;
+	
 	// coDriver
-
-	public int buttonArmUpNumber = 1;
-	public int buttonArmDownNumber = 2;
-	public int buttonInNumber = 12;
-	public int buttonOutNumber = 4;
 	
 	// Intake button numbers for the preset angles
-	public int buttonIntakeStowedAngleNumber = 20;
-	public int buttonIntakeVerticalAngleNumber = 21;
-	public int buttonIntakeCargoAngleNumber = 22;
-	public int buttonIntakeHorizontalAngleNumber = 23;
-	public int buttonIntakeSpareAngleNumber = 24;
+	public int buttonIntakeStowedAngleNumber = 1;
+	public int buttonIntakeVerticalAngleNumber = 2;
+	public int buttonIntakeCargoAngleNumber = 3;
+	public int buttonIntakeHorizontalAngleNumber = 4;
+	public int buttonIntakeSpareAngleNumber = 5;
 	
 	// Intake preset angle values - stowed is zero, increases going counterclockwise
 	public int intakeStowedAngle = 0;
@@ -56,67 +95,58 @@ public class OI {
 	public int intakeCargoAngle = 55;
 	public int intakeHorizontalAngle = 100;
 	public int intakeSpareAngle = 0;
-
-	// Climb buttons - on a separate joystick
-
-	public int buttonDeployNumber = 1; // Changed from 5 to 1
-	public int buttonReleaseNumber = 2; // Changed from 6 to 2
-	public int buttonClimbUpNumber = 3; // Changed from 7 to 3
-	public int buttonClimbDownNumber = 4; // Changed from 8 to 4
-	public int buttonClimbRollerForwardNumber = 5; // Changed from 10 to 5
-	public int buttonClimbRollerReverseNumber = 6; // Changed from 11 to 6
-
-	// public int brakeButtonNumber = 12;
-
-	// Lift buttons - on the codriver
-
-	public int liftUpButtonNumber = 5; // Changed from 13 to 5
-	public int liftDownButtonNumber = 6; // Changed from 14 to 6
-	public int level1ButtonNumberHatch = 7; // Changed from 15 to 7
-	public int level2ButtonNumberHatch = 8; // Changed from 16 to 8
-	public int level3ButtonNumberHatch = 9; // Changed from 17 to 9
-
-	public int level1ButtonNumberCargo = 17; // Changed from
-	public int level2ButtonNumberCargo = 18; // Changed from // fix these
-	public int level3ButtonNumberCargo = 19; // Changed from
-
-	public int liftBottomResetButtonNumber = 7; // Timothy make sure these values are ok.
-	public int liftTopResetButtonNumber = 8;
-
-	// Buttons for the manual dial
 	
-	public int manualNoneNumber = 11;
-	public int manualLiftNumber = 12;
-	public int manualIntakeRotateNumber = 13;
-	public int manualIntakeInOutNumber = 14;
-	public int manualClimbLiftNumber = 15;
-	public int manualClimbRollerNumber = 16;
-
-	// Buttons
-
-	// Intake
-	public Button buttonOutIntake = new JoystickButton(stick, buttonOutIntakeNumber);
-	public Button buttonArmUp = new JoystickButton(coDriver, buttonArmUpNumber);
-	public Button buttonArmDown = new JoystickButton(coDriver, buttonArmDownNumber);
-	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
-	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
+	// Intake cargo button numbers
+	public int buttonInNumber = 6;
+	public int buttonOutNumber = 7;
 	
-	// Intake preset angle buttons
+	// Intake hatch button numbers
+	public int buttonOutIntakeNumber = 8;
 	
+	// Climb button numbers (for rail deployment)
+	public int buttonDeployNumber = 9;
+	
+	// Lift button numbers
+	public int level1ButtonNumberHatch = 10;
+	public int level2ButtonNumberHatch = 11;
+	public int level3ButtonNumberHatch = 12;
+
+	public int level1ButtonNumberCargo = 13;
+	public int level2ButtonNumberCargo = 14;
+	public int level3ButtonNumberCargo = 15;
+
+	// Buttons numbers for the manual dial
+	public int manualNoneNumber = 16;
+	public int manualLiftNumber = 17;
+	public int manualIntakeRotateNumber = 18;
+	public int manualIntakeInOutNumber = 19;
+	public int manualClimbLiftNumber = 20;
+	public int manualClimbRollerNumber = 21;
+
+	/** Button instances */
+	
+ 	// Driver joystick (stick) buttons
+	public Button visionGuidance = new JoystickButton(stick, buttonVisionGuidanceNumber);
+	public Button shiftHighButton = new JoystickButton(stick, buttonShiftingNumber);
+	
+	// Intake button numbers for the preset angles
 	public Button buttonIntakeStowedAngle = new JoystickButton(coDriver, buttonIntakeStowedAngleNumber);
 	public Button buttonIntakeVerticalAngle = new JoystickButton(coDriver, buttonIntakeVerticalAngleNumber);
 	public Button buttonIntakeCargoAngle = new JoystickButton(coDriver, buttonIntakeCargoAngleNumber);
 	public Button buttonIntakeHorizontalAngle = new JoystickButton(coDriver, buttonIntakeHorizontalAngleNumber);
 	public Button buttonIntakeSpareAngle = new JoystickButton(coDriver, buttonIntakeSpareAngleNumber);
 
-	// Drive
-	public Button trigger = new JoystickButton(stick, 1);
-	public Button shiftHighButton = new JoystickButton(stick, 2);
-	// public Button brakeButton = new JoystickButton(coDriver, brakeButtonNumber);
-
-	// Lift
-	public Button liftUpButton = new JoystickButton(coDriver, liftUpButtonNumber);
-	public Button liftDownButton = new JoystickButton(coDriver, liftDownButtonNumber);
+	// Intake cargo buttons
+	public Button buttonIn = new JoystickButton(coDriver, buttonInNumber);
+	public Button buttonOut = new JoystickButton(coDriver, buttonOutNumber);
+	
+	// Intake hatch button
+	public Button buttonOutIntake = new JoystickButton(coDriver, buttonOutIntakeNumber);
+	
+	// Climb button (for rail deployment)
+	public Button buttonDeploy = new JoystickButton(coDriver, buttonDeployNumber);
+	
+	// Lift buttons
 	public Button level1ButtonHatch = new JoystickButton(coDriver, level1ButtonNumberHatch);
 	public Button level2ButtonHatch = new JoystickButton(coDriver, level2ButtonNumberHatch);
 	public Button level3ButtonHatch = new JoystickButton(coDriver, level3ButtonNumberHatch);
@@ -125,19 +155,7 @@ public class OI {
 	public Button level2ButtonCargo = new JoystickButton(coDriver, level2ButtonNumberCargo);
 	public Button level3ButtonCargo = new JoystickButton(coDriver, level3ButtonNumberCargo);
 
-	public Button liftBottomResetButton = new JoystickButton(climb, liftBottomResetButtonNumber);
-	public Button liftTopResetButton = new JoystickButton(climb, liftTopResetButtonNumber);
-
-	// Climb
-	public Button buttonDeploy = new JoystickButton(climb, buttonDeployNumber);
-	public Button buttonRelease = new JoystickButton(climb, buttonReleaseNumber);
-	public Button buttonClimbUp = new JoystickButton(climb, 3);
-	public Button buttonClimbDown = new JoystickButton(climb, 4);
-	public Button buttonClimbRollerForward = new JoystickButton(climb, 5);
-	public Button buttonClimbRollerReverse = new JoystickButton(climb, 6);
-
-	// Manual buttons
-
+	// Buttons for the manual dial
 	public Button buttonManualNone = new JoystickButton(coDriver, manualNoneNumber);
 	public Button buttonManualLift = new JoystickButton(coDriver, manualLiftNumber);
 	public Button buttonManualIntakeRotate = new JoystickButton(coDriver, manualIntakeRotateNumber);
@@ -146,29 +164,33 @@ public class OI {
 	public Button buttonManualClimbRoller = new JoystickButton(coDriver, manualClimbRollerNumber);
 
 	public OI() {
-		buttonArmUp.whileHeld(new InTakeUp());
-		buttonArmDown.whileHeld(new InTakeDown());
+		// Driver joystick (stick) commands
+		visionGuidance.whileHeld(new VisionGuidanceCommand2());
+		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
+
+		// coDriver commands
+		
+		// Intake commands for the preset angles
+		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
+		buttonIntakeVerticalAngle.whenPressed(new GoToIntakeAngle(intakeVerticalAngle));
+		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
+		buttonIntakeHorizontalAngle.whenPressed(new GoToIntakeAngle(intakeHorizontalAngle));
+		buttonIntakeSpareAngle.whenPressed(new GoToIntakeAngle(intakeSpareAngle));
+		
+		// Intake cargo commands
 		buttonIn.whileHeld(new InTakeCargo());
 		buttonIn.whenReleased(new InTakeStop());
 		buttonOut.whileHeld(new OutputCargo());
 		buttonOut.whenReleased(new InTakeStop());
+		
+		// Intake hatch commands
 		buttonOutIntake.whileHeld(new PistonsOut());
 		buttonOutIntake.whenReleased(new PistonsIn());
-
+		
+		// Climb command (for rail deployment)
 		buttonDeploy.whenPressed(new DeployRailsSequence());
-		buttonRelease.whenPressed(new RetractRails());
-		buttonClimbUp.whileHeld(new ClimbLiftForward());
-		buttonClimbDown.whileHeld(new ClimbLiftReverse());
-		buttonClimbRollerForward.whileHeld(new ClimbRollerForward());
-		buttonClimbRollerReverse.whileHeld(new ClimbRollerReverse());
 
-		// brakeButton.whenPressed(new Brake());
-		trigger.whileHeld(new VisionGuidanceCommand2());
-		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
-
-		liftUpButton.whileHeld(new LiftUp());
-		liftDownButton.whileHeld(new LiftDown());
-
+		// Lift commands
 		level1ButtonHatch.whenPressed(new GoToLevel(1, true));
 		level2ButtonHatch.whenPressed(new GoToLevel(2, true));
 		level3ButtonHatch.whenPressed(new GoToLevel(3, true));
@@ -177,24 +199,13 @@ public class OI {
 		level2ButtonCargo.whenPressed(new GoToLevel(2, false));
 		level3ButtonCargo.whenPressed(new GoToLevel(3, false));
 
-		liftBottomResetButton.whenPressed(new LiftBottomReset());
-		liftTopResetButton.whenPressed(new LiftTopReset());
-		
-		// trigger.whileHeld(new VisionGuidanceCommand());
-		// trigger.whenPressed(new TimeLatencyCommand());
-
+		// Buttons for the manual lift
 		buttonManualLift.whileHeld(new LiftAxisCommand()); 
 		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
 		buttonManualIntakeInOut.whileHeld(new InTakeInOutAxis());
 		buttonManualIntakeInOut.whenReleased(new InTakeStop());
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 		buttonManualClimbRoller.whileHeld(new ClimbRollerAxis());
-		
-		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
-		buttonIntakeVerticalAngle.whenPressed(new GoToIntakeAngle(intakeVerticalAngle));
-		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
-		buttonIntakeHorizontalAngle.whenPressed(new GoToIntakeAngle(intakeHorizontalAngle));
-		buttonIntakeSpareAngle.whenPressed(new GoToIntakeAngle(intakeSpareAngle));
 	}
 
 }
