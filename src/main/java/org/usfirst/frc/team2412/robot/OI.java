@@ -155,7 +155,7 @@ public class OI {
 		buttonOutIntake.whileHeld(new PistonsOut());
 		buttonOutIntake.whenReleased(new PistonsIn());
 
-		buttonDeploy.whenPressed(new DeployRails());
+		buttonDeploy.whenPressed(new DeployRailsSequence());
 		buttonRelease.whenPressed(new RetractRails());
 		buttonClimbUp.whileHeld(new ClimbLiftForward());
 		buttonClimbDown.whileHeld(new ClimbLiftReverse());
