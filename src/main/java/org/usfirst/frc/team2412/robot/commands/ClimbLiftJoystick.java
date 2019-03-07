@@ -10,7 +10,7 @@ public class ClimbLiftJoystick extends CommandBase {
 	}
 
 	public void execute() {
-		climbLift.ClimbLiftJoystick(Robot.m_oi.coDriver, OI.MANUAL_AXIS);
+		climbLift.ClimbLiftJoystick(Robot.m_oi.coDriverArduino, OI.MANUAL_AXIS);
 	}
 
 	@Override
