@@ -14,7 +14,7 @@ public class InTakeAxisRotate extends CommandBase {
 	//By using a hardware counter, a switch that might close then open very quickly can still be caught by the program.
 
 	public void execute() {
-		inTakeUpDown.InTakeAxisRotate(Robot.m_oi.coDriverArduino, OI.MANUAL_AXIS);
+		inTakeUpDown.InTakeAxisRotate(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 	}
 
 	@Override

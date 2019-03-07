@@ -9,7 +9,7 @@ public class InTakeInOutAxis extends CommandBase {
 	}
 
 	public void execute() {
-		inTakeCargo.InTakeCargoAxis(Robot.m_oi.coDriverArduino, OI.MANUAL_AXIS);
+		inTakeCargo.InTakeCargoAxis(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 	}
 
 	@Override
