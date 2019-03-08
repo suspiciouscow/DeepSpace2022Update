@@ -100,11 +100,13 @@ public class LiftSubsystem extends Subsystem {
 
 	public void resetBottom() {
 		encoderOffset = -motorEncoder.getPosition();
+		liftMotorLeader.set(0.0);
 		// PIDController.setReference(encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetTop() {
 		encoderOffset = topLimit - motorEncoder.getPosition();
+		liftMotorLeader.set(0.0);
 		// PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
 

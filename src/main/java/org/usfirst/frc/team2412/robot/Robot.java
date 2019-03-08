@@ -82,12 +82,12 @@ public class Robot extends TimedRobot {
 	public void controlledPeriodic() {
 		Scheduler.getInstance().run();
 
-		// if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
-		// 	liftBottomReset.execute();
-		// 	liftBottomResetHeld = true;
-		// } else if (!RobotMap.liftBottomSwitch.get()) {
-		// 	liftBottomResetHeld = false;
-		// }
+		if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
+			liftBottomReset.execute();
+			liftBottomResetHeld = true;
+		} else if (!RobotMap.liftBottomSwitch.get()) {
+			liftBottomResetHeld = false;
+		}
 
 		// if (RobotMap.liftTopSwitch.get() && !liftTopResetHeld) {
 		// 	liftTopReset.execute();

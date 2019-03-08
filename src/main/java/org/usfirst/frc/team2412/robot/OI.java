@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * CODRIVER - Arduino Due, first joystick with buttons:
  * ---------------
  * Intake cargo:
- *  - 1 in
+ *  - 1 in  
  *  - 2 out
  * 
  * Intake hatch:
