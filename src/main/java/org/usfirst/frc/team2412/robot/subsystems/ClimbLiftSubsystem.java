@@ -14,7 +14,7 @@ public class ClimbLiftSubsystem extends Subsystem {
 //	private VictorSP victorSP2 = RobotMap.victorSP2;
 
 	protected void initDefaultCommand() {
-		setDefaultCommand(new ClimbLiftJoystick());
+		// setDefaultCommand(new ClimbLiftJoystick());
 	}
 
 	public void ClimbLiftForward() {
