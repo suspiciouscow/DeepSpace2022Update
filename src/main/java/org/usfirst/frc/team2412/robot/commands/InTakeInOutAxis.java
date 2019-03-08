@@ -9,6 +9,7 @@ public class InTakeInOutAxis extends CommandBase {
 	}
 
 	public void execute() {
+		System.out.println("Intake cargo axis");
 		inTakeCargo.InTakeCargoAxis(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 	}
 

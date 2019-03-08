@@ -2,11 +2,6 @@ package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-import com.revrobotics.CANEncoder;
-import com.revrobotics.CANPIDController;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class LiftSubsystem extends Subsystem {
@@ -30,24 +25,24 @@ public class LiftSubsystem extends Subsystem {
 
 	double motorRotationsToInches = outputGearCircumference * pullyRatio / gearboxRatio;
 
-	CANSparkMax liftMotorLeader = RobotMap.liftMotors[0]; // Motors from RobotMap
-	CANPIDController PIDController = liftMotorLeader.getPIDController();
-	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
+//	CANSparkMax liftMotorLeader = RobotMap.liftMotors[0]; // Motors from RobotMap
+//	CANPIDController PIDController = liftMotorLeader.getPIDController();
+//	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
 	double P = 0.015;
 	double I = 0;
 	double D = 0;
 
 	public LiftSubsystem() {
-		PIDController.setP(P);
-		PIDController.setI(I);
-		PIDController.setD(D);
-		PIDController.setOutputRange(-1, 1);
-		resetBottom();
-		if (RobotMap.DEBUG_MODE) {
-			System.out.println(encoderOffset);
-			System.out.println(motorEncoder.getPosition() + encoderOffset);
-		}
+//		PIDController.setP(P);
+//		PIDController.setI(I);
+//		PIDController.setD(D);
+//		PIDController.setOutputRange(-1, 1);
+//		resetBottom();
+//		if (RobotMap.DEBUG_MODE) {
+//			System.out.println(encoderOffset);
+//			System.out.println(motorEncoder.getPosition() + encoderOffset);
+//		}
 	}
 
 	@Override
@@ -60,67 +55,69 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public void liftUp() {
-		System.out.println(motorEncoder.getPosition() + encoderOffset);
-		if (motorEncoder.getPosition() + encoderOffset > topLimit) {
-			liftMotorLeader.set(0);
-			resetTop();
-			if (RobotMap.DEBUG_MODE) {
-				System.out.println("Top of lift reached; stopping...");
-			}
-			return;
-		}
-		liftMotorLeader.set(0.5);
+//		System.out.println(motorEncoder.getPosition() + encoderOffset);
+//		if (motorEncoder.getPosition() + encoderOffset > topLimit) {
+//			liftMotorLeader.set(0);
+//			resetTop();
+//			if (RobotMap.DEBUG_MODE) {
+//				System.out.println("Top of lift reached; stopping...");
+//			}
+//			return;
+//		}
+//		liftMotorLeader.set(0.5);
 		System.out.println("Lifted Up");
 	}
 
 	public void liftDown() {
-		System.out.println(motorEncoder.getPosition() + encoderOffset);
-		if (motorEncoder.getPosition() + encoderOffset < 1) {
-			liftMotorLeader.set(0);
-			resetBottom();
-			if (RobotMap.DEBUG_MODE) {
-				System.out.println("Bottom of lift reached; stopping...");
-			}
-			return;
-		}
-		liftMotorLeader.set(-0.5);
+//		System.out.println(motorEncoder.getPosition() + encoderOffset);
+//		if (motorEncoder.getPosition() + encoderOffset < 1) {
+//			liftMotorLeader.set(0);
+//			resetBottom();
+//			if (RobotMap.DEBUG_MODE) {
+//				System.out.println("Bottom of lift reached; stopping...");
+//			}
+//			return;
+//		}
+//		liftMotorLeader.set(-0.5);
 		System.out.println("Lifted Down");
 	}
 
 	public void liftStop() {
-		liftMotorLeader.set(0.0);
+		System.out.println("Stopping lift...");
+//		liftMotorLeader.set(0.0);
 	}
 
 	public void goToInch(double inches) {
 		if (RobotMap.DEBUG_MODE) {
 			System.out.println("Lift is going to " + inches + " inches from the ground.");
 		}
-		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
+//		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetBottom() {
-		encoderOffset = -motorEncoder.getPosition();
+//		encoderOffset = -motorEncoder.getPosition();
 		// PIDController.setReference(encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetTop() {
-		encoderOffset = topLimit - motorEncoder.getPosition();
+//		encoderOffset = topLimit - motorEncoder.getPosition();
 		// PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
 
 	public double getInches() {
-		return inchOffset * motorRotationsToInches * (motorEncoder.getPosition() + encoderOffset);
+		return 0;
+//		return inchOffset * motorRotationsToInches * (motorEncoder.getPosition() + encoderOffset);
 	}
 
 	public void liftAxis(double axisVal, double min, double max, double deadzone, boolean map) {
-		if (map) {
-			double mappedVal = map(axisVal, min, max, 0, topLimit);
-			PIDController.setReference(mappedVal, ControlType.kPosition);
-		} else {
-			if (axisVal > (min + max + deadzone / 2) || axisVal < (min + max - deadzone / 2)) {
-				liftMotorLeader.set(map(axisVal,min,max,-0.5,0.5));
-			}
-		}
+//		if (map) {
+//			double mappedVal = map(axisVal, min, max, 0, topLimit);
+//			PIDController.setReference(mappedVal, ControlType.kPosition);
+//		} else {
+//			if (axisVal > (min + max + deadzone / 2) || axisVal < (min + max - deadzone / 2)) {
+//				liftMotorLeader.set(map(axisVal,min,max,-0.5,0.5));
+//			}
+//		}
 	}
 
 	public double map(double value, double min, double max, double newMin, double newMax) {

@@ -10,6 +10,7 @@ public class ClimbLiftJoystick extends CommandBase {
 	}
 
 	public void execute() {
+		System.out.println("Climbing with jyostick");
 		climbLift.ClimbLiftJoystick(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 	}
 

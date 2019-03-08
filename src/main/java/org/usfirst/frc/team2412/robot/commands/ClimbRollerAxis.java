@@ -20,6 +20,7 @@ public class ClimbRollerAxis extends CommandBase {
 		} else {
 			climbRoller.ClimbRollerAxis(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 		}
+		System.out.println("Climb roller axis...");
 	}
 
 	@Override

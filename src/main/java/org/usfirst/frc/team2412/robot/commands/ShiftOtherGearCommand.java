@@ -10,10 +10,13 @@ public class ShiftOtherGearCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
+		System.out.println("Shifting to other gear...");
 		if(RobotMap.CLIMB_MODE) {
-			// driveShifters.shiftHighGear(); // Don't allow shifting in climb mode for nwo.
+			System.out.println("Not shifting to other gear in climb mode");
+			// driveShifters.shiftHighGear(); // Don't allow shifting in climb mode for now.
 		} else {
 			driveShifters.shiftLowGear();
+			System.out.println("Shifting into low gear, not in climb mode");
 		}
 	}
 	
