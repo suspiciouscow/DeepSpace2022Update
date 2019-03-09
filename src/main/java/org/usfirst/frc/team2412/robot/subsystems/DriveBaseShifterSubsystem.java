@@ -1,11 +1,13 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
+import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.ShiftDefaultGearCommand;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveBaseShifterSubsystem extends Subsystem {
-//	private Solenoid shifter = RobotMap.shifter;
+	private Solenoid shifter = RobotMap.shifter;
 
 	@Override
 	protected void initDefaultCommand() {
@@ -13,10 +15,10 @@ public class DriveBaseShifterSubsystem extends Subsystem {
 	}
 	//For shifting into high gear
 	public void shiftHighGear() {
-//		shifter.set(false);
+		shifter.set(false);
 	}
 	//For shifting into low gear
 	public void shiftLowGear() {
-//		shifter.set(true);
+		shifter.set(true);
 	}
 }

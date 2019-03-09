@@ -9,9 +9,7 @@ public class DeployRails extends CommandBase {
 
 	public void execute() {
 		climbPneumatics.DeployRails();
-		System.out.println("Deploying rails...");
 		RobotMap.CLIMB_MODE = true;
-		System.out.println("Climb mode: " + RobotMap.CLIMB_MODE);
 	}
 
 	@Override

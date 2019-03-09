@@ -11,8 +11,10 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends TimedRobot {
 
@@ -34,7 +36,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 
-//		RobotMap.liftMotors[1].follow(RobotMap.liftMotors[0]);
+		RobotMap.liftMotors[1].follow(RobotMap.liftMotors[0]);
 		Thread visionThread = new Thread(() -> {
 			System.out.println("In thread");
 			UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
@@ -107,20 +109,20 @@ public class Robot extends TimedRobot {
 			e.printStackTrace();
 		}*/
 		
-//		
-//		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
-//		
-//		double[] ids = new double[15];
-//		double[] power = new double[15];
-//		
-//		for(int i = 0; i<15; i++) {
-//			ids[i] = i+1;
-//			power[i] = powerPanel.getCurrent(i);
-//		}
-//		
-//		
-//		SmartDashboard.putNumberArray("Amps", power);
-//		SmartDashboard.putNumberArray("IDs", ids);
+		
+		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
+		
+		double[] ids = new double[15];
+		double[] power = new double[15];
+		
+		for(int i = 0; i<15; i++) {
+			ids[i] = i+1;
+			power[i] = powerPanel.getCurrent(i);
+		}
+		
+		
+		SmartDashboard.putNumberArray("Amps", power);
+		SmartDashboard.putNumberArray("IDs", ids);
 	}
 	
 	@Override

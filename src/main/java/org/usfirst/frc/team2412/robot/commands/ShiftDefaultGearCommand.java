@@ -13,13 +13,10 @@ public class ShiftDefaultGearCommand extends CommandBase {
 	
 	@Override
 	protected void execute() {
-		System.out.println("Shifting default gear");
 		if(RobotMap.CLIMB_MODE) {
 			driveShifters.shiftLowGear();
-			System.out.println("Default: low gear in climb");
 		} else {
 			driveShifters.shiftHighGear();
-			System.out.println("Default: high gear, not climbing");
 		}
 	}
 	

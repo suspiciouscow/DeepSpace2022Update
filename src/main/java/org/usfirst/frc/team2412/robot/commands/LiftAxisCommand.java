@@ -10,7 +10,6 @@ public class LiftAxisCommand extends CommandBase {
 	}
 	 
 	public void execute() {
-		System.out.println("Lift axis");
 		liftSubsystem.liftAxis(Robot.m_oi.coDriverArduinoButtons.getRawAxis(OI.MANUAL_AXIS), 0, 1, 0.2, false);
 	}
 
