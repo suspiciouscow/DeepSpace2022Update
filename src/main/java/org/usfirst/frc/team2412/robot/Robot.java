@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
 					outputStream.notifyError(cvSink.getError());
 					continue;
 				}
-				Core.flip(mat,mat,Core.ROTATE_180);
+				// Core.flip(mat,mat,Core.ROTATE_180);
 				Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
 				outputStream.putFrame(mat);
 			}
