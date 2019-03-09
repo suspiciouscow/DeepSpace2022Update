@@ -46,7 +46,7 @@ public class ClimbLiftSubsystem extends Subsystem {
 		System.out.println("Climb lift joystick...");
 		double LiftSpeed = stick.getRawAxis(axis);
 		victorSP1.set(LiftSpeed);
-		victorSP1.set(LiftSpeed);
+		victorSP2.set(LiftSpeed);
 	}
 
 	public double ultraSoundRadar() {
