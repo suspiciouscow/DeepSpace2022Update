@@ -17,8 +17,10 @@ public class ClimbRollerAxis extends CommandBase {
 		if(RobotMap.CLIMB_MODE) {
 			int forwardAxis = 1; // The joystick's y axis - moving the joystick forward will spin the roller forward
 			climbRoller.ClimbRollerAxis(Robot.m_oi.stick, forwardAxis);
+			System.out.println("Climbing roller axis with joystick in climb mode");
 		} else {
 			climbRoller.ClimbRollerAxis(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
+			System.out.println("Climbing roller axis with codriver in manual mode.");
 		}
 	}
 

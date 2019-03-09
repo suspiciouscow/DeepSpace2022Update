@@ -12,6 +12,7 @@ public class LiftAxisCommand extends CommandBase {
 	public void execute() {
 		// liftSubsystem.liftAxisPID(Robot.m_oi.coDriverArduinoButtons.getRawAxis(OI.MANUAL_AXIS), 0, 1, 0.2, false);
 		liftSubsystem.liftAxis(Robot.m_oi.coDriverArduinoButtons.getRawAxis(OI.MANUAL_AXIS));
+		System.out.println("Lifting with joystick axis...");
 	}
 
 	protected void end() {
