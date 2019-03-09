@@ -1,20 +1,14 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
-import org.usfirst.frc.team2412.robot.RobotMap;
-
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	// PID conversion and unit values
-	private double potentiometerAngleRange = 350; // This is the range of angles that the potentiometer can produce,
+	// private double potentiometerAngleRange = 350; // This is the range of angles that the potentiometer can produce,
 													// regardless of the actual angles intake will be at.
-	private double potentiometerAngleOffset = 0; // The angle offset to add to the potentiometer's angle value.
+	// private double potentiometerAngleOffset = 0; // The angle offset to add to the potentiometer's angle value.
 
 	public static final double MIN_SPEED = -0.7; // Min motor speed - used to restrict how fast the motor turns.
 	public static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
@@ -26,12 +20,12 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	private static final double DEFAULT_KD = 0.0;
 	
 	// Potentiometer for measuring angle
-	private AnalogPotentiometer potentiometer;
-	private int potentiometerID = 2;
+	// private AnalogPotentiometer potentiometer;
+	// private int potentiometerID = 2;
 	
-	private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
-	private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
-	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
+	// private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
+	// private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
+	// private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
 	
 	public InTakeUpDownSubsystem() {
 		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
@@ -39,7 +33,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	public InTakeUpDownSubsystem(double KP, double KI, double KD) {
 		super(KP, KI, KD);
-		potentiometer = new AnalogPotentiometer(potentiometerID, potentiometerAngleRange, potentiometerAngleOffset);
+		// potentiometer = new AnalogPotentiometer(potentiometerID, potentiometerAngleRange, potentiometerAngleOffset);
 	}
 	
 	@Override
@@ -48,19 +42,19 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeUp() {
-		armMotor1.set(0.5);
+		// armMotor1.set(0.5);
 	}
 
 	public void InTakeDown() {
-		armMotor1.set(-0.5);
+		// armMotor1.set(-0.5);
 	}
 
 	public void InTakeStop() {
-		armMotor1.set(0.0);
+		// armMotor1.set(0.0);
 	}
 
 	public void InTakeAxisRotate(Joystick stick, int axis) {
-		armMotor1.set(stick.getRawAxis(axis));
+		// armMotor1.set(stick.getRawAxis(axis));
 	}
 
 	public boolean limitSwitchUp() {
@@ -75,11 +69,12 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	@Override
 	public double returnPIDInput() {
-		return potentiometer.get();
+		// return angleEncoder.getDistance() / encoderOneDegreeRatio;
+		return 0;
 	}
 
 	@Override
 	public void usePIDOutput(double speed) {
-		armMotor1.set(speed);
+		// armMotor1.set(speed);
 	}
 }
