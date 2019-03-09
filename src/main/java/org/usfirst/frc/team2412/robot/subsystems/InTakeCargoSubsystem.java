@@ -14,18 +14,22 @@ public class InTakeCargoSubsystem extends Subsystem {
 
 	// CHANGE MOTOR SPEED TO CONSTANTS
 	public void InTakeCargo() {
+		System.out.println("Intake cargo (-100%)");
 		// CargoMotor1.set(1);
 	}
 
 	public void OutputCargo() {
+		System.out.println("Output cargo (100%)");
 		// CargoMotor1.set(-1);
 	}
 
 	public void InTakeStop() {
+		System.out.println("Stop intake (0%)");
 		// CargoMotor1.set(0.0);
 	}
 	
 	public void InTakeCargoAxis(Joystick stick, int axis) {
+		System.out.println("Intake cargo axis: " + axis);
 		// CargoMotor1.set(stick.getRawAxis(axis));
 	}
 }

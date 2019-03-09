@@ -27,8 +27,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * CODRIVER - Arduino Due, first joystick with buttons:
  * ---------------
  * Intake cargo:
- *  - 1 in
- *  - 2 out
+ *  - 1 out
+ *  - 2 in
  * 
  * Intake hatch:
  *  - 3 out
@@ -111,8 +111,8 @@ public class OI {
 	*/
 
 	// Intake cargo button numbers
-	public int buttonInNumber = 1;
-	public int buttonOutNumber = 2;
+	public int buttonOutNumber = 1;
+	public int buttonInNumber = 2;
 	
 	// Intake hatch button numbers
 	public int buttonOutIntakeNumber = 3;
