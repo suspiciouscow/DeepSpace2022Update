@@ -111,6 +111,7 @@ public class Robot extends TimedRobot {
 		
 		
 		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
+		powerPanel.clearStickyFaults();   
 		
 		double[] ids = new double[15];
 		double[] power = new double[15];
