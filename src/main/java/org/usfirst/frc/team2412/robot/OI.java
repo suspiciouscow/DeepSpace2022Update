@@ -48,10 +48,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * CODRIVER - Arduino Due, second joystick with dials:
  * ---------------
  * Intake position switch - not fully used because we don't have an intake angle sensor yet:
- *  - 1 intake up, originally storage
+ *  - 1 unused, originally stowed
  *  - 2 intake down, originally vertical
  *  - 3 unused, cargo angle
- *  - 4 unused, horizontal
+ *  - 4 intake up, originally horizontal
  *  - 5 unused, spare
  *  - 6 unused, spare
  *  - 7 unused, spare
@@ -132,7 +132,7 @@ public class OI {
 	// coDriver - Arduino Due with dials
 
 	// Intake button numbers for rotating up and down
-	public int buttonIntakeUpNumber = 1;
+	public int buttonIntakeUpNumber = 4;
 	public int buttonIntakeDownNumber = 2;
 	
 	// Buttons numbers for the manual dial
