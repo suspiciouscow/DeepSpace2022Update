@@ -112,7 +112,7 @@ public class LiftSubsystem extends Subsystem {
 		return inchOffset * motorRotationsToInches * (motorEncoder.getPosition() + encoderOffset);
 	}
 
-	public void liftAxis(double axisVal, double min, double max, double deadzone, boolean map) {
+	public void liftAxisPID(double axisVal, double min, double max, double deadzone, boolean map) {
 		if (map) {
 			double mappedVal = map(axisVal, min, max, 0, topLimit);
 			PIDController.setReference(mappedVal, ControlType.kPosition);
@@ -121,6 +121,10 @@ public class LiftSubsystem extends Subsystem {
 				liftMotorLeader.set(map(axisVal,min,max,-0.5,0.5));
 			}
 		}
+	}
+
+	public void liftAxis(double axisVal) {
+		liftMotorLeader.set(axisVal);
 	}
 
 	public double map(double value, double min, double max, double newMin, double newMax) {
