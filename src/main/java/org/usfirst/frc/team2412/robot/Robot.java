@@ -3,6 +3,7 @@ package org.usfirst.frc.team2412.robot;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
+import org.usfirst.frc.team2412.robot.commands.HoldCargo;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
@@ -22,6 +23,8 @@ public class Robot extends TimedRobot {
 	CommandBase base = new CommandBase();
 
 	public static long startTime = 0;
+
+	public HoldCargo holdCargo = null;
 
 	// public static DigitalOutput LED;
 
@@ -137,12 +140,22 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
+		holdCargo = new HoldCargo();
+		holdCargo.start();
 		RobotMap.CLIMB_MODE = false;
 	}
 
 	@Override
 	public void autonomousPeriodic() {
 		controlledPeriodic();
+	}
+
+	@Override
+	public void disabledInit() {
+		if(holdCargo != null) {
+			holdCargo.close();
+			holdCargo = null;
+		}
 	}
 
 }
