@@ -27,6 +27,11 @@ public class InTakeCargoSubsystem extends Subsystem {
 		System.out.println("Stop intake (0%)");
 		// CargoMotor1.set(0.0);
 	}
+
+	public void HoldCargo() {
+		System.out.println("Holding cargo in (-10%)");
+		// CargoMotor1.set(0.1);
+	}
 	
 	public void InTakeCargoAxis(Joystick stick, int axis) {
 		System.out.println("Intake cargo axis: " + axis);
