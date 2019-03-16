@@ -38,6 +38,8 @@ public class LiftSubsystem extends Subsystem {
 	double I = 0;
 	double D = 0;
 
+	double lastSetpoint = 0;
+
 	public LiftSubsystem() {
 		PIDController.setP(P);
 		PIDController.setI(I);
@@ -63,11 +65,14 @@ public class LiftSubsystem extends Subsystem {
 		return getPosition();
 	}
 
+	private void setReference(double setpoint, ControlType type) {
+		setReference(setpoint, type);
+		lastSetpoint = setpoint;
+	}
+
 	public void liftUp() {
 		System.out.println(getPosition() + encoderOffset);
-		if (
-			
-		getPosition() + encoderOffset > topLimit) {
+		if (getPosition() + encoderOffset > topLimit) {
 			liftMotorLeader.set(0);
 			resetTop();
 			if (RobotMap.DEBUG_MODE) {
@@ -101,17 +106,17 @@ public class LiftSubsystem extends Subsystem {
 		if (RobotMap.DEBUG_MODE) {
 			System.out.println("Lift is going to " + inches + " inches from the ground.");
 		}
-		PIDController.setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
+		setReference(getRotationsFromInch(inches - inchOffset) + encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetBottom() {
 		encoderOffset = -getPosition();
-		// PIDController.setReference(encoderOffset, ControlType.kPosition);
+		// setReference(encoderOffset, ControlType.kPosition);
 	}
 
 	public void resetTop() {
 		encoderOffset = topLimit - getPosition();
-		// PIDController.setReference(topLimit - encoderOffset, ControlType.kPosition);
+		// setReference(topLimit - encoderOffset, ControlType.kPosition);
 	}
 
 	public double getInches() {
@@ -121,7 +126,7 @@ public class LiftSubsystem extends Subsystem {
 	public void liftAxisPID(double axisVal, double min, double max, double deadzone, boolean map) {
 		if (map) {
 			double mappedVal = map(axisVal, min, max, 0, topLimit);
-			PIDController.setReference(mappedVal, ControlType.kPosition);
+			setReference(mappedVal, ControlType.kPosition);
 		} else {
 			if (axisVal > (min + max + deadzone / 2) || axisVal < (min + max - deadzone / 2)) {
 				liftMotorLeader.set(map(axisVal,min,max,-0.5,0.5));
