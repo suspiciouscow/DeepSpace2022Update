@@ -3,6 +3,8 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.OI;
 import org.usfirst.frc.team2412.robot.Robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class InTakeAxisRotate extends CommandBase {
 	public InTakeAxisRotate() {
 		requires(inTakeUpDown);
@@ -16,6 +18,7 @@ public class InTakeAxisRotate extends CommandBase {
 	public void execute() {
 		System.out.println("Rotating intake axis with joystick...");
 		inTakeUpDown.InTakeAxisRotate(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
+		SmartDashboard.putNumber("Intake rotation angle", inTakeUpDown.getPosition());
 	}
 
 	@Override
