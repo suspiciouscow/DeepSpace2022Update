@@ -65,6 +65,10 @@ public class LiftSubsystem extends Subsystem {
 		return getPosition();
 	}
 
+	public double getError() {
+		return lastSetpoint - getPosition();
+	}
+
 	private void setReference(double setpoint, ControlType type) {
 		setReference(setpoint, type);
 		lastSetpoint = setpoint;
