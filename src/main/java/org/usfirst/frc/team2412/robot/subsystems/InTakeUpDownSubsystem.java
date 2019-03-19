@@ -7,13 +7,13 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	// PID conversion and unit values
-	private double potentiometerAngleRange = 270; // This is the range of angles that the potentiometer can produce,
+	private double potentiometerAngleRange = 350; // This is the range of angles that the potentiometer can produce,
 													// regardless of the actual angles intake will be at.
 	private double potentiometerAngleOffset = 0; // The angle offset to add to the potentiometer's angle value.
 
 	public static final double MIN_SPEED = -0.7; // Min motor speed - used to restrict how fast the motor turns.
 	public static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
-	public static final double MAX_ERROR = 100; // Max angle error in degrees - used for default KP calculations.
+	public static final double MAX_ERROR = 350; // Max angle error in degrees - used for default KP calculations.
 
 	// Default PID values
 	private static final double DEFAULT_KP = MAX_SPEED / MAX_ERROR;
@@ -22,12 +22,12 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	
 	// Potentiometer for measuring angle
 	private AnalogPotentiometer potentiometer;
-	private int potentiometerID = 1;
+	private int potentiometerID = 2;
 	
 	// private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
 	// private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
 	// private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
-	
+
 	public InTakeUpDownSubsystem() {
 		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
 	}
