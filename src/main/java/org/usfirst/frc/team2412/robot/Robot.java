@@ -154,6 +154,7 @@ public class Robot extends TimedRobot {
 			holdCargo.close();
 			holdCargo = null;
 		}
+		CommandBase.inTakeUpDown.disable();
 	}
 
 }
