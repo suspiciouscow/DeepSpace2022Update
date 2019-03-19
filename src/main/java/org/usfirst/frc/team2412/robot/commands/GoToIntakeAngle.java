@@ -3,6 +3,8 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.subsystems.InTakeUpDownSubsystem;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class GoToIntakeAngle extends CommandBase {
 	private double angleSetpoint = 0;
 	
@@ -23,6 +25,9 @@ public class GoToIntakeAngle extends CommandBase {
 
 	public void execute() {
 		if(RobotMap.DEBUG_MODE) {
+			SmartDashboard.putNumber("Angle setpoint", angleSetpoint);
+			SmartDashboard.putNumber("Current angle", inTakeUpDown.returnPIDInput());
+			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getPIDController().get());
 			System.out.println("Intake rotating to " + angleSetpoint + " degree(s)");
 			System.out.println("Current angle: " + inTakeUpDown.returnPIDInput() + " degree(s)");
 			System.out.println("Calculated motor speed: " + inTakeUpDown.getPIDController().get());
