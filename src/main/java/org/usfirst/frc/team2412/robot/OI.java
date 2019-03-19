@@ -47,13 +47,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * 
  * CODRIVER - Arduino Due, second joystick with dials:
  * ---------------
- * Intake position switch - not fully used because we don't have an intake angle sensor yet:
- *  - 1 unused, originally stowed
- *  - 2 intake down, originally vertical
- *  - 3 unused, cargo angle
- *  - 4 intake up, originally horizontal
- *  - 5 unused, spare
- *  - 6 unused, spare
+ * Intake position switch:
+ *  - 1 unused, spare
+ *  - 2 down
+ *  - 3 floor
+ *  - 4 cargo
+ *  - 5 score
+ *  - 6 stowed
  *  - 7 unused, spare
  *  - 8 unused, spare
  * ---------------
@@ -94,22 +94,6 @@ public class OI {
 	
 	// coDriver - Arduino Due with buttons
 	
-	/*
-	// Intake button numbers for the preset angles
-	public int buttonIntakeStowedAngleNumber = 1;
-	public int buttonIntakeVerticalAngleNumber = 2;
-	public int buttonIntakeCargoAngleNumber = 3;
-	public int buttonIntakeHorizontalAngleNumber = 4;
-	public int buttonIntakeSpareAngleNumber = 5;
-	
-	// Intake preset angle values - stowed is zero, increases going counterclockwise
-	public int intakeStowedAngle = 0;
-	public int intakeVerticalAngle = 10;
-	public int intakeCargoAngle = 55;
-	public int intakeHorizontalAngle = 100;
-	public int intakeSpareAngle = 0;
-	*/
-
 	// Intake cargo button numbers
 	public int buttonOutNumber = 1;
 	public int buttonInNumber = 2;
@@ -131,10 +115,20 @@ public class OI {
 	
 	// coDriver - Arduino Due with dials
 
-	// Intake button numbers for rotating up and down
-	public int buttonIntakeUpNumber = 4;
-	public int buttonIntakeDownNumber = 2;
+	// Intake button numbers for the preset angles
+	public int buttonIntakeStowedAngleNumber = 6;
+	public int buttonIntakeScoreAngleNumber = 5;
+	public int buttonIntakeCargoAngleNumber = 4;
+	public int buttonIntakeFloorAngleNumber = 3;
+	public int buttonIntakeDownAngleNumber = 2;
 	
+	// Intake preset angle values - stowed is zero, increases going counterclockwise
+	public int intakeStowedAngle = 0;
+	public int intakeScoreAngle = 10;
+	public int intakeCargoAngle = 55;
+	public int intakeFloorAngle = 100;
+	public int intakeDownAngle = 120;
+
 	// Buttons numbers for the manual dial
 	public int manualNoneNumber = 9;
 	public int manualLiftNumber = 10;
@@ -149,15 +143,6 @@ public class OI {
 	public Button visionGuidance = new JoystickButton(stick, buttonVisionGuidanceNumber);
 	public Button shiftHighButton = new JoystickButton(stick, buttonShiftingNumber);
 	
-	/*
-	// Intake button numbers for the preset angles
-	public Button buttonIntakeStowedAngle = new JoystickButton(coDriver, buttonIntakeStowedAngleNumber);
-	public Button buttonIntakeVerticalAngle = new JoystickButton(coDriver, buttonIntakeVerticalAngleNumber);
-	public Button buttonIntakeCargoAngle = new JoystickButton(coDriver, buttonIntakeCargoAngleNumber);
-	public Button buttonIntakeHorizontalAngle = new JoystickButton(coDriver, buttonIntakeHorizontalAngleNumber);
-	public Button buttonIntakeSpareAngle = new JoystickButton(coDriver, buttonIntakeSpareAngleNumber);
-	*/
-
 	// coDriver with physical buttons
 	
 	// Intake cargo buttons
@@ -181,10 +166,13 @@ public class OI {
 	
 	// coDriver - Arduino Due with physical dials
 
-	// Buttons for rotating the intake up and down
-	public Button buttonIntakeUp = new JoystickButton(coDriverArduinoDials, buttonIntakeUpNumber);
-	public Button buttonIntakeDown = new JoystickButton(coDriverArduinoDials, buttonIntakeDownNumber);
-	
+	// Intake button numbers for the preset angles
+	public Button buttonIntakeStowedAngle = new JoystickButton(coDriverArduinoDials, buttonIntakeStowedAngleNumber);
+	public Button buttonIntakeScoreAngle = new JoystickButton(coDriverArduinoDials, buttonIntakeScoreAngleNumber);
+	public Button buttonIntakeCargoAngle = new JoystickButton(coDriverArduinoDials, buttonIntakeCargoAngleNumber);
+	public Button buttonIntakeFloorAngle = new JoystickButton(coDriverArduinoDials, buttonIntakeFloorAngleNumber);
+	public Button buttonIntakeDownAngle = new JoystickButton(coDriverArduinoDials, buttonIntakeDownAngleNumber);
+
 	// Buttons for the manual dial
 	public Button buttonManualNone = new JoystickButton(coDriverArduinoDials, manualNoneNumber);
 	public Button buttonManualLift = new JoystickButton(coDriverArduinoDials, manualLiftNumber);
@@ -200,15 +188,6 @@ public class OI {
 		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
 
 		// coDriver commands
-		
-		/*
-		// Intake commands for the preset angles
-		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
-		buttonIntakeVerticalAngle.whenPressed(new GoToIntakeAngle(intakeVerticalAngle));
-		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
-		buttonIntakeHorizontalAngle.whenPressed(new GoToIntakeAngle(intakeHorizontalAngle));
-		buttonIntakeSpareAngle.whenPressed(new GoToIntakeAngle(intakeSpareAngle));
-		*/
 		
 		// Intake cargo commands
 		buttonIn.whileHeld(new InTakeCargo());
@@ -232,6 +211,13 @@ public class OI {
 		level2ButtonCargo.whenPressed(new GoToLevel(2, false));
 		level3ButtonCargo.whenPressed(new GoToLevel(3, false));
 
+		// Intake commands for the preset angles
+		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
+		buttonIntakeScoreAngle.whenPressed(new GoToIntakeAngle(intakeScoreAngle));
+		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
+		buttonIntakeFloorAngle.whenPressed(new GoToIntakeAngle(intakeFloorAngle));
+		buttonIntakeDownAngle.whenPressed(new GoToIntakeAngle(intakeDownAngle));
+		
 		// Buttons for the manual lift
 		buttonManualLift.whileHeld(new LiftAxisCommand()); 
 		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
@@ -240,9 +226,6 @@ public class OI {
 		buttonManualClimbLift.whileHeld(new ClimbLiftJoystick());
 		buttonManualClimbRoller.whileHeld(new ClimbRollerAxis());
 
-		// Buttons for rotating intake up and down
-		buttonIntakeUp.whileHeld(new InTakeUp());
-		buttonIntakeDown.whileHeld(new InTakeDown());
 	}
 
 }
