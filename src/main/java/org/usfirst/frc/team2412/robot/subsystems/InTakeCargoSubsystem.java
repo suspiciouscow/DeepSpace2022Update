@@ -34,7 +34,6 @@ public class InTakeCargoSubsystem extends Subsystem {
 	}
 	
 	public void InTakeCargoAxis(Joystick stick, int axis) {
-		System.out.println("Intake cargo axis: " + axis);
 		// CargoMotor1.set(stick.getRawAxis(axis));
 	}
 }
