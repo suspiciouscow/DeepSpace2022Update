@@ -37,29 +37,29 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 
 		// RobotMap.liftMotors[1].follow(RobotMap.liftMotors[0]);
-		Thread visionThread = new Thread(() -> {
-			System.out.println("In thread");
-			UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
-			CameraServer.getInstance().addCamera(camera);
-			camera.setResolution(160, 120);
-			camera.setFPS(30);
-			CvSink cvSink = CameraServer.getInstance().getVideo();
-			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 160, 120);
+		// Thread visionThread = new Thread(() -> {
+		// 	System.out.println("In thread");
+		// 	UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
+		// 	CameraServer.getInstance().addCamera(camera);
+		// 	camera.setResolution(160, 120);
+		// 	camera.setFPS(30);
+		// 	CvSink cvSink = CameraServer.getInstance().getVideo();
+		// 	CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 160, 120);
 
-			Mat mat = new Mat();
+		// 	Mat mat = new Mat();
 
-			while (!Thread.interrupted()) {
-				if (cvSink.grabFrame(mat) == 0) {
-					outputStream.notifyError(cvSink.getError());
-					continue;
-				}
-				// Core.flip(mat,mat,Core.ROTATE_180);
-				Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
-				outputStream.putFrame(mat);
-			}
-		});
-		visionThread.setDaemon(true);
-		visionThread.start();
+		// 	while (!Thread.interrupted()) {
+		// 		if (cvSink.grabFrame(mat) == 0) {
+		// 			outputStream.notifyError(cvSink.getError());
+		// 			continue;
+		// 		}
+		// 		// Core.flip(mat,mat,Core.ROTATE_180);
+		// 		Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGB2GRAY);
+		// 		outputStream.putFrame(mat);
+		// 	}
+		// });
+		// visionThread.setDaemon(true);
+		// visionThread.start();
 		// LED = new DigitalOutput(0);
 		// LED.set(false);
 
