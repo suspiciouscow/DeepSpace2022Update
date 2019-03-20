@@ -62,7 +62,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	public double getPosition() {
-		return getPosition();
+		return motorEncoder.getPosition();
 	}
 
 	public double getError() {
@@ -70,7 +70,7 @@ public class LiftSubsystem extends Subsystem {
 	}
 
 	private void setReference(double setpoint, ControlType type) {
-		setReference(setpoint, type);
+		PIDController.setReference(setpoint, type);
 		lastSetpoint = setpoint;
 	}
 

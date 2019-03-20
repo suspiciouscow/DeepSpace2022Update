@@ -29,10 +29,10 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	private AnalogPotentiometer potentiometer;
 	private int potentiometerID = 2;
 	
-	// private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
-	// private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
-	// private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
-
+	private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
+	private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
+	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
+	
 	public InTakeUpDownSubsystem() {
 		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
 	}
@@ -48,19 +48,19 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeUp() {
-		// armMotor1.set(0.5);
+		armMotor1.set(0.5);
 	}
 
 	public void InTakeDown() {
-		// armMotor1.set(-0.5);
+		armMotor1.set(-0.5);
 	}
 
 	public void InTakeStop() {
-		// armMotor1.set(0.0);
+		armMotor1.set(0.0);
 	}
 
 	public void InTakeAxisRotate(Joystick stick, int axis) {
-		// armMotor1.set(stick.getRawAxis(axis));
+		armMotor1.set(stick.getRawAxis(axis));
 	}
 
 	public boolean limitSwitchUp() {
@@ -80,6 +80,6 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	@Override
 	public void usePIDOutput(double speed) {
-		// armMotor1.set(speed);
+		armMotor1.set(speed);
 	}
 }
