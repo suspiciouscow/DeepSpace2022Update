@@ -13,9 +13,4 @@ public class InTakeCargo extends CommandBase {
 	protected boolean isFinished() {
 		return false;
 	}
-
-	@Override
-	protected void end() {
-		inTakeCargo.HoldCargo();
-	}
 }

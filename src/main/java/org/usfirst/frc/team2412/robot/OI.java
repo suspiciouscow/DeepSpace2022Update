@@ -191,7 +191,7 @@ public class OI {
 		
 		// Intake cargo commands
 		buttonIn.whileHeld(new InTakeCargo());
-		// buttonIn.whenReleased(new InTakeStop());
+		buttonIn.whenReleased(new HoldCargo());
 		buttonOut.whileHeld(new OutputCargo());
 		buttonOut.whenReleased(new InTakeStop());
 		
