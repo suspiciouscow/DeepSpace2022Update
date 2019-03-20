@@ -1,16 +1,10 @@
 package org.usfirst.frc.team2412.robot;
 
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2412.robot.commands.CommandBase;
 import org.usfirst.frc.team2412.robot.commands.HoldCargo;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
