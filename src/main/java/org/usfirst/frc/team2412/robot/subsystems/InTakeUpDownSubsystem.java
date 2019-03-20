@@ -1,6 +1,11 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import org.usfirst.frc.team2412.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -59,13 +64,13 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public boolean limitSwitchUp() {
-		// return limitSwitchUp.get();
 		return false;
+		// return limitSwitchUp.get();
 	}
 
 	public boolean limitSwitchDown() {
-		// return limitSwitchDown.get();
 		return false;
+		// return limitSwitchDown.get();
 	}
 
 	@Override
