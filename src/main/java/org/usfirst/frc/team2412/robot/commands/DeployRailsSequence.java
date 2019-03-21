@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DeployRailsSequence extends CommandGroup {
     public DeployRailsSequence() {
         // addSequential(new DeployRails());
-        addSequential(new GoToLevel(2, false));
+        // addSequential(new GoToLevel(2, false));
+        addSequential(new GoToHeight(57));
         addSequential(new GoToIntakeAngle(OI.intakeDownAngle));
         addParallel(new ClimbRollerAxis());
         addParallel(new ClimbLiftJoystick());
