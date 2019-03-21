@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import org.usfirst.frc.team2412.robot.MaxBotixSonar;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DigitalInput;

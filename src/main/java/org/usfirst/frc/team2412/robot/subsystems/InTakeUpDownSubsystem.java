@@ -5,7 +5,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -29,8 +28,8 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	private AnalogPotentiometer potentiometer;
 	private int potentiometerID = 1;
 	
-	private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
-	private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
+	// private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
+	// private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
 	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
 	
 	public InTakeUpDownSubsystem() {
