@@ -124,10 +124,10 @@ public class OI {
 	
 	// Intake preset angle values - stowed is zero, increases going counterclockwise
 	public int intakeStowedAngle = 0;
-	public int intakeScoreAngle = 10;
-	public int intakeCargoAngle = 55;
+	public int intakeScoreAngle = 0;
+	public int intakeCargoAngle = 62;
 	public int intakeFloorAngle = 100;
-	public int intakeDownAngle = 120;
+	public int intakeDownAngle = 194;
 
 	// Buttons numbers for the manual dial
 	public int manualNoneNumber = 9;
