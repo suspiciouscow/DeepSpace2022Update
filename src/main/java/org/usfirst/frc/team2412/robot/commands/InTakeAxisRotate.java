@@ -19,6 +19,7 @@ public class InTakeAxisRotate extends CommandBase {
 		System.out.println("Rotating intake axis with joystick...");
 		inTakeUpDown.InTakeAxisRotate(Robot.m_oi.coDriverArduinoButtons, OI.MANUAL_AXIS);
 		SmartDashboard.putNumber("Intake rotation angle", inTakeUpDown.getPosition());
+		System.out.println("Intake rotation angle: " + inTakeUpDown.getPosition());
 	}
 
 	@Override
