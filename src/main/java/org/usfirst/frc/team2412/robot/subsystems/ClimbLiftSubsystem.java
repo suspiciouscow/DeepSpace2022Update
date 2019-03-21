@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class ClimbLiftSubsystem extends Subsystem {
 
-	private MaxBotixSonar ultraSoundRadar = RobotMap.ultraSoundRadar;
+	// private MaxBotixSonar ultraSoundRadar = RobotMap.ultraSoundRadar;
 	private DigitalInput limitSwitchClimbForward = RobotMap.limitSwitchClimbForward;
 	private DigitalInput limitSwitchClimbReverse = RobotMap.limitSwitchClimbReverse;
 	private VictorSP victorSP1 = RobotMap.victorSP1;
@@ -49,7 +49,8 @@ public class ClimbLiftSubsystem extends Subsystem {
 	}
 
 	public double ultraSoundRadar() {
-		return ultraSoundRadar.getInches();
+		// return ultraSoundRadar.getInches();
+		return 0;
 	}
 
 	public boolean limitSwitchClimbReverse() {
