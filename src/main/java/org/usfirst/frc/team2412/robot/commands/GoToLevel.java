@@ -7,7 +7,7 @@ public class GoToLevel extends CommandBase {
 	public int level;
 	public boolean hatch; // if this is true, it goes to a hatch level, false a cargo
 
-	private static final double MAX_ERROR = 1;
+	private static final double MAX_ERROR = 4;
 
 	public GoToLevel(int level, boolean hatch) {
 		this.level = level;
@@ -16,7 +16,9 @@ public class GoToLevel extends CommandBase {
 	}
 
 	protected boolean isFinished() {
-		return liftSubsystem.getError() < MAX_ERROR;
+		double error = liftSubsystem.getError();
+		System.out.println("Error: " + error);
+		return error < MAX_ERROR;
 	}
 
 	protected void execute() {
