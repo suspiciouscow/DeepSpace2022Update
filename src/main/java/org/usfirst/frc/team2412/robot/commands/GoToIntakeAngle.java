@@ -40,6 +40,7 @@ public class GoToIntakeAngle extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return inTakeUpDown.onTarget();
+		return false;
+		// return inTakeUpDown.onTarget();
 	}
 }
