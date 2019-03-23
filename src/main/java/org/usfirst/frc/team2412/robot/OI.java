@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * ---------------
  *  - 1 vision guidance
  *  - 2 shift to low gear
+ *  - 3 test vision guidance sensors
  * 
  * CODRIVER - Arduino Due, first joystick with buttons:
  * ---------------
@@ -91,6 +92,7 @@ public class OI {
 	// Driver joystick (stick)
 	public int buttonVisionGuidanceNumber = 1;
 	public int buttonShiftingNumber = 2;
+	public int buttonVisionGuidanceSensorTestNumber = 3;
 	
 	// coDriver - Arduino Due with buttons
 	
@@ -142,6 +144,7 @@ public class OI {
  	// Driver joystick (stick) buttons
 	public Button visionGuidance = new JoystickButton(stick, buttonVisionGuidanceNumber);
 	public Button shiftHighButton = new JoystickButton(stick, buttonShiftingNumber);
+	public Button visionGuidanceSensorTestButton = new JoystickButton(stick, buttonVisionGuidanceSensorTestNumber);
 	
 	// coDriver with physical buttons
 	
@@ -186,6 +189,7 @@ public class OI {
 		// Driver joystick (stick) commands
 		visionGuidance.whileHeld(new VisionGuidanceCommand2());
 		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
+		visionGuidanceSensorTestButton.whileHeld(new VisionGuidanceCommandSensorTest());
 
 		// coDriver commands
 		
