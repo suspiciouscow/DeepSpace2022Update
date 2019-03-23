@@ -58,6 +58,10 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 		armMotor1.set(0.0);
 	}
 
+	public void InTakeHold() {
+		armMotor1.set(0.1);
+	}
+
 	public void InTakeAxisRotate(Joystick stick, int axis) {
 		armMotor1.set(stick.getRawAxis(axis));
 	}

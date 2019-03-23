@@ -216,7 +216,8 @@ public class OI {
 		level3ButtonCargo.whenPressed(new GoToLevel(3, false));
 
 		// Intake commands for the preset angles
-		buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
+		// buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
+		buttonIntakeStowedAngle.whenPressed(new InTakeStow());
 		buttonIntakeScoreAngle.whenPressed(new GoToIntakeAngle(intakeScoreAngle));
 		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
 		buttonIntakeFloorAngle.whenPressed(new GoToIntakeAngle(intakeFloorAngle));
