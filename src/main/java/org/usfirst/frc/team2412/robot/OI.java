@@ -125,7 +125,7 @@ public class OI {
 	// Intake preset angle values - stowed is zero, increases going counterclockwise
 	public static int intakeStowedAngle = 0;
 	public static int intakeScoreAngle = 0;
-	public static int intakeCargoAngle = 62;
+	public static int intakeCargoAngle = 74;
 	public static int intakeFloorAngle = 100;
 	public static int intakeDownAngle = 172;
 
