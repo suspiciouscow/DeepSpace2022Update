@@ -33,7 +33,12 @@ public class ClimbRollerSubsystem extends Subsystem {
 	}
 	
 	public void ClimbRollerAxis(Joystick stick, int axis) {
-		victorSP3.set(stick.getRawAxis(axis));
+		double throttleSpeed = stick.getRawAxis(axis) * 1.1;
+		if(throttleSpeed < 0) {
+			victorSP3.set(Math.min(throttleSpeed, -1));
+		} else {
+			victorSP3.set(Math.min(throttleSpeed, 1));
+		}
 	}
 
 }
