@@ -1,16 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import org.usfirst.frc.team2412.robot.subsystems.DriveBaseShifterSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.DriveBaseSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.ClimbLiftSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.ClimbPneumaticsSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.InTakeCargoSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.InTakeUpDownSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.LiftSubsystem;
-import org.usfirst.frc.team2412.robot.subsystems.HatchIntake;
-import org.usfirst.frc.team2412.robot.subsystems.HatchSensors;
-
+import org.usfirst.frc.team2412.robot.subsystems.*;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CommandBase extends Command {
@@ -19,6 +9,7 @@ public class CommandBase extends Command {
 	public static InTakeUpDownSubsystem inTakeUpDown = new InTakeUpDownSubsystem(0.07, 0, 0);
 	public static InTakeCargoSubsystem inTakeCargo = new InTakeCargoSubsystem();
 	public static ClimbPneumaticsSubsystem climbPneumatics = new ClimbPneumaticsSubsystem();
+	public static ClimbLatchSubsystem latchPneumatics = new ClimbLatchSubsystem();
 	public static ClimbRollerSubsystem climbRoller = new ClimbRollerSubsystem();
 	public static ClimbLiftSubsystem climbLift = new ClimbLiftSubsystem();
 	public static LiftSubsystem liftSubsystem = new LiftSubsystem();
