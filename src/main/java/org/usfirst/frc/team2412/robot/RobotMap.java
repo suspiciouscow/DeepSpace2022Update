@@ -54,6 +54,8 @@ public class RobotMap {
 	public static int shifterID = 1;
 	public static int climbUp = 0;
 	public static int climbDown = 7;
+	public static int latchIn = 2;
+	public static int latchOut = 3;
 
 	// DriveBase
 
@@ -79,9 +81,10 @@ public class RobotMap {
 	public static WPI_VictorSPX cargoMotor1 = new WPI_VictorSPX(CargoMotorID1);
 	// Arm for the whole InTake system
 	public static WPI_VictorSPX armMotor1 = new WPI_VictorSPX(armMotorID1);
-	// climb
 
+	// climb
 	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);
+	public static DoubleSolenoid latchPneumatics = new DoubleSolenoid(latchIn, latchOut);
 
 	/*
 	 * public static int climbRollerID1 = 1; public static WPI_TalonSRX climbRoller1
