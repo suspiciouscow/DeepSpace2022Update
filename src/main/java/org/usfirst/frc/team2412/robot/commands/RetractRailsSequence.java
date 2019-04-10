@@ -8,5 +8,7 @@ public class RetractRailsSequence extends CommandGroup {
         addSequential(new OpenLatch());
         addSequential(new WaitCommand(1));
         addSequential(new RetractRails());
+        addSequential(new WaitCommand(1));
+        addSequential(new CloseLatch());
     }
 }
