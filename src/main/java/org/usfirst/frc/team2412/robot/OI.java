@@ -205,7 +205,7 @@ public class OI {
 		
 		// Climb command (for rail deployment)
 		buttonDeploy.whenPressed(new DeployRailsSequence());
-		buttonDeploy.whenReleased(new RetractRailsSequence());
+		buttonDeploy.whenReleased(new RetractRails());
 		// Lift commands
 		level1ButtonHatch.whenPressed(new GoToLevel(1, true));
 		level2ButtonHatch.whenPressed(new GoToLevel(2, true));

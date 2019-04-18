@@ -13,11 +13,11 @@ public class ClimbLatchSubsystem extends Subsystem {
 	protected void initDefaultCommand() {
 	}
 
-	public void openLatch() {
+	public void OpenLatch() {
 		latchPneumatics.set(DoubleSolenoid.Value.kForward);
 	}
 
-	public void closeLatch() {
+	public void CloseLatch() {
 		latchPneumatics.set(DoubleSolenoid.Value.kReverse);
 	}
 }
