@@ -35,16 +35,17 @@ public class LiftSubsystem extends Subsystem {
 	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
 	double P = 0.11; //.11
+	double P_safe = 0.0155;
 	double I = 0;
 	double D = 0;
 
 	double lastSetpoint = 0;
 
 	public LiftSubsystem() {
-		PIDController.setP(P);
+		PIDController.setP((RobotMap.SAFE_MODE)?P_safe:P);
 		PIDController.setI(I);
 		PIDController.setD(D);
-		PIDController.setOutputRange(-1, 1);
+		PIDController.setOutputRange(-1d/((RobotMap.SAFE_MODE)?2d:1d), 1d/((RobotMap.SAFE_MODE)?2d:1d));
 		resetBottom();
 		if (RobotMap.DEBUG_MODE) {
 			System.out.println(encoderOffset);

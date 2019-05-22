@@ -84,6 +84,8 @@ public class Robot extends TimedRobot {
 	public void controlledPeriodic() {
 		Scheduler.getInstance().run();
 
+		RobotMap.SAFE_MODE = !m_oi.stick.getRawButton(4);
+
 		// if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
 		// 	liftBottomReset.execute();
 		// 	liftBottomResetHeld = true;

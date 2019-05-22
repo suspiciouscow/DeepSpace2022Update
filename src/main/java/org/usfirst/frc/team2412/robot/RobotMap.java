@@ -29,6 +29,7 @@ public class RobotMap {
 
 	public static boolean DEBUG_MODE = true;
 	public static boolean CLIMB_MODE = false; // If the codriver has pressed the rail deploy button or not
+	public static boolean SAFE_MODE = true;
 	
 	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel(11);
 
