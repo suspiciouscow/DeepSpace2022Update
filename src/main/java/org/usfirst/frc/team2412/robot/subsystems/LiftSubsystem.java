@@ -34,7 +34,7 @@ public class LiftSubsystem extends Subsystem {
 	CANPIDController PIDController = liftMotorLeader.getPIDController();
 	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
-	double P = 0.015;
+	double P = 0.11; //.11
 	double I = 0;
 	double D = 0;
 
@@ -54,7 +54,7 @@ public class LiftSubsystem extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-
+		
 	}
 
 	public double getRotationsFromInch(double inches) {

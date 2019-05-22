@@ -126,6 +126,7 @@ public class Robot extends TimedRobot {
 		
 		SmartDashboard.putNumberArray("Amps", power);
 		SmartDashboard.putNumberArray("IDs", ids);
+		System.out.println("Motor Speed: "+ RobotMap.liftMotors[0].getEncoder().getVelocity());
 	}
 	
 	@Override
