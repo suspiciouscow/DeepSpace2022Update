@@ -217,11 +217,11 @@ public class OI {
 
 		// Intake commands for the preset angles
 		// buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
-		buttonIntakeStowedAngle.whenPressed(new InTakeStow());
-		buttonIntakeScoreAngle.whenPressed(new GoToIntakeAngle(intakeScoreAngle));
-		buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
-		buttonIntakeFloorAngle.whenPressed(new GoToIntakeAngle(intakeFloorAngle));
-		buttonIntakeDownAngle.whenPressed(new GoToIntakeAngle(intakeDownAngle));
+		// buttonIntakeStowedAngle.whenPressed(new InTakeStow());
+		// buttonIntakeScoreAngle.whenPressed(new GoToIntakeAngle(intakeScoreAngle));
+		// buttonIntakeCargoAngle.whenPressed(new GoToIntakeAngle(intakeCargoAngle));
+		// buttonIntakeFloorAngle.whenPressed(new GoToIntakeAngle(intakeFloorAngle));
+		// buttonIntakeDownAngle.whenPressed(new GoToIntakeAngle(intakeDownAngle));
 		
 		// Buttons for the manual lift
 		buttonManualLift.whileHeld(new LiftAxisCommand()); 
