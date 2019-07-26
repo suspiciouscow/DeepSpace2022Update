@@ -207,13 +207,13 @@ public class OI {
 		buttonDeploy.whenPressed(new DeployRailsSequence());
 		buttonDeploy.whenReleased(new RetractRails());
 		// Lift commands
-		level1ButtonHatch.whenPressed(new GoToLevel(1, true));
-		level2ButtonHatch.whenPressed(new GoToLevel(2, true));
-		level3ButtonHatch.whenPressed(new GoToLevel(3, true));
+		// level1ButtonHatch.whenPressed(new GoToLevel(1, true));
+		// level2ButtonHatch.whenPressed(new GoToLevel(2, true));
+		// level3ButtonHatch.whenPressed(new GoToLevel(3, true));
 
-		level1ButtonCargo.whenPressed(new GoToLevel(1, false));
-		level2ButtonCargo.whenPressed(new GoToLevel(2, false));
-		level3ButtonCargo.whenPressed(new GoToLevel(3, false));
+		// level1ButtonCargo.whenPressed(new GoToLevel(1, false));
+		// level2ButtonCargo.whenPressed(new GoToLevel(2, false));
+		// level3ButtonCargo.whenPressed(new GoToLevel(3, false));
 
 		// Intake commands for the preset angles
 		// buttonIntakeStowedAngle.whenPressed(new GoToIntakeAngle(intakeStowedAngle));
@@ -224,7 +224,7 @@ public class OI {
 		// buttonIntakeDownAngle.whenPressed(new GoToIntakeAngle(intakeDownAngle));
 		
 		// Buttons for the manual lift
-		buttonManualLift.whileHeld(new LiftAxisCommand()); 
+		// buttonManualLift.whileHeld(new LiftAxisCommand()); 
 		buttonManualIntakeRotate.whileHeld(new InTakeAxisRotate());
 		buttonManualIntakeInOut.whileHeld(new InTakeInOutAxis());
 		buttonManualIntakeInOut.whenReleased(new InTakeStop());
