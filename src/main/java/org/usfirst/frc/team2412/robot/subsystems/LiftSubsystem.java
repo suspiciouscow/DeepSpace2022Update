@@ -23,7 +23,7 @@ public class LiftSubsystem extends Subsystem {
 	// inches
 	double outputGearRadius = 0.75;
 	double outputGearCircumference = outputGearRadius * 2 * Math.PI;
-	double pullyRatio = 1; // one inch on string moves the lift up x inches
+	double pullyRatio = 2; // one inch on string moves the lift up x inches
 
 	// rotations
 	double gearboxRatio = 9.52; // how many motor rotations are one output rotation
@@ -34,9 +34,9 @@ public class LiftSubsystem extends Subsystem {
 	CANPIDController PIDController = liftMotorLeader.getPIDController();
 	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
-	double P = 0.11; //.11
-	double P_safe = 0.0155;
-	double I = 0;
+	double P = 0.01; //.11
+	double P_safe = 0.03;
+	double I = 0.000001;
 	double D = 0;
 
 	double lastSetpoint = 0;
@@ -46,6 +46,7 @@ public class LiftSubsystem extends Subsystem {
 		PIDController.setI(I);
 		PIDController.setD(D);
 		PIDController.setOutputRange(-1d/((RobotMap.SAFE_MODE)?2d:1d), 1d/((RobotMap.SAFE_MODE)?2d:1d));
+		liftMotorLeader.setInverted(true);
 		resetBottom();
 		if (RobotMap.DEBUG_MODE) {
 			System.out.println(encoderOffset);

@@ -227,7 +227,7 @@
                 {
                   "_type": "Voltage View",
                   "_source0": "network_table:///LiveWindow/Ungrouped/AnalogPotentiometer[1]",
-                  "_title": "/LiveWindow/Ungrouped/AnalogPotentiometer[1]",
+                  "_title": "AnalogPotentiometer[1]",
                   "Range/Min": 0.0,
                   "Range/Max": 5.0,
                   "Range/Center": 0.0,
