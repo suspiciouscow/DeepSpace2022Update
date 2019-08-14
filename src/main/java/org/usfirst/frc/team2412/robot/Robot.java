@@ -11,8 +11,10 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends TimedRobot {
 
@@ -84,12 +86,13 @@ public class Robot extends TimedRobot {
 
 		RobotMap.SAFE_MODE = !m_oi.stick.getRawButton(4);
 
-		// if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
-		// 	liftBottomReset.execute();
-		// 	liftBottomResetHeld = true;
-		// } else if (!RobotMap.liftBottomSwitch.get()) {
-		// 	liftBottomResetHeld = false;
-		// }
+		
+		if (RobotMap.liftBottomSwitch.get() && !liftBottomResetHeld) {
+			liftBottomReset.execute();
+			liftBottomResetHeld = true;
+		} else if (!RobotMap.liftBottomSwitch.get()) {
+			liftBottomResetHeld = false;
+		}
 
 		// if (RobotMap.liftTopSwitch.get() && !liftTopResetHeld) {
 		// 	liftTopReset.execute();
@@ -112,16 +115,12 @@ public class Robot extends TimedRobot {
 		}*/
 		
 		
-		// PowerDistributionPanel powerPanel = RobotMap.powerPanel;
-		// powerPanel.clearStickyFaults();   
+		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
+		powerPanel.clearStickyFaults();   
 		
-		// double[] ids = new double[15];
-		// double[] power = new double[15];
+		double[] ids = new double[15];
+		double[] power = new double[15];
 		
-		// for(int i = 0; i<15; i++) {
-		// 	ids[i] = i+1;
-		// 	power[i] = powerPanel.getCurrent(i);
-		// }
 		
 		
 		SmartDashboard.putNumberArray("Amps", power);
