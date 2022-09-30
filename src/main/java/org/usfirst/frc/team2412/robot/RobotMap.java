@@ -8,10 +8,10 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
@@ -68,9 +68,9 @@ public class RobotMap {
 			new CANSparkMax(driveBaseMotorIDs[5], MotorType.kBrushless) };
 
 	//Differential Drive
-	public static SpeedControllerGroup leftSide = new SpeedControllerGroup(driveBaseMotors[0], driveBaseMotors[2],
+	public static MotorControllerGroup leftSide = new MotorControllerGroup(driveBaseMotors[0], driveBaseMotors[2],
 			driveBaseMotors[4]);
-	public static SpeedControllerGroup rightSide = new SpeedControllerGroup(driveBaseMotors[1], driveBaseMotors[3],
+	public static MotorControllerGroup rightSide = new MotorControllerGroup(driveBaseMotors[1], driveBaseMotors[3],
 			driveBaseMotors[5]);
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);

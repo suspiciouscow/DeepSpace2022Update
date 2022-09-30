@@ -7,11 +7,11 @@ import org.usfirst.frc.team2412.robot.commands.HoldCargo;
 import org.usfirst.frc.team2412.robot.commands.LiftBottomReset;
 import org.usfirst.frc.team2412.robot.commands.LiftTopReset;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
-import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cscore.CvSink;
+import edu.wpi.first.cscore.CvSource;
+import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -42,11 +42,11 @@ public class Robot extends TimedRobot {
 		Thread visionThread = new Thread(() -> {
 			System.out.println("In thread");
 			UsbCamera camera = new UsbCamera("Microsoft Lifecam", "/dev/video0");
-			CameraServer.getInstance().addCamera(camera);
+			CameraServer.addCamera(camera);
 			camera.setResolution(160, 120);
 			camera.setFPS(30);
-			CvSink cvSink = CameraServer.getInstance().getVideo();
-			CvSource outputStream = CameraServer.getInstance().putVideo("UsbCamera", 160, 120);
+			CvSink cvSink = CameraServer.getVideo();
+			CvSource outputStream = CameraServer.putVideo("UsbCamera", 160, 120);
 
 			Mat mat = new Mat();
 

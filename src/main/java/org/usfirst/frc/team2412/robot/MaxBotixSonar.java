@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2412.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.SendableBase;
-import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
+import edu.wpi.first.util.sendable.SendableBase;
+import edu.wpi.first.util.sendable.SendableBuilder;
 
 public class MaxBotixSonar extends SendableBase {
 
