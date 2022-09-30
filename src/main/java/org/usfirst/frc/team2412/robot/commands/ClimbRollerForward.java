@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class ClimbRollerForward extends CommandBase {
+public class ClimbRollerForward extends CommandBase2412 {
 
 	public ClimbRollerForward() {
 		requires(climbRoller);

@@ -10,7 +10,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
-public class VisionGuidanceCommand extends CommandBase {
+public class VisionGuidanceCommand extends CommandBase2412 {
 	private static final int PORT = 1111;
 
 	private DatagramSocket socket = null;

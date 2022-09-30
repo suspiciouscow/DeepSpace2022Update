@@ -3,10 +3,10 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.OI;
 import org.usfirst.frc.team2412.robot.Robot;
 
-public class ClimbLiftJoystick extends CommandBase {
+public class ClimbLiftJoystick extends CommandBase2412 {
 
 	public ClimbLiftJoystick() {
-		requires(climbLift);
+		addRequirements(climbLift);
 	}
 
 	public void execute() {

@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class HoldCargo extends CommandBase {
+public class HoldCargo extends CommandBase2412 {
 	public HoldCargo() {
 		requires(inTakeCargo);
 	}

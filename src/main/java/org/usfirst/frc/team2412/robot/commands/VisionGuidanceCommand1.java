@@ -14,7 +14,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
  * Vision guidance, iteration 1. This version drives and turns proportional to the raspberry pi's reported distance and angle.
  */
 
-public class VisionGuidanceCommand1 extends CommandBase {
+public class VisionGuidanceCommand1 extends CommandBase2412 {
 	private static final int PORT = 1111;
 
 	private DatagramSocket socket = null;

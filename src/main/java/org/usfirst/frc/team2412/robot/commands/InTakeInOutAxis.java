@@ -3,7 +3,7 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.OI;
 import org.usfirst.frc.team2412.robot.Robot;
 
-public class InTakeInOutAxis extends CommandBase {
+public class InTakeInOutAxis extends CommandBase2412 {
 	public InTakeInOutAxis() {
 		requires(inTakeCargo);
 	}

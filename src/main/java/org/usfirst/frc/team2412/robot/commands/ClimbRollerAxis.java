@@ -4,7 +4,7 @@ import org.usfirst.frc.team2412.robot.OI;
 import org.usfirst.frc.team2412.robot.Robot;
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-public class ClimbRollerAxis extends CommandBase {
+public class ClimbRollerAxis extends CommandBase2412 {
 
 	public ClimbRollerAxis() {
 		requires(climbRoller);

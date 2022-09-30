@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class OutputCargo extends CommandBase {
+public class OutputCargo extends CommandBase2412 {
 	public OutputCargo() {
 		requires(inTakeCargo);
 	}

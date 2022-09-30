@@ -17,7 +17,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
  * Vision guidance for sensor testing. This version only prints out the LIDAR sensor's distance and the raspberry pi's reported angle. It does not drive the robot.
  */
 
-public class VisionGuidanceCommandSensorTest extends CommandBase {
+public class VisionGuidanceCommandSensorTest extends CommandBase2412 {
 	private static final int PORT = 1111;
 
 	private DatagramSocket socket = null;

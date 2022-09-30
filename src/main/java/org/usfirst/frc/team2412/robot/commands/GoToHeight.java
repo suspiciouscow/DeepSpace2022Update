@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class GoToHeight extends CommandBase {
+public class GoToHeight extends CommandBase2412 {
 
 	private static final double MAX_ERROR = 4;
 

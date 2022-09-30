@@ -1,11 +1,11 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc.team2412.robot.commands.CommandBase2412;
 
-public class CargoShipSequence extends CommandGroup {
+public class CargoShipSequence extends CommandBase2412 {
     public CargoShipSequence() {
         // addSequential(new DeployRails());
-        addSequential(new GoToLevel(2, false));
+        addSequentialGroup(new GoToLevel(2, false));
         addParallel(new ClimbLiftJoystick());
     }
 }

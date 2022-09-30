@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-public class ShiftOtherGearCommand extends CommandBase {
+public class ShiftOtherGearCommand extends CommandBase2412 {
 	
 	public ShiftOtherGearCommand() {
 		requires(driveShifters);

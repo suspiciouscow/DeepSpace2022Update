@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class ClimbLiftReverse extends CommandBase {
+public class ClimbLiftReverse extends CommandBase2412 {
 
 	public ClimbLiftReverse() {
 		requires(climbLift);

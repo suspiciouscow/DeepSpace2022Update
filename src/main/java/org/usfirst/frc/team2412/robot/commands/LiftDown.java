@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-public class LiftDown extends CommandBase {
+public class LiftDown extends CommandBase2412 {
 
 	public LiftDown() {
 		requires(liftSubsystem);

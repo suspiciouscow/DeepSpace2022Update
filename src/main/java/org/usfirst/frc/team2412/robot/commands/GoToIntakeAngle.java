@@ -5,7 +5,7 @@ import org.usfirst.frc.team2412.robot.subsystems.InTakeUpDownSubsystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class GoToIntakeAngle extends CommandBase {
+public class GoToIntakeAngle extends CommandBase2412 {
 	private double angleSetpoint = 0;
 	
 	public GoToIntakeAngle(double angle) {

@@ -17,7 +17,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
  * Vision guidance, iteration 2. This version drives and turns proportional to the LIDAR sensor's reported distance and the raspberry pi's reported angle.
  */
 
-public class VisionGuidanceCommand2 extends CommandBase {
+public class VisionGuidanceCommand2 extends CommandBase2412 {
 	private static final int PORT = 1111;
 
 	private DatagramSocket socket = null;

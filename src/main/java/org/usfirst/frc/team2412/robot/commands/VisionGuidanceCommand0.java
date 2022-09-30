@@ -14,7 +14,7 @@ import edu.wpi.first.networktables.NetworkTableInstance;
  * Vision guidance, iteration 0. This is the original version which drives proportional to angle and forward at a constant speed.
  */
 
-public class VisionGuidanceCommand0 extends CommandBase {
+public class VisionGuidanceCommand0 extends CommandBase2412 {
 	private static final int PORT = 1111;
 
 	private DatagramSocket socket = null;

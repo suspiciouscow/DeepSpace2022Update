@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-public class GoToLevel extends CommandBase {
+public class GoToLevel extends CommandBase2412 {
 
 	public int level;
 	public boolean hatch; // if this is true, it goes to a hatch level, false a cargo

@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-public class InTakeStow extends CommandBase {
+public class InTakeStow extends CommandBase2412 {
 	public InTakeStow() {
 		requires(inTakeUpDown);
 	}

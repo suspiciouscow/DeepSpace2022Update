@@ -5,7 +5,7 @@ import org.usfirst.frc.team2412.robot.Robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class LiftAxisCommand extends CommandBase {
+public class LiftAxisCommand extends CommandBase2412 {
 
 	public LiftAxisCommand() {
 		requires(liftSubsystem);

@@ -5,7 +5,7 @@ import org.usfirst.frc.team2412.robot.Robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class InTakeAxisRotate extends CommandBase {
+public class InTakeAxisRotate extends CommandBase2412 {
 	public InTakeAxisRotate() {
 		requires(inTakeUpDown);
 	}
