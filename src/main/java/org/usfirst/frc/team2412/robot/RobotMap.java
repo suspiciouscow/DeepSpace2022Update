@@ -10,11 +10,7 @@ import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PowerDistribution;
 import edu.wpi.first.wpilibj.Solenoid;
-<<<<<<< HEAD
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-=======
 import edu.wpi.first.wpilibj.MotorControllerGroup;
->>>>>>> f037a8a324c74766e337b065604cabaac5a6cb08
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
