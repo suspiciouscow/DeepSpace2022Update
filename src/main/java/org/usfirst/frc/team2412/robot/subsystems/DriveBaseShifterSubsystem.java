@@ -2,9 +2,9 @@ package org.usfirst.frc.team2412.robot.subsystems;
 
 import org.usfirst.frc.team2412.robot.commands.ShiftDefaultGearCommand;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class DriveBaseShifterSubsystem extends Subsystem {
+public class DriveBaseShifterSubsystem extends SubsystemBase {
 	// private Solenoid shifter = RobotMap.shifter;
 
 	@Override

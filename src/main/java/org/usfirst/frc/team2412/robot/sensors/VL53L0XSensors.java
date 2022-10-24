@@ -152,7 +152,7 @@ public class VL53L0XSensors {
 	
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
+        // Set the default command for a SubsystemBase here.
         //setDefaultCommand(new MySpecialCommand());
     }
 

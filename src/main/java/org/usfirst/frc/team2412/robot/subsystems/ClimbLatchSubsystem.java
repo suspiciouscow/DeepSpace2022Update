@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class ClimbLatchSubsystem extends Subsystem {
+public class ClimbLatchSubsystem extends SubsystemBase {
 
 	// private DoubleSolenoid latchPneumatics = RobotMap.latchPneumatics;
 
