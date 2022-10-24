@@ -35,11 +35,6 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 		super(KP, KI, KD);
 		// potentiometer = new AnalogPotentiometer(potentiometerID, potentiometerAngleRange, potentiometerAngleOffset);
 	}
-	
-	@Override
-	protected void initDefaultCommand() {
-
-	}
 
 	public void InTakeUp() {
 		//armMotor1.set(0.5);

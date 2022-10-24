@@ -17,9 +17,4 @@ public class HatchSensors extends SubsystemBase {
 		// RobotMap.led1.set(true);
 	}
 
-	@Override
-	protected void initDefaultCommand() {
-
-	}
-
 }

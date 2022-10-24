@@ -8,10 +8,6 @@ public class InTakeCargoSubsystem extends SubsystemBase {
 	// RESEARCH TALONSRX CAPABILITIES AND EDUCATE THE TEAM
 	// private WPI_VictorSPX CargoMotor1 = RobotMap.cargoMotor1;
 
-	@Override
-	protected void initDefaultCommand() {
-	}
-
 	// CHANGE MOTOR SPEED TO CONSTANTS
 	public void InTakeCargo() {
 		System.out.println("Intake cargo (-100%)");

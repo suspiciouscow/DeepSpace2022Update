@@ -51,11 +51,6 @@ public class LiftSubsystem extends SubsystemBase {
 		}
 	}
 
-	@Override
-	protected void initDefaultCommand() {
-		
-	}
-
 	public double getRotationsFromInch(double inches) {
 		return inches / motorRotationsToInches;
 	}
