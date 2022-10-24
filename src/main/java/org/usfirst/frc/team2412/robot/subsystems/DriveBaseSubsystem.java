@@ -3,9 +3,9 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import org.usfirst.frc.team2412.robot.commands.JoystickDriveCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class DriveBaseSubsystem extends Subsystem {
+public class DriveBaseSubsystem extends SubsystemBase {
 	// private DifferentialDrive robotDrive = RobotMap.drive;
 
 	@Override

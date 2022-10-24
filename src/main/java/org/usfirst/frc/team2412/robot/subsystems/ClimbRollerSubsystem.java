@@ -1,9 +1,9 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class ClimbRollerSubsystem extends Subsystem {
+public class ClimbRollerSubsystem extends SubsystemBase {
 
 	// private VictorSP victorSP3 = RobotMap.victorSP3;
 

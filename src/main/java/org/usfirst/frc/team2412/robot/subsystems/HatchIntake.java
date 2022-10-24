@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class HatchIntake extends Subsystem {
+public class HatchIntake extends SubsystemBase {
 //  private Solenoid PistonMoving = RobotMap.pistonface;
 
 	@Override

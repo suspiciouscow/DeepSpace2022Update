@@ -1,9 +1,9 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class InTakeCargoSubsystem extends Subsystem {
+public class InTakeCargoSubsystem extends SubsystemBase {
 
 	// RESEARCH TALONSRX CAPABILITIES AND EDUCATE THE TEAM
 	// private WPI_VictorSPX CargoMotor1 = RobotMap.cargoMotor1;

@@ -1,9 +1,9 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
-public class ClimbLiftSubsystem extends Subsystem {
+public class ClimbLiftSubsystem extends SubsystemBase {
 
 	// private MaxBotixSonar ultraSoundRadar = RobotMap.ultraSoundRadar;
 	// private DigitalInput limitSwitchClimbForward = RobotMap.limitSwitchClimbForward;
