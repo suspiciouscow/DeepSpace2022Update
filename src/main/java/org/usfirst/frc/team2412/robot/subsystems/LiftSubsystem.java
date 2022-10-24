@@ -4,7 +4,7 @@ import com.revrobotics.ControlType;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 
-import edu.wpi.first.wpilibj2.command.subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class LiftSubsystem extends SubsystemBase {
 

@@ -1,16 +1,11 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.subsystem;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbRollerSubsystem extends SubsystemBase {
 
 	// private VictorSP victorSP3 = RobotMap.victorSP3;
-
-	@Override
-	protected void initDefaultCommand() {
-
-	}
 
 	public void ClimbRollerForward() {
 		// double rollerSpeed = 0.75;
