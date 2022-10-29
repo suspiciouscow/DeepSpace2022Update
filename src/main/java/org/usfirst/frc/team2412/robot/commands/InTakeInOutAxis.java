@@ -5,7 +5,7 @@ import org.usfirst.frc.team2412.robot.Robot;
 
 public class InTakeInOutAxis extends CommandBase2412 {
 	public InTakeInOutAxis() {
-		requires(inTakeCargo);
+		addRequirements(inTakeCargo);
 	}
 
 	public void execute() {
@@ -14,7 +14,7 @@ public class InTakeInOutAxis extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return true;
 	}
 }

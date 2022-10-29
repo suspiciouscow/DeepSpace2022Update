@@ -47,11 +47,11 @@ public class VisionGuidanceCommandSensorTest extends CommandBase2412 {
 	private VL53L0X lidar; 
 
 	public VisionGuidanceCommandSensorTest() {
-		requires(driveBase);
+		addRequirements(driveBase);
 	}
 
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		if (protocol.equals("NT")) {
 			instance = NetworkTableInstance.getDefault();
 			table = instance.getTable("datatable");
@@ -80,7 +80,7 @@ public class VisionGuidanceCommandSensorTest extends CommandBase2412 {
 	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		if (protocol.equals("NT")) {
 			angle = angleEntry.getDouble(0.0);
 			// distance = distanceEntry.getDouble(0.0);
@@ -139,8 +139,7 @@ public class VisionGuidanceCommandSensorTest extends CommandBase2412 {
 		}
 	}
 
-	@Override
-	protected void end() {
+	public void end() {
 		if (socket != null) {
 			socket.close();
 			System.out.println("Closing...");

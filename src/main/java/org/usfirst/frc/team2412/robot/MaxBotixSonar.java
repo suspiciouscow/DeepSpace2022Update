@@ -13,7 +13,6 @@ public class MaxBotixSonar extends SendableBase {
 		channel = new AnalogInput(port);
 	}
 
-	@Override
 	public void initSendable(SendableBuilder builder) {
 	}
 

@@ -1,9 +1,10 @@
 package org.usfirst.frc.team2412.robot.commands;
+import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 
 public class ClimbRollerForward extends CommandBase2412 {
 
 	public ClimbRollerForward() {
-		requires(climbRoller);
+		addRequirements(climbRoller);
 	}
 
 	public void execute() {
@@ -11,11 +12,11 @@ public class ClimbRollerForward extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 
-	protected void end() {
+	public void end() {
 		climbRoller.ClimbRollerStop();
 	}
 }

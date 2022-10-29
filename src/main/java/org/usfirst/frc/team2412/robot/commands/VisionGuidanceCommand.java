@@ -35,11 +35,10 @@ public class VisionGuidanceCommand extends CommandBase2412 {
 	private NetworkTableEntry targetsFoundEntry;
 
 	public VisionGuidanceCommand() {
-		requires(driveBase);
+		addRequirements(driveBase);
 	}
 
-	@Override
-	protected void initialize() {
+	public void initialize() {
 		if (protocol.equals("NT")) {
 			instance = NetworkTableInstance.getDefault();
 			table = instance.getTable("datatable");
@@ -59,8 +58,7 @@ public class VisionGuidanceCommand extends CommandBase2412 {
 		}
 	}
 
-	@Override
-	protected void execute() {
+	public void execute() {
 		if (protocol.equals("NT")) {
 			angle = angleEntry.getDouble(0.0);
 			distance = distanceEntry.getDouble(0.0);
@@ -106,13 +104,11 @@ public class VisionGuidanceCommand extends CommandBase2412 {
 		System.out.println("Targets found: " + targetsFound);
 	}
 
-	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return doextake;
 	}
 
-	@Override
-	protected void end() {
+	public void end() {
 		if (socket != null) {
 			socket.close();
 			System.out.println("Closing...");

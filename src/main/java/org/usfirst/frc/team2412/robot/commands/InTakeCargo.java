@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class InTakeCargo extends CommandBase2412 {
 	public InTakeCargo() {
-		requires(inTakeCargo);
+		addRequirements(inTakeCargo);
 	}
 
 	public void execute() {
@@ -10,7 +10,7 @@ public class InTakeCargo extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 }

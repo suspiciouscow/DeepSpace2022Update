@@ -12,16 +12,16 @@ public class GoToLevel extends CommandBase2412 {
 	public GoToLevel(int level, boolean hatch) {
 		this.level = level;
 		this.hatch = hatch;
-		requires(liftSubsystem);
+		addRequirements(liftSubsystem);
 	}
 
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		double error = liftSubsystem.getError();
 		System.out.println("Error: " + error);
 		return error < MAX_ERROR;
 	}
 
-	protected void execute() {
+	public void execute() {
 		if (!hatch) {
 			if (RobotMap.DEBUG_MODE) {
 				System.out.println("Going to cargo " + level + ".");

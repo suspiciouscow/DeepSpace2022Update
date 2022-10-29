@@ -8,11 +8,11 @@ import org.usfirst.frc.team2412.robot.RobotMap;
 public class ShiftDefaultGearCommand extends CommandBase2412 {
 	
 	public ShiftDefaultGearCommand() {
-		requires(driveShifters);
+		addRequirements(driveShifters);
 	}
 	
 	@Override
-	protected void execute() {
+	public void execute() {
 		if(RobotMap.CLIMB_MODE) {
 			driveShifters.shiftLowGear();
 		} else {
@@ -21,7 +21,7 @@ public class ShiftDefaultGearCommand extends CommandBase2412 {
 	}
 	
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return true;
 	}
 }

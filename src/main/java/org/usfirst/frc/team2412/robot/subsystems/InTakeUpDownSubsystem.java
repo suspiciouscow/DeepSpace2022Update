@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 
 public class InTakeUpDownSubsystem extends PIDSubsystem {
 
@@ -66,13 +66,11 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 		// return limitSwitchDown.get();
 	}
 
-	@Override
 	public double returnPIDInput() {
 		// return potentiometer.get();
 		return 0;
 	}
 
-	@Override
 	public void usePIDOutput(double speed) {
 		armMotor1.set(-speed);
 	}
