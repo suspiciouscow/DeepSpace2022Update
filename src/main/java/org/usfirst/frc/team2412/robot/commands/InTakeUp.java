@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class InTakeUp extends CommandBase2412 {
 	public InTakeUp() {
-		requires(inTakeUpDown);
+		addRequirements(inTakeUpDown);
 	}
 
 	public void execute() {
@@ -14,7 +14,7 @@ public class InTakeUp extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 		// return !inTakeUpDown.limitSwitchUp();
 	}

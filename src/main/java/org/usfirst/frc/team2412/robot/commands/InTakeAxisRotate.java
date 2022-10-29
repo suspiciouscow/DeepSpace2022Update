@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class InTakeAxisRotate extends CommandBase2412 {
 	public InTakeAxisRotate() {
-		requires(inTakeUpDown);
+		addRequirements(inTakeUpDown);
 	}
 	
 	//The Initialize command initializes the counter in the above SubsystemBase then starts the motor moving.
@@ -23,7 +23,7 @@ public class InTakeAxisRotate extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		// return inTakeUpDown.limitSwitchDown();
 		return false;
 	}

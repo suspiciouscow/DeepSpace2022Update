@@ -14,11 +14,11 @@ public class ClimbLiftJoystick extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 		// return climbLift.limitSwitchClimbForward();
 	}
-	protected void end() {
+	public void end() {
 		climbLift.ClimbLiftStop();
 	}
 }

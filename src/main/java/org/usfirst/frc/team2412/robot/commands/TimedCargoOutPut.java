@@ -4,12 +4,12 @@ public class TimedCargoOutPut extends OutputCargo {
 
 	private long startTime;
 
-	protected void initialize() {
+	public void initialize() {
 		startTime = System.nanoTime();
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		double elapsedTime = (System.nanoTime() - startTime) / 1E9;
 		return elapsedTime > 1;
 	}

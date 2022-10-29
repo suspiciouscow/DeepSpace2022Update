@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class LiftAxisCommand extends CommandBase2412 {
 
 	public LiftAxisCommand() {
-		requires(liftSubsystem);
+		addRequirements(liftSubsystem);
 	}
 	 
 	public void execute() {
@@ -18,7 +18,7 @@ public class LiftAxisCommand extends CommandBase2412 {
 		System.out.println("Lifting with joystick axis...");
 	}
 
-	protected void end() {
+	public void end() {
 		liftSubsystem.liftStop();
 	}
 }

@@ -5,11 +5,11 @@ import org.usfirst.frc.team2412.robot.RobotMap;
 public class ShiftOtherGearCommand extends CommandBase2412 {
 	
 	public ShiftOtherGearCommand() {
-		requires(driveShifters);
+		addRequirements(driveShifters);
 	}
 	
 	@Override
-	protected void execute() {
+	public void execute() {
 		if(RobotMap.CLIMB_MODE) {
 			// driveShifters.shiftHighGear(); // Don't allow shifting in climb mode for nwo.
 		} else {
@@ -18,7 +18,7 @@ public class ShiftOtherGearCommand extends CommandBase2412 {
 	}
 	
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return true;
 	}
 }

@@ -2,7 +2,7 @@ package org.usfirst.frc.team2412.robot.commands;
 
 public class InTakeDown extends CommandBase2412 {
 	public InTakeDown() {
-		requires(inTakeUpDown);
+		addRequirements(inTakeUpDown);
 	}
 	
 	//The Initialize command initializes the counter in the above SubsystemBase then starts the motor moving.
@@ -15,7 +15,7 @@ public class InTakeDown extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		// return inTakeUpDown.limitSwitchDown();
 		return false;
 	}

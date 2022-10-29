@@ -5,7 +5,7 @@ import org.usfirst.frc.team2412.robot.RobotMap;
 public class LiftTopReset extends CommandBase2412 {
 
 	public LiftTopReset() {
-		requires(liftSubsystem);
+		addRequirements(liftSubsystem);
 	}
 
 	public void execute() {

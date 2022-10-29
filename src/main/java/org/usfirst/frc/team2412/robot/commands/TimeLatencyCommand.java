@@ -1,10 +1,10 @@
 package org.usfirst.frc.team2412.robot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-public class TimeLatencyCommand extends CommandGroup {
+public class TimeLatencyCommand extends SequentialCommandGroup {
 	public TimeLatencyCommand() {
 		// addSequential(new LEDOnCommand());
-		addSequential(new VisionGuidanceCommand());
+		new SequentialCommandGroup(new VisionGuidanceCommand());
 	}
 }

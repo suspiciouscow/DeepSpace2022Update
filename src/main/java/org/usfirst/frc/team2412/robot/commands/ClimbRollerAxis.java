@@ -3,11 +3,12 @@ package org.usfirst.frc.team2412.robot.commands;
 import org.usfirst.frc.team2412.robot.OI;
 import org.usfirst.frc.team2412.robot.Robot;
 import org.usfirst.frc.team2412.robot.RobotMap;
+import org.usfirst.frc.team2412.robot.subsystems.ClimbRollerSubsystem;
 
 public class ClimbRollerAxis extends CommandBase2412 {
 
 	public ClimbRollerAxis() {
-		requires(climbRoller);
+		addRequirements(climbRoller);
 	}
 
 	public void execute() {
@@ -25,11 +26,11 @@ public class ClimbRollerAxis extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 	}
 
-	protected void end() {
+	public void end() {
 		climbRoller.ClimbRollerStop();
 	}
 }

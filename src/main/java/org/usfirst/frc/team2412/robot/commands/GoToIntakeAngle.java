@@ -9,12 +9,11 @@ public class GoToIntakeAngle extends CommandBase2412 {
 	private double angleSetpoint = 0;
 	
 	public GoToIntakeAngle(double angle) {
-		requires(inTakeUpDown);
+		addRequirements(inTakeUpDown);
 		angleSetpoint = angle;
 	}
-	
-	@Override
-	protected void initialize() {
+
+	public void initialize() {
 		inTakeUpDown.setInputRange(0, InTakeUpDownSubsystem.MAX_ERROR);
 		inTakeUpDown.setOutputRange(InTakeUpDownSubsystem.MIN_SPEED, InTakeUpDownSubsystem.MAX_SPEED);
 		inTakeUpDown.setSetpoint(angleSetpoint);
@@ -27,10 +26,10 @@ public class GoToIntakeAngle extends CommandBase2412 {
 		if(RobotMap.DEBUG_MODE) {
 			SmartDashboard.putNumber("Angle setpoint", angleSetpoint);
 			SmartDashboard.putNumber("Current angle", inTakeUpDown.returnPIDInput());
-			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getPIDController().get());
+			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getController());
 			System.out.println("Intake rotating to " + angleSetpoint + " degree(s)");
 			System.out.println("Current angle: " + inTakeUpDown.returnPIDInput() + " degree(s)");
-			System.out.println("Calculated motor speed: " + inTakeUpDown.getPIDController().get());
+			System.out.println("Calculated motor speed: " + inTakeUpDown.getController());
 		}
 	}
 
@@ -39,7 +38,7 @@ public class GoToIntakeAngle extends CommandBase2412 {
 	}
 
 	@Override
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		return false;
 		// return inTakeUpDown.onTarget();
 	}

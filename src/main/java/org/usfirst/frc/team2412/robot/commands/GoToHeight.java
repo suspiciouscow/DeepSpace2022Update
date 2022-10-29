@@ -8,16 +8,16 @@ public class GoToHeight extends CommandBase2412 {
 
 	public GoToHeight(double height) {
 		this.height = height;
-		requires(liftSubsystem);
+		addRequirements(liftSubsystem);
 	}
 
-	protected boolean isFinished() {
+	public boolean isFinished() {
 		double error = liftSubsystem.getError();
 		System.out.println("Error: " + error);
 		return error < MAX_ERROR;
 	}
 
-	protected void execute() {
+	public void execute() {
 		liftSubsystem.goToInch(height);
 	}
 }
