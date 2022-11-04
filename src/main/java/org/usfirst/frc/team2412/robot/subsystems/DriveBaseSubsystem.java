@@ -1,16 +1,16 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import org.usfirst.frc.team2412.robot.RobotMap;
 import org.usfirst.frc.team2412.robot.commands.JoystickDriveCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.subsystem;
 
 public class DriveBaseSubsystem extends SubsystemBase {
-	private DifferentialDrive robotDrive = RobotMap.drive;
+	// private DifferentialDrive robotDrive = RobotMap.drive;
 
-	public DriveBaseSubsystem() {
+	@Override
+	protected void initDefaultCommand() {
+		// Drive with the joystick by default.
 		setDefaultCommand(new JoystickDriveCommand());
 	}
 
@@ -19,12 +19,7 @@ public class DriveBaseSubsystem extends SubsystemBase {
 	}
 
 	public void drive(Joystick stick) {
-<<<<<<< Updated upstream
-		// robotDrive.arcadeDrive(stick.getY(), Math.pow(-stick.getTwist() * 0.8, 3), true);
-		robotDrive.arcadeDrive((RobotMap.SAFE_MODE)?Math.min(Math.max(stick.getY(),-0.5), 0.5):0.7*stick.getY(), -1* ((RobotMap.SAFE_MODE)?Math.min(Math.max(((stick.getRawButton(6))?stick.getX():stick.getTwist()),-0.50), 0.5):stick.getTwist()*0.5), true);
-=======
-		robotDrive.arcadeDrive(stick.getY(), Math.pow(-stick.getTwist() * 0.8, 3), true);
-		robotDrive.arcadeDrive((RobotMap.SAFE_MODE) ? Math.min(Math.max(stick.getY(),-0.5), 0.5) : 0.7*stick.getY(), -1 * ((RobotMap.SAFE_MODE) ? Math.min(Math.max(((stick.getRawButton(6)) ? stick.getX() : stick.getTwist()), -0.50), 0.5) : stick.getTwist() * 0.5), true);
->>>>>>> Stashed changes
+		//robotDrive.arcadeDrive(stick.getY(), Math.pow(-stick.getTwist() * 0.8, 3), true);
+		robotDrive.arcadeDrive((RobotMap.SAFE_MODE) ? Math.min(Math.max(stick.getY(),-0.5), 0.5) : 0.7 * stick.getY(), -1 * ((RobotMap.SAFE_MODE) ? Math.min(Math.max(((stick.getRawButton(6)) ? stick.getX() : stick.getTwist()), -0.50), 0.5) : stick.getTwist() * 0.5), true);
 	}
 }
