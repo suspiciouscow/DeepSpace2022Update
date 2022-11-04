@@ -3,6 +3,7 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import com.revrobotics.CANSparkMax.ControlType;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
+import edu.wpi.first.math.controller.PIDController;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 

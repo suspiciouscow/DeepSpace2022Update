@@ -32,7 +32,7 @@ public class RobotMap {
 	public static boolean CLIMB_MODE = false; // If the codriver has pressed the rail deploy button or not
 	public static boolean SAFE_MODE = false;
 	
-	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel(11);
+	public static PowerDistribution powerPanel = new PowerDistribution(11);
 
 	// Motor Can IDS
 
