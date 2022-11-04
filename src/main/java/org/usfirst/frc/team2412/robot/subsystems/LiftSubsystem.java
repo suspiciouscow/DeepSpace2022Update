@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2412.robot.subsystems;
 
-import com.revrobotics.ControlType;
+import com.revrobotics.CANSparkMax.ControlType;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 

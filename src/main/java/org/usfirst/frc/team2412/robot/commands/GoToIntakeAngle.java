@@ -29,7 +29,7 @@ public class GoToIntakeAngle extends CommandBase2412 {
 			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getController());
 			System.out.println("Intake rotating to " + angleSetpoint + " degree(s)");
 			System.out.println("Current angle: " + inTakeUpDown.returnPIDInput() + " degree(s)");
-			System.out.println("Calculated motor speed: " + inTakeUpDown.getController());
+			System.out.println("Calculated motor speed: " + inTakeUpDown.getController().getMeasurement());
 		}
 	}
 
