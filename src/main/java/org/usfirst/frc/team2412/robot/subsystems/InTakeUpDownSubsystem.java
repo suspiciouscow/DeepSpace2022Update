@@ -74,4 +74,9 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	public void usePIDOutput(double speed) {
 		armMotor1.set(-speed);
 	}
+
+	public double getPIDresult() {
+		return getController().calculate();
+		// P * error + I * totalError + D * (error - prevError) + feedForward
+	}
 }
