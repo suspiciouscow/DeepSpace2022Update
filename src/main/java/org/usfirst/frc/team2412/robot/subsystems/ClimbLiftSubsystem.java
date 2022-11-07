@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbLiftSubsystem extends SubsystemBase {
 
-	// private MaxBotixSonar ultraSoundRadar = RobotMap.ultraSoundRadar;
 	// private DigitalInput limitSwitchClimbForward = RobotMap.limitSwitchClimbForward;
 	// private DigitalInput limitSwitchClimbReverse = RobotMap.limitSwitchClimbReverse;
 	// private VictorSP victorSP1 = RobotMap.victorSP1;
