@@ -32,7 +32,7 @@ public class RobotMap {
 	public static boolean CLIMB_MODE = false; // If the codriver has pressed the rail deploy button or not
 	public static boolean SAFE_MODE = false;
 	
-	public static PowerDistributionPanel powerPanel = new PowerDistributionPanel(11);
+	public static PowerDistribution powerPanel = new PowerDistribution(11);
 
 	// Motor Can IDS
 
@@ -106,8 +106,9 @@ public class RobotMap {
 	public static DigitalInput limitSwitchUp = new DigitalInput(2);
 	public static DigitalInput limitSwitchDown = new DigitalInput(1);
 
-	public static int ultraSoundRadarID1 = 1;
-	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
+	// COmmented out because not used anymore
+	//public static int ultraSoundRadarID1 = 1;
+	//public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
 	public static int[] liftMotorIndexes = { 7, 8};
 
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
