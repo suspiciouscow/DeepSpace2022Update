@@ -106,8 +106,9 @@ public class RobotMap {
 	public static DigitalInput limitSwitchUp = new DigitalInput(2);
 	public static DigitalInput limitSwitchDown = new DigitalInput(1);
 
-	public static int ultraSoundRadarID1 = 1;
-	public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
+	// COmmented out because not used anymore
+	//public static int ultraSoundRadarID1 = 1;
+	//public static MaxBotixSonar ultraSoundRadar = new MaxBotixSonar(ultraSoundRadarID1);
 	public static int[] liftMotorIndexes = { 7, 8};
 
 	public static CANSparkMax[] liftMotors = { new CANSparkMax(liftMotorIndexes[0], MotorType.kBrushless),
