@@ -12,6 +12,8 @@ import org.usfirst.frc.team2412.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import org.usfirst.frc.team2412.robot.commands.CommandBase2412;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -190,6 +192,8 @@ public class OI {
 		visionGuidance.whileHeld(new VisionGuidanceCommand2());
 		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
 		visionGuidanceSensorTestButton.whileHeld(new VisionGuidanceCommandSensorTest());
+
+		CommandBase2412.driveBase.setDefaultCommand(new JoystickDriveCommand());
 
 		// coDriver commands
 		
