@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -32,7 +33,7 @@ public class RobotMap {
 	public static boolean CLIMB_MODE = false; // If the codriver has pressed the rail deploy button or not
 	public static boolean SAFE_MODE = false;
 	
-	public static PowerDistribution powerPanel = new PowerDistribution(11);
+	public static PowerDistribution powerPanel = new PowerDistribution(11, PowerDistribution.ModuleType.kCTRE);
 
 	// Motor Can IDS
 
@@ -75,7 +76,7 @@ public class RobotMap {
 
 	public static DifferentialDrive drive = new DifferentialDrive(leftSide, rightSide);
 	//Drive Shifters
-	public static Solenoid shifter = new Solenoid(shifterID);
+	public static Solenoid shifter = new Solenoid(PneumaticsModuleType.CTREPCM, shifterID);
 
 	// Cargo
 	public static WPI_VictorSPX cargoMotor1 = new WPI_VictorSPX(CargoMotorID1);
@@ -83,7 +84,7 @@ public class RobotMap {
 	public static WPI_VictorSPX armMotor1 = new WPI_VictorSPX(armMotorID1);
 	// climb
 
-	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(climbUp, climbDown);
+	public static DoubleSolenoid climbPneumatics = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, climbUp, climbDown);
 
 	
 	  public static int climbRollerID1 = 1; public static WPI_TalonSRX climbRoller1
@@ -127,5 +128,5 @@ public class RobotMap {
 	public static DigitalInput limitSwitchClimbReverse = new DigitalInput(7);
 
 	public static int pistontube = 6;
-	public static Solenoid pistonface = new Solenoid(pistontube);
+	public static Solenoid pistonface = new Solenoid(PneumaticsModuleType.CTREPCM, pistontube);
 }
