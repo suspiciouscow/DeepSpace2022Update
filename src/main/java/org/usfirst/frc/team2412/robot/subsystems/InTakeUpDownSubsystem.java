@@ -25,7 +25,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	
 	// private DigitalInput limitSwitchUp = RobotMap.limitSwitchUp;
 	// private DigitalInput limitSwitchDown = RobotMap.limitSwitchDown;
-	// private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
+	private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
 	
 	public InTakeUpDownSubsystem() {
 		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
@@ -37,7 +37,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeUp() {
-		//armMotor1.set(0.5);
+		armMotor1.set(0.5);
 	}
 
 	public void InTakeDown() {
@@ -45,7 +45,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeStop() {
-		//armMotor1.set(0.0);
+		armMotor1.set(0.0);
 	}
 
 	public void InTakeHold() {
@@ -75,8 +75,9 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 		armMotor1.set(-speed);
 	}
 
-	public double getPIDresult() {
-		return getController().calculate();
+	/*public double getPIDresult() {
+		//return getController().calculate();
 		// P * error + I * totalError + D * (error - prevError) + feedForward
 	}
+	*/
 }
