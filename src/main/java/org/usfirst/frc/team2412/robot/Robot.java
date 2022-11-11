@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
 
 	// Called periodically in sandstorm or teleop.
 	public void controlledPeriodic() {
-		Scheduler.getInstance().run();
+		CommandScheduler.getInstance().run();
 
 		RobotMap.SAFE_MODE = !m_oi.stick.getRawButton(4);
 
@@ -154,7 +154,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledInit() {
 		if(holdCargo != null) {
-			holdCargo.end();
+			holdCargo.cancel();
 			holdCargo = null;
 		}
 		CommandBase2412.inTakeUpDown.disable();
