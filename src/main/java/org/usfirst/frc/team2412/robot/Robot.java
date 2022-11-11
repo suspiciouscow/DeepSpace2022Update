@@ -115,7 +115,7 @@ public class Robot extends TimedRobot {
 		}*/
 		
 		
-		PowerDistributionPanel powerPanel = RobotMap.powerPanel;
+		PowerDistribution powerPanel = RobotMap.powerPanel;
 		powerPanel.clearStickyFaults();   
 		
 		double[] ids = new double[15];
@@ -141,7 +141,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		holdCargo = new HoldCargo();
-		holdCargo.start();
+		// holdCargo.start();
+		holdCargo.schedule();
 		RobotMap.CLIMB_MODE = false;
 	}
 
@@ -153,7 +154,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledInit() {
 		if(holdCargo != null) {
-			holdCargo.close();
+			holdCargo.end();
 			holdCargo = null;
 		}
 		CommandBase2412.inTakeUpDown.disable();
