@@ -39,7 +39,7 @@ public class VisionGuidanceCommand0 extends CommandBase2412 {
 	private NetworkTableEntry targetsFoundEntry;
 
 	public VisionGuidanceCommand0() {
-		addRequirements(driveBase);
+		//addRequirements(driveBase);
 	}
 
 	@Override
