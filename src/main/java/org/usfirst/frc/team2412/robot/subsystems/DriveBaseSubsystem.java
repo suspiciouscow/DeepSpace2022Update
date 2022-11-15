@@ -9,11 +9,12 @@ public class DriveBaseSubsystem extends SubsystemBase {
 	// private DifferentialDrive robotDrive = RobotMap.drive;
 
 	@Override
-	protected void initDefaultCommand() {
+	/*protected void initDefaultCommand() {
 		// Drive with the joystick by default.
 		setDefaultCommand(new JoystickDriveCommand());
 	}
-
+	//we don't need this because it's meant to be set in OI
+	*/
 	public void drive(double y, double turn) {
 		// robotDrive.arcadeDrive(y, turn, true);
 	}
