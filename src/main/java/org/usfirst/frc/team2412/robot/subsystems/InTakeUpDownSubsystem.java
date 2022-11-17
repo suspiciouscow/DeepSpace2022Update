@@ -2,6 +2,7 @@ package org.usfirst.frc.team2412.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
+import edu.wpi.first.math.controller.PIDController;
 
 public class InTakeUpDownSubsystem extends PIDSubsystem {
 
@@ -10,7 +11,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 													// regardless of the actual angles intake will be at.
 	// private double potentiometerAngleOffset = 0; // The angle offset to add to the potentiometer's angle value.
 
-	public static final double MIN_SPEED = -0.7; // Min motor speed - used to restrict how fast the motor turns.
+	public static final double MIN_SPEED = -0.7; // Min motor speed - used to restrict how fast the moto.r turns.
 	public static final double MAX_SPEED = 0.7; // Max motor speed - used for default KP calculations.
 	public static final double MAX_ERROR = 350; // Max angle error in degrees - used for default KP calculations.
 
@@ -19,6 +20,11 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	private static final double DEFAULT_KI = 0.0;
 	private static final double DEFAULT_KD = 0.0;
 	
+	// Constructor need
+
+	private static final PIDController controller;
+	private static final double DEFAULT_KinitialPosition = 0;
+
 	// Potentiometer for measuring angle
 	// private AnalogPotentiometer potentiometer;
 	// private int potentiometerID = 1;
@@ -28,11 +34,12 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	// private WPI_VictorSPX armMotor1 = RobotMap.armMotor1;
 	
 	public InTakeUpDownSubsystem() {
-		this(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD);
+		this(new PIDController(DEFAULT_KP, DEFAULT_KI, DEFAULT_KD), DEFAULT_KinitialPosition);
+		
 	}
 
-	public InTakeUpDownSubsystem(double KP, double KI, double KD) {
-		super(KP, KI, KD);
+	public InTakeUpDownSubsystem(PIDController controller, double initialPosition) {
+		super(controller, initialPosition);
 		// potentiometer = new AnalogPotentiometer(potentiometerID, potentiometerAngleRange, potentiometerAngleOffset);
 	}
 
@@ -41,7 +48,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeDown() {
-		armMotor1.set(0.5);
+		// armMotor1.set(0.5);
 	}
 
 	public void InTakeStop() {
@@ -49,7 +56,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeHold() {
-		armMotor1.set(0.1);
+		// armMotor1.set(0.1);
 	}
 
 	public void InTakeAxisRotate(Joystick stick, int axis) {
@@ -79,4 +86,15 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 		return getController().calculate();
 		// P * error + I * totalError + D * (error - prevError) + feedForward
 	}
+
+	@Override
+	protected double getMeasurement() {
+		return 0;
+	}
+
+	@Override 
+	protected void useOutput(double d1, double d2) {
+		return;
+	}
+
 }

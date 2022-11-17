@@ -31,7 +31,7 @@ public class LiftSubsystem extends SubsystemBase {
 	double motorRotationsToInches = outputGearCircumference * pullyRatio / gearboxRatio;
 
 	CANSparkMax liftMotorLeader = RobotMap.liftMotors[0]; // Motors from RobotMap
-	CANPIDController PIDController = liftMotorLeader.getPIDController();
+	SparkMaxPIDController PIDController = liftMotorLeader.getPIDController();
 	CANEncoder motorEncoder = liftMotorLeader.getEncoder();
 
 	double P = 0.01; //.11

@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 public class CommandBase2412 extends CommandBase {
 	public static DriveBaseSubsystem driveBase = new DriveBaseSubsystem();
 	public static DriveBaseShifterSubsystem driveShifters = new DriveBaseShifterSubsystem();
-	public static InTakeUpDownSubsystem inTakeUpDown = new InTakeUpDownSubsystem(0.02, 0, 0);
+	public static InTakeUpDownSubsystem inTakeUpDown = new InTakeUpDownSubsystem();
 	public static InTakeCargoSubsystem inTakeCargo = new InTakeCargoSubsystem();
 	public static ClimbPneumaticsSubsystem climbPneumatics = new ClimbPneumaticsSubsystem();
 	public static ClimbRollerSubsystem climbRoller = new ClimbRollerSubsystem();
