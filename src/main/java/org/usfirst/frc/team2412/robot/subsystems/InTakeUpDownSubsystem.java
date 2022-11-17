@@ -60,7 +60,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void InTakeAxisRotate(Joystick stick, int axis) {
-		armMotor1.set(-stick.getRawAxis(axis));
+		// armMotor1.set(-stick.getRawAxis(axis));
 	}
 
 	public boolean limitSwitchUp() {
@@ -79,11 +79,11 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	}
 
 	public void usePIDOutput(double speed) {
-		armMotor1.set(-speed);
+		// armMotor1.set(-speed);
 	}
 
 	public double getPIDresult() {
-		return getController().calculate();
+		return getController().calculate(); // TO FIX
 		// P * error + I * totalError + D * (error - prevError) + feedForward
 	}
 
