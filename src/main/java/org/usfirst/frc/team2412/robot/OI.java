@@ -189,9 +189,8 @@ public class OI {
 
 	public OI() {
 		// Driver joystick (stick) commands
-		visionGuidance.whileHeld(new VisionGuidanceCommand2());
 		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
-		visionGuidanceSensorTestButton.whileHeld(new VisionGuidanceCommandSensorTest());
+	
 
 		CommandBase2412.driveBase.setDefaultCommand(new JoystickDriveCommand());
 

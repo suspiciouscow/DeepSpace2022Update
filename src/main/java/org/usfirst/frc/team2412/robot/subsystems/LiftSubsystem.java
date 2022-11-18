@@ -3,7 +3,7 @@ package org.usfirst.frc.team2412.robot.subsystems;
 import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMaxPIDController;
-import com.revrobotics.SparkMaxRelativeEncoder;
+import com.revrobotics.RelativeEncoder;
 
 import org.usfirst.frc.team2412.robot.RobotMap;
 import edu.wpi.first.math.controller.PIDController;
@@ -33,7 +33,7 @@ public class LiftSubsystem extends SubsystemBase {
 
 	CANSparkMax liftMotorLeader = RobotMap.liftMotors[0]; // Motors from RobotMap
 	SparkMaxPIDController PIDController = liftMotorLeader.getPIDController();
-	SparkMaxRelativeEncoder motorEncoder = liftMotorLeader.getEncoder();
+	RelativeEncoder motorEncoder = liftMotorLeader.getEncoder();
 
 	double P = 0.01; //.11
 	double P_safe = 0.03;
