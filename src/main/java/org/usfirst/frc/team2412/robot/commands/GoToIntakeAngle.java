@@ -14,7 +14,7 @@ public class GoToIntakeAngle extends CommandBase2412 {
 	}
 
 	public void initialize() {
-		inTakeUpDown.setInputRange(0, InTakeUpDown.MAX_ERROR);
+		inTakeUpDown.setInputRange(0, InTakeUpDown.MAX_ERROR); // possibly integrator range?
 		inTakeUpDown.setOutputRange(InTakeUpDown.MIN_SPEED, InTakeUpDown.MAX_SPEED);
 		inTakeUpDown.controller.setSetpoint(angleSetpoint);
 		inTakeUpDown.controller.setTolerance(1); // Tolerate 1 degree of error. May need to calibrate.
@@ -27,10 +27,10 @@ public class GoToIntakeAngle extends CommandBase2412 {
 		if(RobotMap.DEBUG_MODE) {
 			SmartDashboard.putNumber("Angle setpoint", angleSetpoint);
 			SmartDashboard.putNumber("Current angle", inTakeUpDown.returnPIDInput());
-			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getControllexr());
+			SmartDashboard.putNumber("Calculated motor speed", inTakeUpDown.getPIDController());
 			System.out.println("Intake rotating to " + angleSetpoint + " degree(s)");
 			System.out.println("Current angle: " + inTakeUpDown.returnPIDInput() + " degree(s)");
-			System.out.println("Calculated motor speed: " + inTakeUpDown.getController().getMeasurement());
+			System.out.println("Calculated motor speed: " + inTakeUpDown.getMeasurement());
 		}
 	}
 

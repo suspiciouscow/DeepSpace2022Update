@@ -86,7 +86,7 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 
 	public double getPIDresult() {
 		//return getController().calculate(); // TO FIGURE OUT
-		return 0;
+		return controller.calculate(getMeasurement());
 		// P * error + I * totalError + D * (error - prevError) + feedForward
 	}
 
@@ -98,6 +98,10 @@ public class InTakeUpDownSubsystem extends PIDSubsystem {
 	@Override 
 	protected void useOutput(double d1, double d2) {
 		return;
+	}
+
+	public PIDController getPIDController() {
+		return controller;
 	}
 
 }
