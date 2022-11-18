@@ -192,7 +192,7 @@ public class OI {
 		shiftHighButton.whileHeld(new ShiftOtherGearCommand());
 	
 
-				CommandBase2412.driveBase.setDefaultCommand(new JoystickDriveCommand());
+		CommandBase2412.driveBase.setDefaultCommand(new JoystickDriveCommand());
 
 		// coDriver commands
 		
